@@ -1,10 +1,11 @@
 {
   "name": "skinplan-clinic-v17",
   "private": true,
-  "version": "17.1.0",
+  "version": "17.5.0",
   "type": "module",
   "scripts": {
-    "cache-images": "node scripts/fetch-product-images.mjs"
+    "cache-images": "node scripts/fetch-product-images.mjs",
+    "test-engine": "node tests/decision-engine-audit.mjs"
   },
   "dependencies": {
     "sharp": "^0.34.3"
