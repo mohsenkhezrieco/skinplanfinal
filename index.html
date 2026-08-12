@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SkinPlan Clinic v17.7</title>
+<title>SkinPlan Clinic v17.9</title>
 <meta name="theme-color" content="#272764">
 <link rel="manifest" href="manifest.webmanifest">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -92,11 +92,39 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 <style>
 .summaryWrap{margin-top:14px}.summaryCards{display:grid;gap:12px}.summaryCard{border:1px solid #dfe4ef;border-radius:16px;background:#fbfcff;overflow:hidden}.summaryCardHead{background:#f3f0ff;padding:12px 14px;border-bottom:1px solid #e2e6f1}.summaryPhaseTitle{font-size:16px;font-weight:900;color:#2e2b72}.summaryTrigger{margin-top:5px;font-size:12px;color:#5d6681}.summaryCardBody{padding:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.summaryBlock{background:#fff;border:1px solid #e2e6f1;border-radius:12px;padding:11px}.summaryWide{grid-column:1 / -1}.summaryLabel{font-size:11px;font-weight:900;color:#2b3676;text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}.summaryValue,.summaryBlock ul{font-size:12px;line-height:1.55;color:#36425f}.summaryBlock ul{margin:0;padding-left:18px}.summaryFreq{font-size:13px;font-weight:800;color:#17264b;line-height:1.5;margin-bottom:8px}.summaryGate{border-left:4px solid #7e6bff;background:#f7f4ff}.gateBox{background:#f7f4ff;border:1px solid #d8cffc;border-radius:12px;padding:10px 12px;margin:8px 0 10px;font-size:11px;line-height:1.6;color:#3b326f}.summaryHint b{color:#2f2b74}@media(max-width:800px){.summaryCardBody{grid-template-columns:1fr}.summaryWide{grid-column:auto}}
 </style>
+
+<style id="v179-style">
+/* v17.9: compact roadmap at top; the actual 7-day timetable lives with each full phase */
+.roadmapWrap{margin:14px 0 18px}
+.roadmapWrap h3{margin:0 0 5px;color:#29296e;font-size:18px}
+.roadmapHint{font-size:10px;color:#68728a;line-height:1.45;margin:0 0 9px}
+.roadmapTable{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #dfe4ef;border-radius:13px;overflow:hidden;font-size:9.5px;table-layout:fixed}
+.roadmapTable th{background:#29296e;color:#fff;text-align:left;padding:9px 10px;font-size:9px;letter-spacing:.01em}
+.roadmapTable td{padding:10px;vertical-align:top;border-top:1px solid #e3e7f0;border-right:1px solid #e8ebf2;line-height:1.45;background:#fff}
+.roadmapTable tr:nth-child(even) td{background:#fafbfe}
+.roadmapTable th:last-child,.roadmapTable td:last-child{border-right:0}
+.roadmapTable .phaseCol{width:18%}.roadmapTable .focusCol{width:22%}.roadmapTable .treatmentCol{width:31%}.roadmapTable .reviewCol{width:29%}
+.roadmapPhase{font-weight:900;color:#29296e;font-size:11px}
+.roadmapWhen{display:inline-block;margin-top:5px;padding:4px 7px;border-radius:999px;background:#f0edff;color:#514293;font-size:8px;font-weight:900}
+.roadmapTrigger{margin-top:5px;color:#68728a;font-size:8.5px}
+.roadmapTreatment{font-weight:900;color:#17264b}
+.roadmapSub{margin-top:4px;color:#5f6980;font-size:8.7px;line-height:1.45}
+.roadmapReview{color:#37425f;font-size:9px;line-height:1.5}
+.phaseWeekSchedule{margin:12px 0 2px;border:1px solid #dbe2ee;border-radius:12px;background:#fbfcff;padding:10px}
+.phaseWeekTitle{text-align:center;font-size:10px;font-weight:900;color:#2c2d72;letter-spacing:.03em;margin-bottom:7px}
+.phaseWeekSchedule .weekMini{margin-top:0;gap:4px}
+.phaseWeekSchedule .weekMini span{font-size:8px;padding:6px 3px;border-radius:7px}
+.phaseWeekNote{font-size:8.7px;color:#68728a;line-height:1.45;margin-top:7px;text-align:center}
+.phaseWeekCaution{font-size:8.7px;color:#6e4f17;background:#fff8e7;border:1px solid #f0d999;border-radius:8px;padding:7px 9px;margin-top:7px;line-height:1.45}
+@media(max-width:800px){.roadmapWrap{overflow-x:auto}.roadmapTable{min-width:760px}.roadmapTable{font-size:9px}}
+@media print{.roadmapWrap{break-inside:avoid}.phaseWeekSchedule{break-inside:avoid}.roadmapTable{font-size:8px}}
+</style>
+
 </head>
 <body>
 <div class="shell">
   <div class="hero no-print">
-    <div><h1>SkinPlan Clinic v17.6</h1><p>X3 report → preferred-brand fallback engine → phased weekly plan</p></div>
+    <div><h1>SkinPlan Clinic v17.9</h1><p>X3 report → preferred-brand fallback engine → phased weekly plan</p></div>
     <div class="badge">X3 API · local product-image library</div>
   </div>
 
@@ -821,9 +849,93 @@ document.getElementById('pdfBtn').onclick=async()=>{
 };
 document.getElementById('pngBtn').onclick=async()=>{
   const btn=document.getElementById('pngBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
-  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v17-8.png';a.href=c.toDataURL('image/png');a.click()}
+  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v17-9.png';a.href=c.toDataURL('image/png');a.click()}
   catch(e){alert('PNG export failed. Please try the A4 PDF export.')}finally{btn.disabled=false;btn.textContent=old}
 };
+
+
+// v17.9 layout overrides -------------------------------------------------
+function roadmapShortTitle(phase,index){
+  let t=(phase.title||'').replace(/^Phase\s+\d+\s*·\s*/i,'');
+  t=t.replace(/^Minimum\s+2\s+weeks\s*[—-]\s*/i,'');
+  t=t.replace(/^First\s+6[–-]8\s+weeks\s*[—-]\s*/i,'');
+  t=t.replace(/^Next\s+6[–-]8\s+weeks\s+after\s+the\s+previous\s+phase\s+is\s+stable\s*[—-]\s*/i,'');
+  t=t.replace(/^After\s+a?\s*6[–-]8\s+week\s+reassessment\s*[—-]\s*/i,'');
+  return t||`Phase ${index+1}`;
+}
+function roadmapTiming(plan,index){
+  if(index===0 && plan.barrierFirst)return 'Minimum 2 weeks';
+  if(index===0)return 'First 6–8 weeks';
+  return 'After 6–8 week review';
+}
+function roadmapTreatmentText(phase){
+  if(!phase.active)return {main:'Recovery / foundation routine',sub:'No treatment active in this phase.'};
+  const p=phase.active,pr=phase.protocol||{};
+  let dose='';
+  if(pr.timing==='am')dose='Daily morning treatment';
+  else if(pr.nights)dose=`Starter frequency: ${pr.nights} night${pr.nights===1?'':'s'}/week`;
+  else dose=phase.frequency||'';
+  return {main:`${p.brand} — ${p.name}`,sub:dose};
+}
+function roadmapReviewText(plan,index){
+  const last=index===plan.phases.length-1;
+  if(index===0 && plan.barrierFirst)return 'Move on only after the skin has been comfortable for at least 7 days without persistent burning, marked redness, swelling or peeling.';
+  if(last)return 'Re-scan / review after 6–8 weeks. Continue, reduce or pause treatments according to what still needs treatment; do not stop earlier treatment automatically.';
+  return 'Re-scan / review after 6–8 weeks before moving on. Decide at that review whether earlier treatment should continue, reduce or pause.';
+}
+weeklyProgrammeTable=function(plan){
+  const rows=plan.phases.map((ph,idx)=>{
+    const tr=roadmapTreatmentText(ph),trigger=phaseTriggerText(ph);
+    return `<tr>
+      <td><div class="roadmapPhase">Phase ${idx+1}</div><div>${roadmapShortTitle(ph,idx)}</div><div class="roadmapWhen">${roadmapTiming(plan,idx)}</div></td>
+      <td><b>${trigger|| (idx===0&&plan.barrierFirst?'Barrier / sensitivity recovery':'Maintenance')}</b>${trigger?`<div class="roadmapTrigger">Triggered by: ${trigger}</div>`:''}</td>
+      <td><div class="roadmapTreatment">${tr.main}</div><div class="roadmapSub">${tr.sub}</div></td>
+      <td><div class="roadmapReview">${roadmapReviewText(plan,idx)}</div></td>
+    </tr>`;
+  }).join('');
+  return `<div class="roadmapWrap"><h3>Treatment roadmap</h3><div class="roadmapHint">A quick overview only. Exact morning/evening steps, product images and the 7-day example are shown in the full phase sections below.</div><table class="roadmapTable"><thead><tr><th class="phaseCol">Phase / timing</th><th class="focusCol">Main focus</th><th class="treatmentCol">Main treatment</th><th class="reviewCol">Review before moving on</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+};
+
+function phaseWeekScheduleHTML(plan,phaseIndex){
+  const x=phaseWeekInfo(plan,phaseIndex);
+  const caution=phaseIndex>0
+    ? '<div class="phaseWeekCaution"><b>Reassessment rule:</b> this 7-day example applies only after the review confirms entry into this phase. Earlier treatments should be continued, reduced or paused according to the review — not automatically.</div>'
+    : '';
+  return `<div class="phaseWeekSchedule"><div class="phaseWeekTitle">7-DAY EXAMPLE — THIS PHASE</div><div class="weekMini">${x.week.map(d=>`<span class="${d.type}"><b>${d.day}</b><br>${d.label}</span>`).join('')}</div><div class="phaseWeekNote">${x.spacing}</div>${caution}</div>`;
+}
+
+phaseDetailedHTML=function(plan,phaseIndex){
+  const phase=plan.phases[phaseIndex];
+  const introduced=plan.phases.slice(0,phaseIndex+1).map((ph,idx)=>({phase:ph,index:idx,active:ph.active})).filter(x=>x.active);
+  const weekInfo=phaseWeekInfo(plan,phaseIndex);
+  const countMap=new Map((weekInfo.counts||[]).map(x=>[x.item.active.id,x.count]));
+  const morningActives=introduced.filter(x=>isMorningDailyActive(x.active));
+  const eveningActives=introduced.filter(x=>!isMorningDailyActive(x.active) && (countMap.get(x.active.id)||0)>0);
+  const morning=[plan.base.cleanser];
+  if(plan.barrierFirst && plan.base.barrierSerum)morning.push(plan.base.barrierSerum);
+  morningActives.forEach(x=>morning.push(x.active));
+  morning.push(plan.base.moisturiser,plan.base.spf);
+  const recovery=[plan.base.cleanser];
+  if(plan.barrierFirst && plan.base.barrierSerum)recovery.push(plan.base.barrierSerum);
+  recovery.push(plan.base.moisturiser);
+  let out=`<div class="phaseDetailed"><h3>${phase.title}</h3>${phaseTriggerText(phase)?`<div class="phaseIntro"><b>Triggered by:</b> ${phaseTriggerText(phase)}</div>`:''}${phaseCheckpointHTML(plan,phaseIndex)}<div class="phaseIntro"><b>Phase instruction:</b> ${phase.frequency}</div>${phase.instructions.length?`<ul class="phaseIntro">${phase.instructions.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<div class="phaseRoutineBand morning">☀ MORNING — EVERY DAY DURING THIS PHASE</div>${routineCards(morning)}`;
+  if(eveningActives.length===0){
+    out+=`<div class="phaseRoutineBand recovery">☾ EVENING — EVERY NIGHT DURING THIS PHASE</div><div class="phaseRoutineNote">Barrier/recovery routine only.</div>${routineCards(recovery)}`;
+  }else{
+    eveningActives.forEach(item=>{
+      const current=item.index===phaseIndex;
+      const freq=current ? item.phase.frequency : `Continue this treatment only at the tolerated frequency established in ${compactPhaseName(item.phase.title)}.`;
+      out+=`<div class="phaseRoutineBand treatment">☾ EVENING — ${routineStepTitle(item.active,1).toUpperCase()} NIGHTS</div><div class="phaseRoutineNote">${freq}</div>${routineCards([plan.base.cleanser,item.active,plan.base.moisturiser])}`;
+    });
+    out+=`<div class="phaseRoutineBand recovery">☾ EVENING — RECOVERY NIGHTS</div><div class="phaseRoutineNote">Use this routine on evenings not assigned to one of the treatment routines above.</div>${routineCards(recovery)}<div class="phaseRule"><b>Important:</b> treatment-night routines are separate. Do not use two listed treatment actives on the same evening unless the plan explicitly says to do so.</div>`;
+  }
+  // The weekly calendar intentionally comes AFTER the phase product images.
+  out+=phaseWeekScheduleHTML(plan,phaseIndex);
+  out+='</div>';
+  return out;
+};
+
+// ----------------------------------------------------------------------
 
 </script>
 </body></html>
