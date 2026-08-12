@@ -105,3 +105,15 @@ for(const sensitive of [false,true]){
 }
 
 console.log(`PASS — ${checks.toLocaleString()} decision checks`);
+
+// Phase-decision integration regression: same pigment profile, Acne L1 vs L5 must change pathway.
+{
+  const base={barrier:2,pigment:5,congestion:2,ageing:4,bacteria:2};
+  const low={...base,acne:1};
+  const high={...base,acne:5};
+  const p1=E.phaseDecision('pigment',low,{sensitive:true});
+  const p2=E.phaseDecision('pigment',high,{sensitive:true});
+  assert(p1.kind==='pigment_only','Acne L1 + pigment L5 should be pigment-only');
+  assert(p2.kind==='acne_pigment_shared','Acne L5 + pigment L5 must use shared acne+pigment pathway');
+  assert(p2.covers.includes('acne')&&p2.covers.includes('pigment'),'Shared pathway must cover both acne and pigment');
+}
