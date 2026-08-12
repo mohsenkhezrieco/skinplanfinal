@@ -1,0 +1,15 @@
+{
+  "name": "SkinPlan Clinic",
+  "short_name": "SkinPlan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121438",
+  "theme_color": "#272764",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
