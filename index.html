@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SkinPlan Clinic v17.3</title>
+<title>SkinPlan Clinic v17.4</title>
 <meta name="theme-color" content="#272764">
 <link rel="manifest" href="manifest.webmanifest">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -92,7 +92,7 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 <body>
 <div class="shell">
   <div class="hero no-print">
-    <div><h1>SkinPlan Clinic v17.3</h1><p>X3 report → preferred-brand fallback engine → phased weekly plan</p></div>
+    <div><h1>SkinPlan Clinic v17.4</h1><p>X3 report → preferred-brand fallback engine → phased weekly plan</p></div>
     <div class="badge">X3 API · local product-image library</div>
   </div>
 
@@ -122,7 +122,7 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
         <div class="pstat"><div class="k">Total score</div><div class="v" id="sumTotal">—</div></div>
       </div>
       <div class="prioritygrid">
-        <div class="priority"><h4>Urgent · Levels IV–V</h4><ul id="urgentList"></ul></div>
+        <div class="priority"><h4>X3 high priority · Levels IV–V</h4><ul id="urgentList"></ul></div>
         <div class="priority"><h4>Continuous · Level III</h4><ul id="continuousList"></ul></div>
         <div class="priority"><h4>Preventive · Levels I–II</h4><ul id="preventiveList"></ul></div>
       </div>
@@ -137,6 +137,7 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
         <label><input id="rx" type="checkbox">Prescription skin treatment</label>
         <label><input id="procedure" type="checkbox">Recent peel / laser / microneedling</label>
         <label><input id="allergy" type="checkbox">Known skincare allergy</label>
+        <label><input id="currentActive" type="checkbox">Currently using retinoid / benzoyl peroxide / exfoliating acid</label>
       </div>
       <label style="display:block;margin-top:12px">Clinic / patient reference</label>
       <input id="patient" placeholder="Initials or clinic reference">
@@ -299,17 +300,35 @@ function M(id){return state.metrics[id]}
 function safetyFlags(){return {
   preg:document.getElementById('preg').checked,eczema:document.getElementById('eczema').checked,
   rosacea:document.getElementById('rosacea').checked,rx:document.getElementById('rx').checked,
-  procedure:document.getElementById('procedure').checked,allergy:document.getElementById('allergy').checked
+  procedure:document.getElementById('procedure').checked,allergy:document.getElementById('allergy').checked,
+  currentActive:document.getElementById('currentActive').checked
 }}
 function concernLevels(){
-  return {
-    barrier:Math.max(M('surfaceSensitivity').level,M('deepSensitivity').level,M('spotHeat').level),
-    acne:M('acne').level,
-    bacteria:M('bacteria').level,
-    pigment:Math.max(M('surfaceSpot').level,M('deepSpot').level,M('spotHeat').level,M('skinColor').level),
-    congestion:Math.max(M('blackhead').level,M('pore').level),
-    ageing:Math.max(M('wrinkle').level,M('collagen').level,M('texture').level)
-  }
+  const surfaceSens=M('surfaceSensitivity').level, deepSens=M('deepSensitivity').level, heat=M('spotHeat').level;
+  const surfaceSpot=M('surfaceSpot').level, deepSpot=M('deepSpot').level, skinColor=M('skinColor').level;
+  const blackhead=M('blackhead').level, pore=M('pore').level, acne=M('acne').level;
+  const wrinkle=M('wrinkle').level, collagen=M('collagen').level, texture=M('texture').level;
+
+  // X3 sensitivity/heat signals are used together as a conservative barrier/inflammation gate.
+  const barrier=Math.max(surfaceSens,deepSens,heat);
+
+  // Pigmentation is driven by actual spot/colour signals.
+  // Spot-heat is only allowed to increase priority when another pigment signal is already abnormal.
+  const pigmentCore=Math.max(surfaceSpot,deepSpot,skinColor);
+  const pigment=pigmentCore>=3?Math.max(pigmentCore,heat):pigmentCore;
+
+  // Enlarged pores alone do not automatically justify BHA/exfoliation.
+  // Blackheads are the primary congestion signal; pore score acts as a modifier.
+  let congestion=blackhead;
+  if(blackhead>=3)congestion=Math.max(blackhead,pore);
+  else if(acne>=3 && pore>=4)congestion=3;
+
+  // Wrinkle is the primary ageing trigger. Collagen/texture can increase severity only
+  // when wrinkle is already abnormal; they do not independently trigger a retinoid.
+  let ageing=wrinkle;
+  if(wrinkle>=3)ageing=Math.max(wrinkle,Math.min(4,collagen),Math.min(4,texture));
+
+  return {barrier,acne,bacteria:M('bacteria').level,pigment,congestion,ageing}
 }
 function orderedConcerns(levels){
   const B=state.baumann||'';
@@ -344,7 +363,11 @@ function activeProtocol(p,cautious=false){
 }
 function makeTreatmentPhase(title,active,covers,cautious=false){
   const protocol=activeProtocol(active,cautious);
-  return {title,active,protocol,frequency:protocol.frequency,instructions:[...protocol.instructions],covers};
+  const instructions=[...protocol.instructions];
+  if(active && !instructions.some(x=>/manufacturer|label frequency/i.test(x))){
+    instructions.push('This is a conservative starter schedule. If well tolerated after 2–4 weeks, increase only toward the current manufacturer label frequency and never above it.');
+  }
+  return {title,active,protocol,frequency:protocol.frequency,instructions,covers};
 }
 function oneActivePhase(concern,levels,cautious=false){
   const acneActive=levels.acne>=3;
@@ -368,7 +391,7 @@ function oneActivePhase(concern,levels,cautious=false){
 function buildPlan(){
   if(!state.loaded)throw new Error('Import an X3 report first.');
   const f=safetyFlags(),levels=concernLevels(),base=baseProducts(levels),B=state.baumann;
-  const hardHold=f.preg||f.eczema||f.rosacea||f.rx||f.procedure||f.allergy;
+  const hardHold=f.preg||f.eczema||f.rosacea||f.rx||f.procedure||f.allergy||f.currentActive;
   const barrierFirst=levels.barrier>=4||(B[1]==='S'&&levels.barrier>=3);
   const concerns=orderedConcerns(levels);
   let plan={levels,base,hardHold,barrierFirst,phases:[],avoid:[],referral:[],goal:'',mode:'',selected:[]};
@@ -380,7 +403,7 @@ function buildPlan(){
     plan.phases.push({title:'Current phase — recovery only',active:null,protocol:null,frequency:'Use cleanser + moisturiser + sunscreen; barrier serum can be used if comfortable.',instructions:['Do not automatically start acids or retinoids.'],covers:[]});
   } else if(barrierFirst){
     plan.mode='Barrier recovery first';plan.goal='Stabilise sensitivity/inflammation before introducing one targeted active.';
-    plan.phases.push({title:'Phase 1 · Weeks 1–2 — Barrier recovery',active:null,protocol:null,frequency:'Barrier-focused routine every day.',instructions:['No salicylic acid or retinoid during this starter phase.','Progress only if there is no persistent burning, marked redness, swelling or peeling.'],covers:['barrier']});
+    plan.phases.push({title:'Phase 1 · Minimum 2 weeks — Barrier recovery',active:null,protocol:null,frequency:'Barrier-focused routine every day. Continue beyond 2 weeks if sensitivity is not stable.',instructions:['No salicylic acid or retinoid during this starter phase.','Do not progress until the skin has been comfortable for at least 7 days with no persistent burning, marked redness, swelling or peeling.'],covers:['barrier']});
     const primary=concerns[0];
     if(primary){
       const p2=oneActivePhase(primary.key,levels,true);p2.title='Phase 2 · Weeks 3–8 — '+p2.title;plan.phases.push(p2);if(p2.active)plan.selected.push(p2.active);
@@ -412,13 +435,14 @@ function buildPlan(){
   plan.avoid.push('Keep peptide treatment on different evenings from direct acids/BHA in this conservative programme.');
   plan.avoid.push('Stop a new active if persistent burning, swelling, blistering, rash or marked worsening occurs.');
   if(f.preg)plan.avoid.push('Retinoids are excluded during pregnancy/trying/breastfeeding.');
-  if(M('acne').level>=4)plan.referral.push('Painful nodules/cysts, scarring, widespread inflammatory acne or worsening disease should be assessed by a pharmacist/GP/dermatology service.');
+  if(f.currentActive)plan.avoid.push('A retinoid, benzoyl peroxide or exfoliating acid is already in use; review the current product and frequency before adding any new treatment active.');
+  if(M('acne').level>=4)plan.referral.push('The X3 acne score is a device screening signal, not a diagnosis. If clinical acne is present and is persistent, widespread, nodular/cystic or scarring, this cosmetic plan is not a substitute for pharmacist/GP/dermatology assessment.');
   if(M('surfaceSpot').level>=5||M('spotHeat').level>=5)plan.referral.push('New, changing, asymmetric or bleeding pigmentation/lesions need medical assessment rather than cosmetic treatment.');
   return plan;
 }
 
 function useText(p,kind){
-  const generic={cleanser:'Use a small amount and cleanse gently with lukewarm water.',moisturiser:'Apply a comfortable layer over face and neck.',spf:'Apply generously as the final morning step.',barrier:'Apply a thin layer / 2–3 drops as directed.',active:'Use only on the scheduled treatment nights.',ageing:'Use on the scheduled ageing-support nights.',retinoid:'Use only on scheduled retinoid nights.',support:'Use only when the plan specifically calls for it.',rescue:'Use only on local irritated/dry areas.'};
+  const generic={cleanser:'Use a small amount and cleanse gently with lukewarm water.',moisturiser:'Apply a comfortable layer over face and neck.',spf:'Apply generously as the final morning step. During sustained outdoor exposure, reapply about every 2 hours and after swimming, sweating or towel-drying.',barrier:'Apply a thin layer / 2–3 drops as directed.',active:'Use only on the scheduled treatment nights.',ageing:'Use on the scheduled ageing-support nights.',retinoid:'Use only on scheduled retinoid nights.',support:'Use only when the plan specifically calls for it.',rescue:'Use only on local irritated/dry areas.'};
   return generic[p.role]||'Use as directed.';
 }
 function stepCard(p,title,i){
@@ -436,7 +460,7 @@ function currentRoutine(plan){
 function devicePriorityHTML(){
   const groups={urgent:[],continuous:[],preventive:[]};
   for(const [id,label] of METRICS){const m=M(id),txt=`${label} ${m.score} · L${roman(m.level)}`;if(m.level>=4)groups.urgent.push(txt);else if(m.level===3)groups.continuous.push(txt);else groups.preventive.push(txt)}
-  return `<div class="rpriority"><div><h4>Urgent</h4>${groups.urgent.join('<br>')||'None'}</div><div><h4>Continuous</h4>${groups.continuous.join('<br>')||'None'}</div><div><h4>Preventive</h4>${groups.preventive.join('<br>')||'None'}</div></div>`;
+  return `<div class="rpriority"><div><h4>X3 high priority</h4>${groups.urgent.join('<br>')||'None'}</div><div><h4>Continuous</h4>${groups.continuous.join('<br>')||'None'}</div><div><h4>Preventive</h4>${groups.preventive.join('<br>')||'None'}</div></div>`;
 }
 
 function phaseProductHTML(p){
@@ -497,7 +521,7 @@ function spacingRuleFor(p){
 }
 function adjustedNightCounts(plan,phaseIndex,items){
   const sensitive=plan.barrierFirst||state.baumann[1]==='S';
-  const maxActive=sensitive?4:5;
+  const maxActive=sensitive?3:4;
   const counts=items.map(item=>({item,count:item.index===phaseIndex?(item.phase.protocol?.nights||0):(item.phase.protocol?.maintenanceNights||item.phase.protocol?.nights||0)}));
   let total=counts.reduce((a,x)=>a+x.count,0);
   let turn=0;
