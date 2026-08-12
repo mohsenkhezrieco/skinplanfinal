@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SkinPlan Clinic v17.5</title>
+<title>SkinPlan Clinic v17.6</title>
 <meta name="theme-color" content="#272764">
 <link rel="manifest" href="manifest.webmanifest">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -92,7 +92,7 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 <body>
 <div class="shell">
   <div class="hero no-print">
-    <div><h1>SkinPlan Clinic v17.5</h1><p>X3 report → preferred-brand fallback engine → phased weekly plan</p></div>
+    <div><h1>SkinPlan Clinic v17.6</h1><p>X3 report → preferred-brand fallback engine → phased weekly plan</p></div>
     <div class="badge">X3 API · local product-image library</div>
   </div>
 
@@ -285,7 +285,9 @@ function renderDevice(){
   for(const [id,label] of METRICS){
     const m=state.metrics[id];
     grid.insertAdjacentHTML('beforeend',`<div class="metric"><div><b>${label}</b><div class="small">${m.source||''}</div></div><input id="m_${id}" type="number" min="0" max="100" value="${m.score}"><div id="l_${id}" class="lvl l${m.level}">Level ${roman(m.level)}</div></div>`);
-    document.getElementById('m_'+id).onchange=e=>{const v=Math.max(0,Math.min(100,Number(e.target.value)));e.target.value=v;m.score=v;m.level=deriveLevel(v);m.source='manual correction';document.getElementById('l_'+id).className='lvl l'+m.level;document.getElementById('l_'+id).textContent='Level '+roman(m.level);renderPriorityLists();}
+    const metricInput=document.getElementById('m_'+id);
+    const commitMetric=e=>{const v=Math.max(0,Math.min(100,Number(e.target.value)));if(!Number.isFinite(v))return;e.target.value=v;m.score=v;m.level=deriveLevel(v);m.source='manual correction';document.getElementById('l_'+id).className='lvl l'+m.level;document.getElementById('l_'+id).textContent='Level '+roman(m.level);renderPriorityLists();};
+    metricInput.oninput=commitMetric;metricInput.onchange=commitMetric;
   }
   renderPriorityLists();
 }
@@ -297,6 +299,17 @@ function renderPriorityLists(){
   document.getElementById('preventiveList').innerHTML=groups.preventive.map(x=>`<li>${x}</li>`).join('')||'<li>None</li>';
 }
 
+function syncMetricsFromInputs(){
+  for(const [id] of METRICS){
+    const el=document.getElementById('m_'+id);
+    const m=state.metrics[id];
+    if(!el||!m)continue;
+    const v=Math.max(0,Math.min(100,Number(el.value)));
+    if(!Number.isFinite(v))continue;
+    m.score=v;
+    m.level=deriveLevel(v);
+  }
+}
 function M(id){return state.metrics[id]}
 function safetyFlags(){return {
   preg:document.getElementById('preg').checked,eczema:document.getElementById('eczema').checked,
@@ -341,26 +354,26 @@ function makeTreatmentPhase(title,active,covers,cautious=false){
   return {title,active,protocol,frequency:protocol.frequency,instructions,covers:expanded};
 }
 function oneActivePhase(concern,levels,cautious=false){
-  const acneActive=levels.acne>=3;
-  const pigmentActive=levels.pigment>=3;
-  if((concern==='acne'&&pigmentActive)||(concern==='pigment'&&acneActive)){
-    return makeTreatmentPhase('Single-active phase for blemishes + pigmentation',requirePick('acne_pigment_shared','a single treatment that can address blemishes + pigmentation'),['acne','pigment'],cautious);
-  }
-  if(concern==='acne'){
-    const ph=makeTreatmentPhase('Blemish-treatment phase',requirePick('acne_treatment','blemish treatment'),['acne'],cautious);
-    ph.instructions.push('If acne is painful, nodular/cystic or scarring, cosmetic skincare is not enough.');return ph;
-  }
-  if(concern==='pigment')return makeTreatmentPhase('Pigmentation phase',requirePick('pigment_only','pigmentation treatment'),['pigment'],cautious);
-  if(concern==='congestion')return makeTreatmentPhase('Congestion / blackhead phase',requirePick('congestion_treatment','congestion treatment'),['congestion'],cautious);
-  if(concern==='ageing'){
-    const sensitive=state.baumann[1]==='S'||levels.barrier>=3;
-    return makeTreatmentPhase(sensitive||levels.ageing===3?'Sensitive-ageing support phase':'Retinoid ageing phase',requirePick(sensitive||levels.ageing===3?'ageing_sensitive':'ageing_retinoid',sensitive||levels.ageing===3?'non-retinoid ageing support':'retinoid'),['ageing'],sensitive);
-  }
-  return {title:'',active:null,protocol:null,frequency:'',instructions:[],covers:[]};
+  const ageingSensitive=state.baumann[1]==='S'||levels.barrier>=3||levels.ageing===3;
+  const d=SkinPlanEngine.phaseDecision(concern,levels,{sensitive:ageingSensitive});
+  if(!d.kind)return {title:'',active:null,protocol:null,frequency:'',instructions:[],covers:[]};
+  const labels={
+    acne_pigment_shared:'a single treatment that can address blemishes + pigmentation',
+    acne_treatment:'blemish treatment',
+    pigment_only:'pigmentation treatment',
+    congestion_treatment:'congestion treatment',
+    ageing_sensitive:'non-retinoid ageing support',
+    ageing_retinoid:'retinoid'
+  };
+  const ph=makeTreatmentPhase(d.title,requirePick(d.kind,labels[d.kind]),d.covers,cautious||(concern==='ageing'&&ageingSensitive));
+  ph.triggeredBy=d.covers.slice();
+  if(concern==='acne'&&d.kind==='acne_treatment')ph.instructions.push('If acne is painful, nodular/cystic or scarring, cosmetic skincare is not enough.');
+  return ph;
 }
 
 function buildPlan(){
   if(!state.loaded)throw new Error('Import an X3 report first.');
+  syncMetricsFromInputs();
   const f=safetyFlags(),levels=concernLevels(),base=baseProducts(levels),B=state.baumann;
   const hardHold=f.preg||f.eczema||f.rosacea||f.rx||f.procedure||f.allergy||f.currentActive;
   const barrierFirst=SkinPlanEngine.barrierFirst(levels,B);
@@ -577,11 +590,16 @@ function phaseWeekInfo(plan,phaseIndex){
   const morning=[plan.base.cleanser];if(plan.barrierFirst&&plan.base.barrierSerum)morning.push(plan.base.barrierSerum);amActives.forEach(x=>morning.push(x.active));morning.push(plan.base.moisturiser,plan.base.spf);
   return {phase,morning,week,activeFreq:activeFreq+pauseText,spacing:spacing||'No treatment-active spacing required.',counts};
 }
+function phaseTriggerText(ph){
+  if(!ph.triggeredBy||!ph.triggeredBy.length)return '';
+  const labels={acne:'Acne',pigment:'Pigmentation',congestion:'Congestion',ageing:'Ageing',barrier:'Barrier'};
+  return ph.triggeredBy.map(k=>`${labels[k]||k} L${roman(concernLevels()[k])}`).join(' + ');
+}
 function shortProduct(p){return `${p.brand} — ${p.name.replace(/\s+\d+\s*(ml|g).*$/i,'')}`}
 function weeklyProgrammeTable(plan){
   const rows=plan.phases.map((ph,idx)=>{
     const x=phaseWeekInfo(plan,idx);
-    return `<tr><td class="summaryPhase">${ph.title}</td><td>${x.morning.map(shortProduct).join('<br>')}</td><td><b>${x.activeFreq}</b><div class="weekMini">${x.week.map(d=>`<span class="${d.type}"><b>${d.day}</b><br>${d.label}</span>`).join('')}</div></td><td>${x.spacing}</td></tr>`;
+    return `<tr><td class="summaryPhase">${ph.title}${phaseTriggerText(ph)?`<div class="small" style="margin-top:6px"><b>Triggered by:</b> ${phaseTriggerText(ph)}</div>`:''}</td><td>${x.morning.map(shortProduct).join('<br>')}</td><td><b>${x.activeFreq}</b><div class="weekMini">${x.week.map(d=>`<span class="${d.type}"><b>${d.day}</b><br>${d.label}</span>`).join('')}</div></td><td>${x.spacing}</td></tr>`;
   }).join('');
   return `<div class="summaryWrap"><h3>Weekly programme at a glance</h3><div class="summaryHint">Use this table as the quick reference. Full morning/evening routines with product images are repeated underneath for every phase.</div><table class="summaryTable"><thead><tr><th>Phase / weeks</th><th>Morning products — every day</th><th>Weekly treatment frequency + example evenings</th><th>Spacing between treatment actives</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
@@ -608,6 +626,7 @@ function phaseDetailedHTML(plan,phaseIndex){
 
   let html=`<div class="phaseDetailed">
     <h3>${phase.title}</h3>
+    ${phaseTriggerText(phase)?`<div class="phaseIntro"><b>Triggered by:</b> ${phaseTriggerText(phase)}</div>`:''}
     <div class="phaseIntro"><b>Phase instruction:</b> ${phase.frequency}</div>
     ${phase.instructions.length?`<ul class="phaseIntro">${phase.instructions.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}
     <div class="phaseRule"><b>Example weekly spacing:</b> ${phaseWeekInfo(plan,phaseIndex).week.map(d=>`${d.day}: ${d.label}`).join(' · ')}</div>

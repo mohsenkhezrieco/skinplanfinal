@@ -58,6 +58,19 @@
       .sort((a,b)=>(b.score-a.score)||(clinicalOrder[a.key]-clinicalOrder[b.key]));
   };
 
+  E.phaseDecision=function(concern,levels,{sensitive=false}={}){
+    const acneActive=(levels?.acne||1)>=3;
+    const pigmentActive=(levels?.pigment||1)>=3;
+    if((concern==='acne'&&pigmentActive)||(concern==='pigment'&&acneActive)){
+      return {kind:'acne_pigment_shared',title:'Single-active phase for blemishes + pigmentation',covers:['acne','pigment']};
+    }
+    if(concern==='acne')return {kind:'acne_treatment',title:'Blemish-treatment phase',covers:['acne']};
+    if(concern==='pigment')return {kind:'pigment_only',title:'Pigmentation phase',covers:['pigment']};
+    if(concern==='congestion')return {kind:'congestion_treatment',title:'Congestion / blackhead phase',covers:['congestion']};
+    if(concern==='ageing')return {kind:sensitive?'ageing_sensitive':'ageing_retinoid',title:sensitive?'Sensitive-ageing support phase':'Retinoid ageing phase',covers:['ageing']};
+    return {kind:null,title:'',covers:[]};
+  };
+
   E.basePolicy=function({baumann,moisture,levels}){
     const B=String(baumann||'');
     const D=B[0]==='D', O=B[0]==='O', S=B[1]==='S';
