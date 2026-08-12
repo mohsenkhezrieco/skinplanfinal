@@ -1,30 +1,39 @@
-# SkinPlan Clinic v16 — Local Product Images
+# SkinPlan Clinic v17.8 — Reassessment + PDF Export Final
 
-This version removes the runtime product-image proxy. The website uses only local paths under `assets/products/`.
+This version includes the final algorithm and report updates requested for the clinic website.
 
-## What happens after you upload this version to GitHub
-1. GitHub Actions runs `Cache product packshots`.
-2. It downloads the current product packshots once.
-3. It converts them to consistent 900×900 JPEG files.
-4. It commits those files into `assets/products/` in your repository.
-5. That commit triggers a second Vercel deployment.
-6. From then on the live website/report uses repository-local images and does not depend on the external product-image URLs.
+## What is improved in v17.8
 
-Ten product images are already seeded from your previous local SkinPlan assets. The workflow replaces or fills the rest when downloads succeed. If a retailer blocks an image, the existing local file is kept instead of being deleted.
+### 1) Final algorithm correction
+- Later phases no longer act like automatic guaranteed next steps.
+- Every phase after the first now has an explicit **reassessment gate**.
+- The user is told to move forward only **after 6–8 weeks**, only if the previous phase is tolerated, and only if a **re-scan / review still shows that the concern remains relevant**.
+- This prevents the engine from automatically dropping acne / pigmentation / congestion treatment too early.
 
-## Files to upload
-Upload the complete contents of this ZIP to the existing GitHub repository. Important new folders/files:
-- `.github/workflows/cache-product-images.yml`
-- `scripts/fetch-product-images.mjs`
-- `assets/products/`
-- `product-image-sources.json`
+### 2) Easier-to-read summary section
+- The old dense summary table has been replaced by **phase summary cards**.
+- Each card shows:
+  - when to start that phase,
+  - the morning routine,
+  - the example weekly evening plan,
+  - and the spacing / safety rule.
+- This makes the top summary easier to understand before reading the full routines below.
 
-`api/x3-report.js` remains the working X3 server importer. `api/product-image.js` has been removed.
+### 3) Export changes
+- The old **Print** option has been removed.
+- **Download PNG** remains available.
+- A new **Download A4 PDF** button is included.
+- The report is first rendered as a long image-style layout, then automatically sliced across multiple A4 pages and exported as a PDF.
+- So the user can now download the plan in **two formats**:
+  - PNG image
+  - multi-page A4 PDF
 
-## If GitHub Actions does not run automatically
-Open GitHub → your repository → Actions → **Cache product packshots** → **Run workflow**. After it finishes, verify that `assets/products/` contains updated product photos. Vercel will then redeploy automatically.
+## Files to deploy
+Upload the full contents of this ZIP to the same GitHub repository and redeploy on Vercel.
 
-## Product library
-34 selected products across the ranked brand engine. Brand enable/disable settings and the phased skincare algorithm from v15 are retained.
+## Important notes
+- Product images remain local.
+- Brand ranking, preferred-brand mode, and core fallback are retained.
+- The website is still a clinical-support cosmetic maintenance tool, not a prescription system.
 
-Cosmetic skincare maintenance guidance only; not a medical diagnosis or prescription.
+Cosmetic skincare maintenance guidance only — not a diagnosis or prescription.

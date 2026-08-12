@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SkinPlan Clinic v17.6</title>
+<title>SkinPlan Clinic v17.7</title>
 <meta name="theme-color" content="#272764">
 <link rel="manifest" href="manifest.webmanifest">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <style>
 :root{--bg:#121438;--panel:#272764;--panel2:#303078;--line:#454597;--purple:#6252ff;--pink:#f35ac8;--cyan:#50d7ff;--text:#fff;--muted:#bcc2ea;--white:#fff;--ink:#102348;--soft:#f4f7fb;--red:#ff4f70;--amber:#f2a84a;--green:#2fc7a0}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -88,6 +89,9 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 @media print{.summaryWrap{break-inside:avoid}.summaryTable{font-size:8px}.weekMini span{font-size:6.5px}}
 
 </style>
+<style>
+.summaryWrap{margin-top:14px}.summaryCards{display:grid;gap:12px}.summaryCard{border:1px solid #dfe4ef;border-radius:16px;background:#fbfcff;overflow:hidden}.summaryCardHead{background:#f3f0ff;padding:12px 14px;border-bottom:1px solid #e2e6f1}.summaryPhaseTitle{font-size:16px;font-weight:900;color:#2e2b72}.summaryTrigger{margin-top:5px;font-size:12px;color:#5d6681}.summaryCardBody{padding:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.summaryBlock{background:#fff;border:1px solid #e2e6f1;border-radius:12px;padding:11px}.summaryWide{grid-column:1 / -1}.summaryLabel{font-size:11px;font-weight:900;color:#2b3676;text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}.summaryValue,.summaryBlock ul{font-size:12px;line-height:1.55;color:#36425f}.summaryBlock ul{margin:0;padding-left:18px}.summaryFreq{font-size:13px;font-weight:800;color:#17264b;line-height:1.5;margin-bottom:8px}.summaryGate{border-left:4px solid #7e6bff;background:#f7f4ff}.gateBox{background:#f7f4ff;border:1px solid #d8cffc;border-radius:12px;padding:10px 12px;margin:8px 0 10px;font-size:11px;line-height:1.6;color:#3b326f}.summaryHint b{color:#2f2b74}@media(max-width:800px){.summaryCardBody{grid-template-columns:1fr}.summaryWide{grid-column:auto}}
+</style>
 </head>
 <body>
 <div class="shell">
@@ -145,7 +149,7 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
     </div>
 
     <div id="reportArea" class="report-shell" style="display:none">
-      <div class="actions no-print"><button onclick="window.print()" class="primary">Print / Save PDF</button><button id="pngBtn" class="soft">Download PNG</button></div>
+      <div class="actions no-print"><button id="pdfBtn" class="primary">Download A4 PDF</button><button id="pngBtn" class="soft">Download PNG</button></div>
       <div id="report" class="report"></div>
     </div>
   </section>
@@ -738,5 +742,88 @@ document.getElementById('logicText').innerHTML=`
 
 renderRoleOptions();renderBrandSettings();renderLibrary();renderRankings();
 if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+// v17.8 final reassessment + export overrides
+function phaseGateText(plan,phaseIndex){
+  if(phaseIndex===0){
+    if(plan.barrierFirst)return 'Start here. Stay in this phase until the skin has been comfortable for at least 7 days, with no persistent burning, marked redness, swelling or peeling.';
+    return 'Start here. This is the first active pathway chosen from the current X3 profile.';
+  }
+  return 'Only move to this phase after at least 6–8 weeks in the previous phase, only if the previous phase is tolerated, and only if a re-scan / clinical review still shows that this concern remains relevant.';
+}
+function gateTitle(phaseIndex){
+  return phaseIndex===0 ? 'How to read this phase' : 'Reassessment gate before starting this phase';
+}
+function phaseCheckpointHTML(plan,phaseIndex){
+  return `<div class="gateBox"><b>${gateTitle(phaseIndex)}:</b> ${phaseGateText(plan,phaseIndex)}</div>`;
+}
+weeklyProgrammeTable=function(plan){
+  const cards=plan.phases.map((ph,idx)=>{
+    const x=phaseWeekInfo(plan,idx);
+    const morningList=x.morning.map(p=>`<li>${shortProduct(p)}</li>`).join('');
+    const trigger=phaseTriggerText(ph);
+    return `<div class="summaryCard"><div class="summaryCardHead"><div class="summaryPhaseTitle">${ph.title}</div>${trigger?`<div class="summaryTrigger"><b>Triggered by:</b> ${trigger}</div>`:''}</div><div class="summaryCardBody"><div class="summaryBlock summaryGate"><div class="summaryLabel">Start / move to this phase</div><div class="summaryValue">${phaseGateText(plan,idx)}</div></div><div class="summaryBlock"><div class="summaryLabel">Morning — every day</div><ul>${morningList}</ul></div><div class="summaryBlock summaryWide"><div class="summaryLabel">Evening plan — example week</div><div class="summaryFreq">${x.activeFreq}</div><div class="weekMini">${x.week.map(d=>`<span class="${d.type}"><b>${d.day}</b><br>${d.label}</span>`).join('')}</div></div><div class="summaryBlock summaryWide"><div class="summaryLabel">Spacing / safety rule</div><div class="summaryValue">${x.spacing}</div></div></div></div>`;
+  }).join('');
+  return `<div class="summaryWrap"><h3>Weekly programme at a glance</h3><div class="summaryHint"><b>How to use it:</b> read the phases from top to bottom. Do not jump to the next phase until the gate written in each card is satisfied. Full morning/evening routines with product images are repeated underneath for every phase.</div><div class="summaryCards">${cards}</div></div>`;
+};
+phaseDetailedHTML=function(plan,phaseIndex){
+  const phase=plan.phases[phaseIndex];
+  const introduced=plan.phases.slice(0,phaseIndex+1).map((ph,idx)=>({phase:ph,index:idx,active:ph.active})).filter(x=>x.active);
+  const weekInfo=phaseWeekInfo(plan,phaseIndex);
+  const countMap=new Map((weekInfo.counts||[]).map(x=>[x.item.active.id,x.count]));
+  const morningActives=introduced.filter(x=>isMorningDailyActive(x.active));
+  const eveningActives=introduced.filter(x=>!isMorningDailyActive(x.active) && (countMap.get(x.active.id)||0)>0);
+  const morning=[plan.base.cleanser];
+  if(plan.barrierFirst && plan.base.barrierSerum)morning.push(plan.base.barrierSerum);
+  morningActives.forEach(x=>morning.push(x.active));
+  morning.push(plan.base.moisturiser,plan.base.spf);
+  const recovery=[plan.base.cleanser];
+  if(plan.barrierFirst && plan.base.barrierSerum)recovery.push(plan.base.barrierSerum);
+  recovery.push(plan.base.moisturiser);
+  let html=`<div class="phaseDetailed"><h3>${phase.title}</h3>${phaseTriggerText(phase)?`<div class="phaseIntro"><b>Triggered by:</b> ${phaseTriggerText(phase)}</div>`:''}${phaseCheckpointHTML(plan,phaseIndex)}<div class="phaseIntro"><b>Phase instruction:</b> ${phase.frequency}</div>${phase.instructions.length?`<ul class="phaseIntro">${phase.instructions.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<div class="phaseRule"><b>Example weekly spacing:</b> ${phaseWeekInfo(plan,phaseIndex).week.map(d=>`${d.day}: ${d.label}`).join(' · ')}</div><div class="phaseRoutineBand morning">☀ MORNING — EVERY DAY DURING THIS PHASE</div>${routineCards(morning)}`;
+  if(eveningActives.length===0){
+    html+=`<div class="phaseRoutineBand recovery">☾ EVENING — EVERY NIGHT DURING THIS PHASE</div><div class="phaseRoutineNote">Barrier/recovery routine only.</div>${routineCards(recovery)}`;
+  }else{
+    eveningActives.forEach(item=>{
+      const current=item.index===phaseIndex;
+      const freq=current ? item.phase.frequency : `Continue this treatment only at the tolerated frequency established in ${compactPhaseName(item.phase.title)}.`;
+      html+=`<div class="phaseRoutineBand treatment">☾ EVENING — ${routineStepTitle(item.active,1).toUpperCase()} NIGHTS</div><div class="phaseRoutineNote">${freq}</div>${routineCards([plan.base.cleanser,item.active,plan.base.moisturiser])}`;
+    });
+    html+=`<div class="phaseRoutineBand recovery">☾ EVENING — RECOVERY NIGHTS</div><div class="phaseRoutineNote">Use this routine on evenings not assigned to one of the treatment routines above.</div>${routineCards(recovery)}<div class="phaseRule"><b>Important:</b> treatment-night routines are separate. Do not use two listed treatment actives on the same evening unless the plan explicitly says to do so.</div>`;
+  }
+  html+='</div>';
+  return html;
+};
+document.getElementById('pdfBtn').onclick=async()=>{
+  const btn=document.getElementById('pdfBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing PDF…';
+  try{
+    const report=document.getElementById('report');
+    const canvas=await html2canvas(report,{scale:2,backgroundColor:'#fff',useCORS:true,logging:false,windowWidth:report.scrollWidth});
+    const imgData=canvas.toDataURL('image/jpeg',0.98);
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF('p','mm','a4');
+    const margin=8, pageWidth=210, pageHeight=297;
+    const usableWidth=pageWidth-margin*2, usableHeight=pageHeight-margin*2;
+    const imgWidth=usableWidth, imgHeight=(canvas.height*imgWidth)/canvas.width;
+    let heightLeft=imgHeight;
+    let position=margin;
+    pdf.addImage(imgData,'JPEG',margin,position,imgWidth,imgHeight);
+    heightLeft-=usableHeight;
+    while(heightLeft>0){
+      position=margin-(imgHeight-heightLeft);
+      pdf.addPage();
+      pdf.addImage(imgData,'JPEG',margin,position,imgWidth,imgHeight);
+      heightLeft-=usableHeight;
+    }
+    pdf.save('skinplan-report-a4.pdf');
+  }catch(e){ console.error(e); alert('A4 PDF export failed.'); }
+  finally{ btn.disabled=false; btn.textContent=old; }
+};
+document.getElementById('pngBtn').onclick=async()=>{
+  const btn=document.getElementById('pngBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
+  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v17-8.png';a.href=c.toDataURL('image/png');a.click()}
+  catch(e){alert('PNG export failed. Please try the A4 PDF export.')}finally{btn.disabled=false;btn.textContent=old}
+};
+
 </script>
 </body></html>
