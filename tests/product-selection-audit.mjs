@@ -6,15 +6,16 @@ const code=fs.readFileSync(new URL('../selection-core.js',import.meta.url),'utf8
 const ctx={globalThis:{}};vm.createContext(ctx);vm.runInContext(code,ctx);const E=ctx.globalThis.SkinPlanSelectionEngine;
 function assert(x,m){if(!x)throw new Error(m)}
 const brands=['The Ordinary','The INKEY List','Beauty of Joseon','CeraVe','Neutrogena','Bioderma','La Roche-Posay','Avène','Eucerin'];
-assert(products.length===78,`Expected 78 curated products, got ${products.length}`);
+assert(products.length===91,`Expected 91 curated products, got ${products.length}`);
 assert([...new Set(products.map(p=>p.brand))].every(b=>brands.includes(b)),'Non-curated brand remains');
 assert(new Set(products.map(p=>p.brand)).size===9,'Expected exactly 9 brands');
 for(const id of ['ord_retinal_02','ord_glycolipid_cleanser','inkey_oat_cleanser','inkey_peptide_moist','inkey_advanced_retinal','neutro_hydro_cleanser','neutro_nia'])assert(products.some(p=>p.id===id),`Missing ${id}`);
+for(const id of ['lrp_effaclar_cleanser','lrp_cicaplast_serum','lrp_redermic_eye','cerave_skin_renewing_retinol','cerave_skin_renewing_eye','eucerin_dermatoclean_gel','eucerin_elasticity_eye','ord_multi_peptide_eye','inkey_retinol_eye','neutro_retinol_eye'])assert(products.some(p=>p.id===id),`Missing ${id}`);
 assert(!products.some(p=>['Cetaphil','Vichy'].includes(p.brand)),'Removed brand product remains');
 const rm=html.match(/const RANKINGS=(\{.*?\});\nconst ROLE_LABELS=/s);if(!rm)throw new Error('RANKINGS missing');
 const rankings=JSON.parse(rm[1]);const byId=Object.fromEntries(products.map(p=>[p.id,p]));
 const tierMap={'The Ordinary':'budget','The INKEY List':'budget','Beauty of Joseon':'budget','CeraVe':'mid','Neutrogena':'mid','Bioderma':'mid','La Roche-Posay':'premium','Avène':'premium','Eucerin':'premium'};
-const requiredRoles=['cleanser_sensitive','cleanser_oily','moisturiser_barrier_dry','moisturiser_sensitive','moisturiser_oily','spf_pigment','spf_oily','spf_general','acne_pigment_shared','acne_treatment','pigment_only','congestion_treatment','ageing_sensitive','ageing_retinoid'];
+const requiredRoles=['cleanser_sensitive','cleanser_oily','moisturiser_barrier_dry','moisturiser_sensitive','moisturiser_oily','spf_pigment','spf_oily','spf_general','acne_pigment_shared','acne_treatment','pigment_only','congestion_treatment','ageing_sensitive','ageing_retinoid_starter','ageing_retinoid_advanced'];
 for(const role of requiredRoles)for(const tier of ['budget','mid','premium'])assert((rankings[role]||[]).some(id=>tierMap[byId[id]?.brand]===tier),`${role} missing ${tier} coverage`);
 
 assert(html.includes('Clinical efficacy first')&&html.includes('Budget tier first'),'Strategy controls missing');
@@ -27,4 +28,4 @@ assert(E.choose(ranked,{enabledMap:enabled,strategy:'budget',brandTiers:tiers}).
 assert(E.choose(ranked,{enabledMap:enabled,strategy:'budget',priorityBrand:'CeraVe',brandTiers:tiers}).product.id==='p3','Priority brand failed');
 const noBudget={...enabled,'The Ordinary':false};
 assert(E.choose(ranked,{enabledMap:noBudget,strategy:'budget',brandTiers:tiers}).product.id==='p3','Budget fallback to mid failed');
-console.log('PASS — v17.12 9-brand tier and selection strategy audit');
+console.log('PASS — v17.13 9-brand tier and selection strategy audit');

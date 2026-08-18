@@ -7,6 +7,6 @@ if(products.filter(p=>p.brand==='Beauty of Joseon').length<10) throw new Error('
 const m=html.match(/const RANKINGS=(\{.*?\});\nconst ROLE_LABELS=/s);
 if(!m) throw new Error('RANKINGS not found');
 const r=JSON.parse(m[1]);
-if(r.eye_ageing?.[0]!=='boj_revive_eye') throw new Error('eye_ageing ranking missing');
+if(!r.eye_ageing?.includes('boj_revive_eye')) throw new Error('eye_ageing ranking missing');
 for(const [role,id] of [['moisturiser_oily','boj_red_bean_gel'],['pigment_only','boj_glow_deep'],['oil_support','boj_glow_serum'],['spf_oily','boj_aqua_fresh_spf']]){if(!r[role]?.includes(id)) throw new Error(`${id} missing from ${role}`);}
-console.log('PASS — Beauty of Joseon library expansion v17.11');
+console.log('PASS — Beauty of Joseon library expansion v17.13');
