@@ -1,39 +1,19 @@
-# SkinPlan Clinic v17.8 — Reassessment + PDF Export Final
+# SkinPlan Clinic v17.12 — 9 Brand Tier Strategy
 
-This version includes the final algorithm and report updates requested for the clinic website.
+This is the current clinic build. The product library is curated to nine brands and 78 treatment-relevant products.
 
-## What is improved in v17.8
+## Brand tiers
+- Budget: The Ordinary, The INKEY List, Beauty of Joseon
+- Mid-range: CeraVe, Neutrogena, Bioderma
+- Premium: La Roche-Posay, Avène, Eucerin
 
-### 1) Final algorithm correction
-- Later phases no longer act like automatic guaranteed next steps.
-- Every phase after the first now has an explicit **reassessment gate**.
-- The user is told to move forward only **after 6–8 weeks**, only if the previous phase is tolerated, and only if a **re-scan / review still shows that the concern remains relevant**.
-- This prevents the engine from automatically dropping acne / pigmentation / congestion treatment too early.
+## Selection strategy
+Choose exactly one:
+- Clinical efficacy first
+- Budget tier first (Budget → Mid-range → Premium; efficacy ranking still decides within the chosen tier)
 
-### 2) Easier-to-read summary section
-- The old dense summary table has been replaced by **phase summary cards**.
-- Each card shows:
-  - when to start that phase,
-  - the morning routine,
-  - the example weekly evening plan,
-  - and the spacing / safety rule.
-- This makes the top summary easier to understand before reading the full routines below.
+Each brand has an enable checkbox. One optional Priority brand can be set; it is checked first for each role, then normal fallback follows the chosen strategy. The old Prefer one brand/Core fallback interface has been removed.
 
-### 3) Export changes
-- The old **Print** option has been removed.
-- **Download PNG** remains available.
-- A new **Download A4 PDF** button is included.
-- The report is first rendered as a long image-style layout, then automatically sliced across multiple A4 pages and exported as a PDF.
-- So the user can now download the plan in **two formats**:
-  - PNG image
-  - multi-page A4 PDF
-
-## Files to deploy
-Upload the full contents of this ZIP to the same GitHub repository and redeploy on Vercel.
-
-## Important notes
-- Product images remain local.
-- Brand ranking, preferred-brand mode, and core fallback are retained.
-- The website is still a clinical-support cosmetic maintenance tool, not a prescription system.
+Product images remain local under `assets/products/`; GitHub Actions can refresh packshots. X3 logic, reassessment gates, phase scheduling, PNG export and A4 PDF export are retained.
 
 Cosmetic skincare maintenance guidance only — not a diagnosis or prescription.

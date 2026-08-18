@@ -126,13 +126,335 @@
     "code": "8629730",
     "role": "retinoid",
     "boots": "https://www.boots.com/beauty/skincare/skincare-all-skincare/the-ordinary-granactive-retinoid-2-emulsion-10267778",
-    "why": "Retinoid fallback when CeraVe is disabled; never used in pregnancy or with acids in the same routine.",
+    "why": "Gentler retinoid option using hydroxypinacolone retinoate plus retinol; useful when a lower-irritation retinoid is preferred, but ranked below better-established direct retinol/retinal wrinkle treatments.",
     "image": "assets/products/ord_granactive.jpg?v=172",
     "imageSourceUrls": [
       "https://beautyhouse.co/wp-content/uploads/2019/03/graactide.jpg"
     ],
     "therapy": "retinoid",
     "useTime": "pm"
+  },
+  {
+    "id": "ord_glycolipid_cleanser",
+    "brand": "The Ordinary",
+    "name": "Glycolipid Cream Cleanser 150ml",
+    "code": "10328369",
+    "role": "cleanser",
+    "boots": "https://www.boots.com/the-ordinary-glycolipid-cream-cleanser150ml-10328369",
+    "why": "Minimalist non-foaming cream cleanser that removes daily impurities without stripping; a useful budget option for dry or sensitive skin.",
+    "image": "assets/products/ord_glycolipid_cleanser.jpg?v=1712",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10328369?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10328369?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "ord_retinal_02",
+    "brand": "The Ordinary",
+    "name": "Retinal 0.2% Emulsion 15ml",
+    "code": "10340633",
+    "role": "retinoid",
+    "boots": "https://www.boots.com/beauty/skincare/facial-skincare/serum-and-treatments/the-ordinary-retinal-0-2-emulsion-serum-15ml-10340633",
+    "why": "High-strength 0.2% retinaldehyde option for advanced age support. Kept as an advanced clinician-selected alternative rather than the default starter retinoid.",
+    "image": "assets/products/ord_retinal_02.jpg?v=1712",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10340633?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10340633?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "retinoid",
+    "useTime": "pm"
+  },
+  {
+    "id": "inkey_az",
+    "brand": "The INKEY List",
+    "name": "SuperSolutions 10% Azelaic Acid Serum 30ml",
+    "code": "3836479",
+    "role": "active",
+    "boots": "https://www.boots.com/the-inkey-list/the-inkey-list-shop-all/supersolutions-10-azelaic-serum-10316417",
+    "why": "Azelaic-acid alternative if The Ordinary is disabled.",
+    "image": "assets/products/inkey_az.jpg?v=172",
+    "imageSourceUrls": [
+      "https://skinstash.pk/cdn/shop/files/Untitleddesign-2024-08-10T170426.209.png?v=1754244477"
+    ],
+    "therapy": "azelaic",
+    "useTime": "pm"
+  },
+  {
+    "id": "inkey_bha",
+    "brand": "The INKEY List",
+    "name": "Beta Hydroxy Acid Serum 30ml",
+    "code": "8644012",
+    "role": "active",
+    "boots": "https://www.boots.com/the-inkey-list-beta-hydroxy-acid-serum-30ml-10271185",
+    "why": "Salicylic/BHA alternative for congestion if The Ordinary is disabled.",
+    "image": "assets/products/inkey_bha.jpg?v=172",
+    "imageSourceUrls": [
+      "https://i.makeup.it/600x600/3jtcxjo28ch4.jpg"
+    ],
+    "therapy": "bha",
+    "useTime": "pm"
+  },
+  {
+    "id": "inkey_bio_ceramide",
+    "brand": "The INKEY List",
+    "name": "Bio-Active Ceramide Moisturizer 50ml",
+    "code": "10339432",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/the-inkey-list-bio-active-ceramide-repairing-and-plumping-moisturizer-50ml-10339432",
+    "why": "Rich ceramide moisturiser with ageing/barrier positioning.",
+    "image": "assets/products/inkey_bio_ceramide.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10339432?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10339432?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10339432?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "inkey_omega",
+    "brand": "The INKEY List",
+    "name": "Omega Water Cream Moisturizer 50ml",
+    "code": "10307463",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/the-inkey-list/the-inkey-list-hydrated-skin/the-inkey-list-omega-water-cream-moisturizer-50ml-10307463",
+    "why": "Light oil-free water cream suited to oily/combination profiles.",
+    "image": "assets/products/inkey_omega.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10307463?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10307463?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10307463?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "inkey_retinol",
+    "brand": "The INKEY List",
+    "name": "Retinol Serum 30ml",
+    "code": "10311217",
+    "role": "retinoid",
+    "boots": "https://www.boots.com/retinol-serum-10311217",
+    "why": "Gradual vitamin-A/retinoid option for early ageing; retained as an alternative but ranked below dedicated wrinkle-focused retinal/retinol products.",
+    "image": "assets/products/inkey_retinol.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10311217?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10311217?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10311217?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "retinoid",
+    "useTime": "pm"
+  },
+  {
+    "id": "inkey_oat_cleanser",
+    "brand": "The INKEY List",
+    "name": "Oat Cleansing Balm 150ml",
+    "code": "10385987",
+    "role": "cleanser",
+    "boots": "https://www.boots.com/the-inkey-list-oat-balm-cleanser-150ml-10385987",
+    "why": "Gentle non-stripping cleansing balm for makeup/SPF removal and dry or sensitive skin; useful as a budget cleanser option.",
+    "image": "assets/products/inkey_oat_cleanser.jpg?v=1712",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10385987?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10385987?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "inkey_peptide_moist",
+    "brand": "The INKEY List",
+    "name": "Peptide Moisturiser 50ml",
+    "code": "10278180",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/beauty/skincare/skin-type/the-inkey-list-peptide-moisturizer-50ml-10278180",
+    "why": "Nourishing peptide moisturiser for dry skin with fine-line support; useful when a budget brand is preferred for base hydration.",
+    "image": "assets/products/inkey_peptide_moist.jpg?v=1712",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10278180?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10278180?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "inkey_advanced_retinal",
+    "brand": "The INKEY List",
+    "name": "Advanced 0.2% Retinal Serum 15ml",
+    "code": "10378709",
+    "role": "retinoid",
+    "boots": "https://www.boots.com/the-inkey-list-advanced-retinal-serum-15ml-10378709",
+    "why": "High-strength encapsulated retinal option for experienced retinoid users; kept below starter retinoids in the automatic clinic ranking.",
+    "image": "assets/products/inkey_advanced_retinal.jpg?v=1712",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10378709?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10378709?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "retinoid",
+    "useTime": "pm"
+  },
+  {
+    "id": "boj_relief",
+    "brand": "Beauty of Joseon",
+    "name": "Relief Sun: Rice + Probiotics SPF50+ PA++++ 50ml",
+    "code": "5218357",
+    "role": "spf",
+    "boots": "https://www.boots.com/beauty-of-joseon-relief-sun--rice-and-probiotics-50ml-10348088",
+    "why": "Comfortable hydrating daily sunscreen; ranked below specialist pigmentation SPFs but excellent for adherence.",
+    "image": "assets/products/boj_relief.jpg?v=172",
+    "imageSourceUrls": [
+      "https://static.sole.ro/cs-photos/products/original/relief-sun-cream-spf-50-crema-de-fata-cu-extract-de-orez-si-probiotice-50-ml_25270_6_1771572043.jpg"
+    ],
+    "therapy": "spf",
+    "useTime": "am"
+  },
+  {
+    "id": "boj_dynasty",
+    "brand": "Beauty of Joseon",
+    "name": "Dynasty Cream 50ml",
+    "code": "10348094",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/beauty-of-joseon-dynasty-cream-50ml-10348094",
+    "why": "Hydrating cream option when Beauty of Joseon is preferred.",
+    "image": "assets/products/boj_dynasty.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10348094?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10348094?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10348094?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "boj_calming",
+    "brand": "Beauty of Joseon",
+    "name": "Calming Serum: Green Tea + Panthenol 30ml",
+    "code": "10377434",
+    "role": "barrier",
+    "boots": "https://www.boots.com/beauty-of-joseon-calming-serum--green-teaandpanthenol-30ml-10377434",
+    "why": "Calming serum option for stressed/reactive skin; a gentler brand-specific support step.",
+    "image": "assets/products/boj_calming.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10377434?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10377434?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10377434?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "barrier",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "boj_green_plum_cleanser",
+    "brand": "Beauty of Joseon",
+    "name": "Green Plum Refreshing Cleanser 100ml",
+    "code": "10352396",
+    "role": "cleanser",
+    "boots": "https://www.boots.com/beauty-of-joseon-green-plum-refreshing-cleanser-100ml-10352396",
+    "why": "Gentle slightly acidic gel cleanser with plum water and mung bean; useful affordable option for normal, combination and mildly sensitive skin.",
+    "image": "assets/products/boj_green_plum_cleanser.jpg?v=1711",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10352396?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10352396?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "boj_red_bean_gel",
+    "brand": "Beauty of Joseon",
+    "name": "Red Bean Water Gel 100ml",
+    "code": "10377438",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/beauty-of-joseon-red-bean-water-gel-100ml-10377438",
+    "why": "Lightweight gel moisturiser for oily/combination skin with red bean, panthenol and peptides; useful when richer creams feel heavy.",
+    "image": "assets/products/boj_red_bean_gel.jpg?v=1711",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10377438?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10377438?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "boj_glow_serum",
+    "brand": "Beauty of Joseon",
+    "name": "Glow Serum: Propolis + Niacinamide 30ml",
+    "code": "10348091",
+    "role": "support",
+    "boots": "https://www.boots.com/beauty-of-joseon-glow-serum--propolis-and-niacinamide-30ml-10348091",
+    "why": "Niacinamide/propolis support for excess sebum, visible pores and hydration; supportive rather than a primary acne treatment.",
+    "image": "assets/products/boj_glow_serum.jpg?v=1711",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10348091?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10348091?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "oil_support",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "boj_glow_deep",
+    "brand": "Beauty of Joseon",
+    "name": "Glow Deep Serum: Rice + Alpha-Arbutin 30ml",
+    "code": "10352393",
+    "role": "pigment",
+    "boots": "https://www.boots.com/beauty-of-joseon-glow-deep-serum--riceandalpha-arbutin-30ml-10352393",
+    "why": "2% alpha-arbutin with rice-water support for uneven tone and visible dark spots; a useful lower-cost pigmentation option.",
+    "image": "assets/products/boj_glow_deep.jpg?v=1711",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10352393?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10352393?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "pigment",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "boj_green_plum_toner",
+    "brand": "Beauty of Joseon",
+    "name": "Green Plum Refreshing Toner AHA + BHA 150ml",
+    "code": "10377436",
+    "role": "active",
+    "boots": "https://www.boots.com/beauty-of-joseon-green-plum-refreshing-toner-aha-and-bha-150ml-10377436",
+    "why": "Gentle AHA/BHA exfoliating toner for texture and clogged pores; ranked below dedicated leave-on BHA options in the conservative congestion pathway.",
+    "image": "assets/products/boj_green_plum_toner.jpg?v=1711",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10377436?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10377436?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "multi_acid",
+    "useTime": "pm"
+  },
+  {
+    "id": "boj_revive_eye",
+    "brand": "Beauty of Joseon",
+    "name": "Revive Eye Serum: Ginseng + Retinal 30ml",
+    "code": "10348093",
+    "role": "eye_ageing",
+    "boots": "https://www.boots.com/beauty-of-joseon-revive-eye-serum-ginseng-and-retinal-30ml-10348093",
+    "why": "Dedicated eye-contour retinal serum for fine lines/crow’s-feet and elasticity. Kept as a clinician-selected eye option rather than triggered automatically by the general X3 wrinkle score.",
+    "image": "assets/products/boj_revive_eye.jpg?v=1711",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10348093?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10348093?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "retinoid_eye",
+    "useTime": "pm"
+  },
+  {
+    "id": "boj_aqua_fresh_spf",
+    "brand": "Beauty of Joseon",
+    "name": "Relief Sun Aqua-Fresh: Rice + B5 SPF50+ 50ml",
+    "code": "10357359",
+    "role": "spf",
+    "boots": "https://www.boots.com/beauty-of-joseon-relief-sun-aqua-fresh-rice-and-b5-spf50and-50ml-10357359",
+    "why": "Lightweight hydrating SPF50+ option that suits combination/oilier skin when the original Relief Sun feels too rich.",
+    "image": "assets/products/boj_aqua_fresh_spf.jpg?v=1711",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10357359?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10357359?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "spf",
+    "useTime": "am"
   },
   {
     "id": "cerave_hydrating",
@@ -186,7 +508,7 @@
     "code": "10315626",
     "role": "retinoid",
     "boots": "https://www.boots.com/cerave-resurfacing-retinol-serum-with-ceramides--niacinamide-for-blemish-prone-skin-30ml-10315626",
-    "why": "Preferred starter retinol in the engine because the automatic schedule is conservative.",
+    "why": "Encapsulated retinol with niacinamide and ceramides; useful and well tolerated, but its primary product positioning is post-acne marks/texture rather than dedicated wrinkle treatment.",
     "image": "assets/products/cerave_retinol.jpg?v=172",
     "imageSourceUrls": [
       "https://labelpara.ma/wp-content/uploads/2024/11/CCER030.jpg"
@@ -208,6 +530,266 @@
     ],
     "therapy": "spf",
     "useTime": "am"
+  },
+  {
+    "id": "cerave_pm",
+    "brand": "CeraVe",
+    "name": "PM Facial Moisturising Lotion 52ml",
+    "code": "10258275",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/beauty/facial-skincare/moisturiser/cerave-facial-moisturising-lotion-52ml-10258275",
+    "why": "Light ceramide/niacinamide moisturiser and reliable core fallback.",
+    "image": "assets/products/cerave_pm.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10258275?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10258275?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10258275?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "cerave_oil_control",
+    "brand": "CeraVe",
+    "name": "Oil Control Moisturising Gel-Cream 52ml",
+    "code": "10345215",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/cerave-oil-control-moistursing-gel-52ml-10345215",
+    "why": "Core lightweight moisturiser for combination/oily skin with barrier support.",
+    "image": "assets/products/cerave_oil_control.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10345215?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10345215?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10345215?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "neutro_hydro_water",
+    "brand": "Neutrogena",
+    "name": "Hydro Boost Water Gel Moisturiser 50ml",
+    "code": "10216727",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/neutrogena-hydro-boost-water-gel-moisturiser-10216727",
+    "why": "Light hydration option for normal/combination skin; fragrance means it ranks below minimalist sensitive-skin choices.",
+    "image": "assets/products/neutro_hydro_water.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10216727?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10216727?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10216727?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "neutro_hydro_gelcream",
+    "brand": "Neutrogena",
+    "name": "Hydro Boost Gel Cream Moisturiser for Dry Skin 50ml",
+    "code": "10216728",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/neutrogena-hydro-boost-gel-cream-moisturiser-10216728",
+    "why": "Hydrating gel-cream with ceramides for dry skin; useful brand-specific fallback.",
+    "image": "assets/products/neutro_hydro_gelcream.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10216728?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10216728?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10216728?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "neutro_clear_defend",
+    "brand": "Neutrogena",
+    "name": "Clear & Defend+ Daily Serum 30ml",
+    "code": "1162225",
+    "role": "active",
+    "boots": "https://www.boots.com/ProductDisplay?catalogId=28501&langId=-1&productId=2651596&storeId=11352",
+    "why": "AHA/BHA/PHA serum for blemishes, pores and post-blemish marks; ranked lower because it is a multi-acid active.",
+    "image": "assets/products/neutro_clear_defend.jpg?v=173",
+    "imageSourceUrls": [
+      "https://images.pharm24.gr/8984894898419489489489348984.jpg"
+    ],
+    "therapy": "multi_acid",
+    "useTime": "pm"
+  },
+  {
+    "id": "neutro_retinol",
+    "brand": "Neutrogena",
+    "name": "Retinol Boost Serum 30ml",
+    "code": "10331381",
+    "role": "retinoid",
+    "boots": "https://www.boots.com/neutrogena-retinol-boost-serum-30ml-10331381",
+    "why": "Dedicated pure-retinol anti-ageing serum targeting fine lines, wrinkles, firmness and tone; ranked ahead of multipurpose/post-acne retinol options.",
+    "image": "assets/products/neutro_retinol.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10331381?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10331381?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10331381?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "retinoid",
+    "useTime": "pm"
+  },
+  {
+    "id": "neutro_hydro_cleanser",
+    "brand": "Neutrogena",
+    "name": "Hydro Boost Fragrance-Free Water Gel Cleanser 200ml",
+    "code": "10346059",
+    "role": "cleanser",
+    "boots": "https://www.boots.com/neutrogena-hydro-boost-water-gel-cleanser-fragrance-free-with-hyaluronic-acid-and-glycerin-200ml-10346059",
+    "why": "Fragrance-free hydrating gel cleanser that respects the barrier and suits sensitive as well as normal/combination skin.",
+    "image": "assets/products/neutro_hydro_cleanser.jpg?v=1712",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10346059?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10346059?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "neutro_nia",
+    "brand": "Neutrogena",
+    "name": "Hydro Boost 10% Niacinamide Serum 30ml",
+    "code": "10365028",
+    "role": "support",
+    "boots": "https://www.boots.com/neutrogena-hydro-boost-niacinamide-serum-30ml-10365028",
+    "why": "Hydrating 10% niacinamide support for visible pores, oiliness and uneven-looking tone; supportive rather than a primary acne treatment.",
+    "image": "assets/products/neutro_nia.jpg?v=1712",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10365028?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10365028?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "oil_support",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "bioderma_sensibio_gel",
+    "brand": "Bioderma",
+    "name": "Sensibio Foaming Gel 200ml",
+    "code": "9213872",
+    "role": "cleanser",
+    "boots": "https://www.boots.com/bioderma-sensibio-foaming-gel-face-wash-for-sensitive-skin-200ml-10364379",
+    "why": "Gentle soap-free cleanser for sensitive skin; useful when a rinse-off gel is preferred.",
+    "image": "assets/products/bioderma_sensibio_gel.jpg?v=172",
+    "imageSourceUrls": [
+      "https://image-cdn.ubuy.com/bioderma-sensibio-foaming-gel/400_400_100/6676cd82dcea845581368b13.jpg"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "bioderma_defensive",
+    "brand": "Bioderma",
+    "name": "Sensibio Defensive Serum 30ml",
+    "code": "5297834",
+    "role": "barrier",
+    "boots": "https://www.boots.com/bioderma/bioderma-face-care/bioderma-sensibio-defensive-serum-soothing-serum-for-sensitive-skin-30ml-10324364",
+    "why": "Soothing barrier-support serum for sensitive/reactive skin with an inflamm-ageing positioning; also provides a mid-range non-retinoid ageing-support fallback.",
+    "image": "assets/products/bioderma_defensive.jpg?v=172",
+    "imageSourceUrls": [
+      "https://detommasis.it/image/cache/catalog/Bioderma%20Sensibio%20Defensive%20Siero%20Idratante_Lenitivo%2030ml-766x1000.png"
+    ],
+    "therapy": "ageing_support",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "bioderma_sebium_hydra",
+    "brand": "Bioderma",
+    "name": "Sébium Ultra-Nourishing Cream 40ml",
+    "code": "6414095",
+    "role": "moisturiser",
+    "boots": "https://www.boots.com/bioderma/bioderma-best-sellers/bioderma-sebium-ultra-nourishing-cream-very-dry-acne-prone-skin-40ml-10202418",
+    "why": "Useful niche moisturiser when acne-prone skin has become very dry/tight.",
+    "image": "assets/products/bioderma_sebium_hydra.jpg?v=172",
+    "imageSourceUrls": [
+      "https://vitamania.kz/image/cache/catalog/easyphoto/bioderma-uvlazhnyayushchiy-krem-sebium-hydra-bioderma-gidra-40-ml-680x680.jpg"
+    ],
+    "therapy": "base",
+    "useTime": "am_pm"
+  },
+  {
+    "id": "bioderma_xdefense",
+    "brand": "Bioderma",
+    "name": "Photoderm XDefense Ultra Fluid SPF50+ 40ml",
+    "code": "9213643",
+    "role": "spf",
+    "boots": "https://www.boots.com/bioderma-photoderm-x-defense-ultra-fluid-spf50-face-sunscreen-40ml-10363690",
+    "why": "Broad environmental/visible-light protection option; lower rank for very reactive skin because the invisible version is fragranced.",
+    "image": "assets/products/bioderma_xdefense.jpg?v=172",
+    "imageSourceUrls": [
+      "https://lafamilleatable.com/cdn/shop/files/03701129813614_C1N1_s02_a16e39c9-1a06-4834-8ef6-f7d69d55d4db.jpg?v=1757585357&width=1445"
+    ],
+    "therapy": "spf",
+    "useTime": "am"
+  },
+  {
+    "id": "bioderma_kerato",
+    "brand": "Bioderma",
+    "name": "Sébium Kerato+ Anti-Blemish Gel-Cream 30ml",
+    "code": "10324365",
+    "role": "active",
+    "boots": "https://www.boots.com/bioderma-sebium-kerato-30ml-anti-blemish-gel-cream-for-acne-prone-skin-30ml-10324365",
+    "why": "Acid-based blemish/comedone option; lower-ranked for reactive skin.",
+    "image": "assets/products/bioderma_kerato.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10324365?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10324365?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10324365?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "bha",
+    "useTime": "pm"
+  },
+  {
+    "id": "bioderma_sebium_serum",
+    "brand": "Bioderma",
+    "name": "Sébium Serum for Adult Acne 30ml",
+    "code": "10332065",
+    "role": "active",
+    "boots": "https://www.boots.com/bioderma-sebium-serum-for-adult-acne-30ml-10332065",
+    "why": "Targets adult blemishes, marks, pores and texture; used as a staged active.",
+    "image": "assets/products/bioderma_sebium_serum.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10332065?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10332065?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10332065?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "multi_acid",
+    "useTime": "pm"
+  },
+  {
+    "id": "bioderma_pigment_c",
+    "brand": "Bioderma",
+    "name": "Pigmentbio C-Concentrate 15ml",
+    "code": "10286771",
+    "role": "pigment",
+    "boots": "https://www.boots.com/bioderma-pigmentbio-brightening-vitamin-c-face-serum-anti-dark-spot-15ml-10286771",
+    "why": "Dedicated Bioderma dark-spot treatment; introduced cautiously as a treatment serum.",
+    "image": "assets/products/bioderma_pigment_c.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10286771?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10286771?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10286771?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "pigment",
+    "useTime": "pm"
+  },
+  {
+    "id": "bioderma_pigment_night",
+    "brand": "Bioderma",
+    "name": "Pigmentbio Night Renewer 50ml",
+    "code": "10286773",
+    "role": "pigment",
+    "boots": "https://www.boots.com/bioderma-pigmentbio-brightening-night-face-cream-anti-dark-spot-50ml-10286773",
+    "why": "Night pigmentation-care option for Bioderma-preferring patients.",
+    "image": "assets/products/bioderma_pigment_night.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10286773?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10286773?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10286773?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "pigment",
+    "useTime": "pm"
   },
   {
     "id": "lrp_dermo",
@@ -291,12 +873,61 @@
     "code": "8752338",
     "role": "retinoid",
     "boots": "https://www.boots.com/la-roche-posay-retinol-b3-serum-30ml-10274729",
-    "why": "Retinol alternative if preferred brands exclude CeraVe/The Ordinary; only for robust skin and later phases.",
+    "why": "Dedicated 0.3% retinol + vitamin B3 anti-ageing serum; ranked first for robust/stable wrinkle treatment because the retinol concentration is disclosed and the formula directly targets lines and wrinkles.",
     "image": "assets/products/lrp_retinol_b3.jpg?v=172",
     "imageSourceUrls": [
       "https://www.bloompharmacy.com/cdn/shop/products/la-roche-posay-retinol-b3-serum-30ml-786576.jpg?v=1687732890"
     ],
     "therapy": "retinoid",
+    "useTime": "pm"
+  },
+  {
+    "id": "lrp_duom",
+    "brand": "La Roche-Posay",
+    "name": "Effaclar Duo+M Anti-Blemish Corrective Care 40ml",
+    "code": "10332063",
+    "role": "active",
+    "boots": "https://www.boots.com/la-roche-posay-effaclar-duo-anti-breakout-corrective-gel-moisturiser-40ml-10332063",
+    "why": "Blemish/post-mark option for oily skin; contains exfoliating actives, so it is staged.",
+    "image": "assets/products/lrp_duom.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10332063?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10332063?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10332063?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "blemish_acid",
+    "useTime": "pm"
+  },
+  {
+    "id": "lrp_hyalu_b5",
+    "brand": "La Roche-Posay",
+    "name": "Hyalu B5 Suractivated Serum 30ml",
+    "code": "9295844",
+    "role": "ageing",
+    "boots": "https://www.boots.com/ProductDisplay?catalogId=28501&langId=-1&productId=3149718&storeId=11352",
+    "why": "Hydrating non-retinoid ageing support with hyaluronic acid and vitamin B5.",
+    "image": "assets/products/lrp_hyalu_b5.jpg?v=173",
+    "imageSourceUrls": [
+      "https://www.laroche-posay.co.uk/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/en_GB/dw4447b050/LRP_Product/HyaluB5suractivatedserum/LaRochePosay-Product-Skincare-HyaluB5-suractivated-serum-3337875920582-ATF-PIM-Packshot_1.jpg?q=90&sfrm=jpg&sh=900&sm=fit&sw=900"
+    ],
+    "therapy": "ageing_support",
+    "useTime": "pm"
+  },
+  {
+    "id": "lrp_melab3",
+    "brand": "La Roche-Posay",
+    "name": "MelaB3 Intense Anti-Dark Spot Serum 30ml",
+    "code": "10340939",
+    "role": "pigment",
+    "boots": "https://www.boots.com/la-roche-posay-mela-b3-intense-anti-dark-spots-serum-30ml-10340939",
+    "why": "Dedicated hyperpigmentation/post-acne-mark serum; useful when La Roche-Posay is the preferred brand. Kept as a separate staged pigmentation treatment in the conservative engine.",
+    "image": "assets/products/lrp_melab3.jpg?v=172",
+    "imageSourceUrls": [
+      "https://boots.scene7.com/is/image/Boots/10340939?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10340939?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10340939?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+    ],
+    "therapy": "pigment",
     "useTime": "pm"
   },
   {
@@ -361,156 +992,6 @@
     "useTime": "am_pm"
   },
   {
-    "id": "bioderma_sensibio_gel",
-    "brand": "Bioderma",
-    "name": "Sensibio Foaming Gel 200ml",
-    "code": "9213872",
-    "role": "cleanser",
-    "boots": "https://www.boots.com/bioderma-sensibio-foaming-gel-face-wash-for-sensitive-skin-200ml-10364379",
-    "why": "Gentle soap-free cleanser for sensitive skin; useful when a rinse-off gel is preferred.",
-    "image": "assets/products/bioderma_sensibio_gel.jpg?v=172",
-    "imageSourceUrls": [
-      "https://image-cdn.ubuy.com/bioderma-sensibio-foaming-gel/400_400_100/6676cd82dcea845581368b13.jpg"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "bioderma_defensive",
-    "brand": "Bioderma",
-    "name": "Sensibio Defensive Serum 30ml",
-    "code": "5297834",
-    "role": "barrier",
-    "boots": "https://www.boots.com/bioderma/bioderma-face-care/bioderma-sensibio-defensive-serum-soothing-serum-for-sensitive-skin-30ml-10324364",
-    "why": "Strong sensitive-skin barrier/soothing alternative if The Ordinary is disabled.",
-    "image": "assets/products/bioderma_defensive.jpg?v=172",
-    "imageSourceUrls": [
-      "https://detommasis.it/image/cache/catalog/Bioderma%20Sensibio%20Defensive%20Siero%20Idratante_Lenitivo%2030ml-766x1000.png"
-    ],
-    "therapy": "barrier",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "bioderma_sebium_hydra",
-    "brand": "Bioderma",
-    "name": "Sébium Ultra-Nourishing Cream 40ml",
-    "code": "6414095",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/bioderma/bioderma-best-sellers/bioderma-sebium-ultra-nourishing-cream-very-dry-acne-prone-skin-40ml-10202418",
-    "why": "Useful niche moisturiser when acne-prone skin has become very dry/tight.",
-    "image": "assets/products/bioderma_sebium_hydra.jpg?v=172",
-    "imageSourceUrls": [
-      "https://vitamania.kz/image/cache/catalog/easyphoto/bioderma-uvlazhnyayushchiy-krem-sebium-hydra-bioderma-gidra-40-ml-680x680.jpg"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "bioderma_xdefense",
-    "brand": "Bioderma",
-    "name": "Photoderm XDefense Ultra Fluid SPF50+ 40ml",
-    "code": "9213643",
-    "role": "spf",
-    "boots": "https://www.boots.com/bioderma-photoderm-x-defense-ultra-fluid-spf50-face-sunscreen-40ml-10363690",
-    "why": "Broad environmental/visible-light protection option; lower rank for very reactive skin because the invisible version is fragranced.",
-    "image": "assets/products/bioderma_xdefense.jpg?v=172",
-    "imageSourceUrls": [
-      "https://lafamilleatable.com/cdn/shop/files/03701129813614_C1N1_s02_a16e39c9-1a06-4834-8ef6-f7d69d55d4db.jpg?v=1757585357&width=1445"
-    ],
-    "therapy": "spf",
-    "useTime": "am"
-  },
-  {
-    "id": "eucerin_dual",
-    "brand": "Eucerin",
-    "name": "Anti-Pigment Dual Serum 30ml",
-    "code": "8329117",
-    "role": "pigment",
-    "boots": "https://www.boots.com/toiletries/skincare/shop-skincare-ingredients/eucerin-anti-pigment-dual-serum-thiamidol-and-hyaluronic-acid-10256457",
-    "why": "Top-ranked pigment-only serum in robust skin due to dedicated Thiamidol dark-spot targeting.",
-    "image": "assets/products/eucerin_dual.jpg?v=172",
-    "imageSourceUrls": [
-      "https://meikrem.vtexassets.com/arquivos/ids/159540/AntipigmentDual-Eucerin-Serum.jpg.jpg?v=638785302498630000"
-    ],
-    "therapy": "pigment_am",
-    "useTime": "am"
-  },
-  {
-    "id": "eucerin_pigment_spf",
-    "brand": "Eucerin",
-    "name": "Sun Pigment Control SPF50+ 50ml",
-    "code": "8379564",
-    "role": "spf",
-    "boots": "https://www.boots.com/eucerin-sun-pigment-control-spf50-50ml-10265714",
-    "why": "Excellent SPF50+ choice for hyperpigmentation; combines UV/HEVIS protection with Thiamidol.",
-    "image": "assets/products/eucerin_pigment_spf.jpg?v=172",
-    "imageSourceUrls": [
-      "https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/media-center-items/6/4/c/8b0b5e3d67f24a11a5b25b7b8f409cd1-screen.jpg"
-    ],
-    "therapy": "spf",
-    "useTime": "am"
-  },
-  {
-    "id": "eucerin_oil_spf",
-    "brand": "Eucerin",
-    "name": "Sun Oil Control Dry Touch SPF50+ 50ml",
-    "code": "8061300",
-    "role": "spf",
-    "boots": "https://www.boots.com/eucerin-sun-oil-control-face-protection-spf-50-10242719",
-    "why": "High-ranked oily/acne-prone SPF50+ with a matte finish.",
-    "image": "assets/products/eucerin_oil_spf.jpg?v=172",
-    "imageSourceUrls": [
-      "https://m.media-amazon.com/images/I/61ItGj7kJ-L.jpg"
-    ],
-    "therapy": "spf",
-    "useTime": "am"
-  },
-  {
-    "id": "boj_relief",
-    "brand": "Beauty of Joseon",
-    "name": "Relief Sun: Rice + Probiotics SPF50+ PA++++ 50ml",
-    "code": "5218357",
-    "role": "spf",
-    "boots": "https://www.boots.com/beauty-of-joseon-relief-sun--rice-and-probiotics-50ml-10348088",
-    "why": "Comfortable hydrating daily sunscreen; ranked below specialist pigmentation SPFs but excellent for adherence.",
-    "image": "assets/products/boj_relief.jpg?v=172",
-    "imageSourceUrls": [
-      "https://static.sole.ro/cs-photos/products/original/relief-sun-cream-spf-50-crema-de-fata-cu-extract-de-orez-si-probiotice-50-ml_25270_6_1771572043.jpg"
-    ],
-    "therapy": "spf",
-    "useTime": "am"
-  },
-  {
-    "id": "inkey_az",
-    "brand": "The INKEY List",
-    "name": "SuperSolutions 10% Azelaic Acid Serum 30ml",
-    "code": "3836479",
-    "role": "active",
-    "boots": "https://www.boots.com/the-inkey-list/the-inkey-list-shop-all/supersolutions-10-azelaic-serum-10316417",
-    "why": "Azelaic-acid alternative if The Ordinary is disabled.",
-    "image": "assets/products/inkey_az.jpg?v=172",
-    "imageSourceUrls": [
-      "https://skinstash.pk/cdn/shop/files/Untitleddesign-2024-08-10T170426.209.png?v=1754244477"
-    ],
-    "therapy": "azelaic",
-    "useTime": "pm"
-  },
-  {
-    "id": "inkey_bha",
-    "brand": "The INKEY List",
-    "name": "Beta Hydroxy Acid Serum 30ml",
-    "code": "8644012",
-    "role": "active",
-    "boots": "https://www.boots.com/the-inkey-list-beta-hydroxy-acid-serum-30ml-10271185",
-    "why": "Salicylic/BHA alternative for congestion if The Ordinary is disabled.",
-    "image": "assets/products/inkey_bha.jpg?v=172",
-    "imageSourceUrls": [
-      "https://i.makeup.it/600x600/3jtcxjo28ch4.jpg"
-    ],
-    "therapy": "bha",
-    "useTime": "pm"
-  },
-  {
     "id": "avene_comedomed",
     "brand": "Avène",
     "name": "Cleanance Comedomed Anti-Blemish Care 30ml",
@@ -551,7 +1032,7 @@
     "code": "10323735",
     "role": "retinoid",
     "boots": "https://www.boots.com/avene-hyaluron-activ-b3-night-cream-40ml-10323735",
-    "why": "Retinal-containing Avène ageing treatment; reserved for a later stable phase.",
+    "why": "Dedicated retinal anti-wrinkle night treatment for stable, non-irritated skin; ranked high because retinaldehyde has direct clinical evidence for photoageing.",
     "image": "assets/products/avene_retinal_night.jpg?v=172",
     "imageSourceUrls": [
       "https://boots.scene7.com/is/image/Boots/10323735?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
@@ -613,72 +1094,66 @@
     "useTime": "am_pm"
   },
   {
-    "id": "bioderma_kerato",
-    "brand": "Bioderma",
-    "name": "Sébium Kerato+ Anti-Blemish Gel-Cream 30ml",
-    "code": "10324365",
-    "role": "active",
-    "boots": "https://www.boots.com/bioderma-sebium-kerato-30ml-anti-blemish-gel-cream-for-acne-prone-skin-30ml-10324365",
-    "why": "Acid-based blemish/comedone option; lower-ranked for reactive skin.",
-    "image": "assets/products/bioderma_kerato.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10324365?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10324365?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10324365?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "bha",
-    "useTime": "pm"
-  },
-  {
-    "id": "bioderma_sebium_serum",
-    "brand": "Bioderma",
-    "name": "Sébium Serum for Adult Acne 30ml",
-    "code": "10332065",
-    "role": "active",
-    "boots": "https://www.boots.com/bioderma-sebium-serum-for-adult-acne-30ml-10332065",
-    "why": "Targets adult blemishes, marks, pores and texture; used as a staged active.",
-    "image": "assets/products/bioderma_sebium_serum.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10332065?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10332065?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10332065?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "multi_acid",
-    "useTime": "pm"
-  },
-  {
-    "id": "bioderma_pigment_c",
-    "brand": "Bioderma",
-    "name": "Pigmentbio C-Concentrate 15ml",
-    "code": "10286771",
+    "id": "avene_vitamin_cg",
+    "brand": "Avène",
+    "name": "Vitamin Activ Cg Radiance Concentrated Serum 30ml",
+    "code": "10357585",
     "role": "pigment",
-    "boots": "https://www.boots.com/bioderma-pigmentbio-brightening-vitamin-c-face-serum-anti-dark-spot-15ml-10286771",
-    "why": "Dedicated Bioderma dark-spot treatment; introduced cautiously as a treatment serum.",
-    "image": "assets/products/bioderma_pigment_c.jpg?v=172",
+    "boots": "https://www.boots.com/beauty/skincare/facial-skincare/serum-and-treatments/avene-vitamin-activ-cg-radiance-concentrated-serum-30ml-10357585",
+    "why": "Avène treatment option for dark spots/radiance with Vitamin Cg, niacinamide and bakuchiol; also provides non-retinoid ageing support.",
+    "image": "assets/products/avene_vitamin_cg.jpg?v=172",
     "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10286771?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10286771?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10286771?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+      "https://boots.scene7.com/is/image/Boots/10357585?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
+      "https://boots.scene7.com/is/image/Boots/10357585?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
+      "https://boots.scene7.com/is/image/Boots/10357585?wid=1000&hei=1000&fmt=jpeg&qlt=95"
     ],
     "therapy": "pigment",
     "useTime": "pm"
   },
   {
-    "id": "bioderma_pigment_night",
-    "brand": "Bioderma",
-    "name": "Pigmentbio Night Renewer 50ml",
-    "code": "10286773",
+    "id": "eucerin_dual",
+    "brand": "Eucerin",
+    "name": "Anti-Pigment Dual Serum 30ml",
+    "code": "8329117",
     "role": "pigment",
-    "boots": "https://www.boots.com/bioderma-pigmentbio-brightening-night-face-cream-anti-dark-spot-50ml-10286773",
-    "why": "Night pigmentation-care option for Bioderma-preferring patients.",
-    "image": "assets/products/bioderma_pigment_night.jpg?v=172",
+    "boots": "https://www.boots.com/toiletries/skincare/shop-skincare-ingredients/eucerin-anti-pigment-dual-serum-thiamidol-and-hyaluronic-acid-10256457",
+    "why": "Top-ranked pigment-only serum in robust skin due to dedicated Thiamidol dark-spot targeting.",
+    "image": "assets/products/eucerin_dual.jpg?v=172",
     "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10286773?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10286773?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10286773?wid=1000&hei=1000&fmt=jpeg&qlt=95"
+      "https://meikrem.vtexassets.com/arquivos/ids/159540/AntipigmentDual-Eucerin-Serum.jpg.jpg?v=638785302498630000"
     ],
-    "therapy": "pigment",
-    "useTime": "pm"
+    "therapy": "pigment_am",
+    "useTime": "am"
+  },
+  {
+    "id": "eucerin_pigment_spf",
+    "brand": "Eucerin",
+    "name": "Sun Pigment Control SPF50+ 50ml",
+    "code": "8379564",
+    "role": "spf",
+    "boots": "https://www.boots.com/eucerin-sun-pigment-control-spf50-50ml-10265714",
+    "why": "Excellent SPF50+ choice for hyperpigmentation; combines UV/HEVIS protection with Thiamidol.",
+    "image": "assets/products/eucerin_pigment_spf.jpg?v=172",
+    "imageSourceUrls": [
+      "https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/media-center-items/6/4/c/8b0b5e3d67f24a11a5b25b7b8f409cd1-screen.jpg"
+    ],
+    "therapy": "spf",
+    "useTime": "am"
+  },
+  {
+    "id": "eucerin_oil_spf",
+    "brand": "Eucerin",
+    "name": "Sun Oil Control Dry Touch SPF50+ 50ml",
+    "code": "8061300",
+    "role": "spf",
+    "boots": "https://www.boots.com/eucerin-sun-oil-control-face-protection-spf-50-10242719",
+    "why": "High-ranked oily/acne-prone SPF50+ with a matte finish.",
+    "image": "assets/products/eucerin_oil_spf.jpg?v=172",
+    "imageSourceUrls": [
+      "https://m.media-amazon.com/images/I/61ItGj7kJ-L.jpg"
+    ],
+    "therapy": "spf",
+    "useTime": "am"
   },
   {
     "id": "eucerin_dp_cleanser",
@@ -764,492 +1239,5 @@
     ],
     "therapy": "rescue",
     "useTime": "am_pm"
-  },
-  {
-    "id": "lrp_duom",
-    "brand": "La Roche-Posay",
-    "name": "Effaclar Duo+M Anti-Blemish Corrective Care 40ml",
-    "code": "10332063",
-    "role": "active",
-    "boots": "https://www.boots.com/la-roche-posay-effaclar-duo-anti-breakout-corrective-gel-moisturiser-40ml-10332063",
-    "why": "Blemish/post-mark option for oily skin; contains exfoliating actives, so it is staged.",
-    "image": "assets/products/lrp_duom.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10332063?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10332063?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10332063?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "blemish_acid",
-    "useTime": "pm"
-  },
-  {
-    "id": "lrp_hyalu_b5",
-    "brand": "La Roche-Posay",
-    "name": "Hyalu B5 Suractivated Serum 30ml",
-    "code": "9295844",
-    "role": "ageing",
-    "boots": "https://www.boots.com/ProductDisplay?catalogId=28501&langId=-1&productId=3149718&storeId=11352",
-    "why": "Hydrating non-retinoid ageing support with hyaluronic acid and vitamin B5.",
-    "image": "assets/products/lrp_hyalu_b5.jpg?v=173",
-    "imageSourceUrls": [
-      "https://www.laroche-posay.co.uk/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/en_GB/dw4447b050/LRP_Product/HyaluB5suractivatedserum/LaRochePosay-Product-Skincare-HyaluB5-suractivated-serum-3337875920582-ATF-PIM-Packshot_1.jpg?q=90&sfrm=jpg&sh=900&sm=fit&sw=900"
-    ],
-    "therapy": "ageing_support",
-    "useTime": "pm"
-  },
-  {
-    "id": "cerave_pm",
-    "brand": "CeraVe",
-    "name": "PM Facial Moisturising Lotion 52ml",
-    "code": "10258275",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/beauty/facial-skincare/moisturiser/cerave-facial-moisturising-lotion-52ml-10258275",
-    "why": "Light ceramide/niacinamide moisturiser and reliable core fallback.",
-    "image": "assets/products/cerave_pm.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10258275?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10258275?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10258275?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "cerave_oil_control",
-    "brand": "CeraVe",
-    "name": "Oil Control Moisturising Gel-Cream 52ml",
-    "code": "10345215",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/cerave-oil-control-moistursing-gel-52ml-10345215",
-    "why": "Core lightweight moisturiser for combination/oily skin with barrier support.",
-    "image": "assets/products/cerave_oil_control.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10345215?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10345215?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10345215?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "inkey_bio_ceramide",
-    "brand": "The INKEY List",
-    "name": "Bio-Active Ceramide Moisturizer 50ml",
-    "code": "10339432",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/the-inkey-list-bio-active-ceramide-repairing-and-plumping-moisturizer-50ml-10339432",
-    "why": "Rich ceramide moisturiser with ageing/barrier positioning.",
-    "image": "assets/products/inkey_bio_ceramide.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10339432?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10339432?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10339432?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "inkey_omega",
-    "brand": "The INKEY List",
-    "name": "Omega Water Cream Moisturizer 50ml",
-    "code": "10307463",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/the-inkey-list/the-inkey-list-hydrated-skin/the-inkey-list-omega-water-cream-moisturizer-50ml-10307463",
-    "why": "Light oil-free water cream suited to oily/combination profiles.",
-    "image": "assets/products/inkey_omega.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10307463?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10307463?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10307463?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "inkey_retinol",
-    "brand": "The INKEY List",
-    "name": "Retinol Serum 30ml",
-    "code": "10311217",
-    "role": "retinoid",
-    "boots": "https://www.boots.com/retinol-serum-10311217",
-    "why": "Retinoid alternative with gradual introduction instructions.",
-    "image": "assets/products/inkey_retinol.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10311217?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10311217?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10311217?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "retinoid",
-    "useTime": "pm"
-  },
-  {
-    "id": "boj_dynasty",
-    "brand": "Beauty of Joseon",
-    "name": "Dynasty Cream 50ml",
-    "code": "10348094",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/beauty-of-joseon-dynasty-cream-50ml-10348094",
-    "why": "Hydrating cream option when Beauty of Joseon is preferred.",
-    "image": "assets/products/boj_dynasty.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10348094?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10348094?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10348094?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "boj_calming",
-    "brand": "Beauty of Joseon",
-    "name": "Calming Serum: Green Tea + Panthenol 30ml",
-    "code": "10377434",
-    "role": "barrier",
-    "boots": "https://www.boots.com/beauty-of-joseon-calming-serum--green-teaandpanthenol-30ml-10377434",
-    "why": "Calming serum option for stressed/reactive skin; a gentler brand-specific support step.",
-    "image": "assets/products/boj_calming.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10377434?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10377434?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10377434?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "barrier",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "cet_gentle_cleanser",
-    "brand": "Cetaphil",
-    "name": "Gentle Skin Cleanser 236ml",
-    "code": "10314958",
-    "role": "cleanser",
-    "boots": "https://www.boots.com/cetaphil-/cetaphil-face/cetaphil-gentle-skin-cleanser-236ml-10314958",
-    "why": "Strong sensitive-skin cleanser alternative with a simple, non-stripping profile.",
-    "image": "assets/products/cet_gentle_cleanser.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10314958?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10314958?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10314958?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "cet_oily_cleanser",
-    "brand": "Cetaphil",
-    "name": "Oily Skin Cleanser 236ml",
-    "code": "10314959",
-    "role": "cleanser",
-    "boots": "https://www.boots.com/cetaphil-oily-skin-cleanser-236ml-10314959",
-    "why": "Sensitive-skin-friendly cleanser for combination/oily profiles.",
-    "image": "assets/products/cet_oily_cleanser.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10314959?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10314959?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10314959?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "cet_moist_lotion",
-    "brand": "Cetaphil",
-    "name": "Moisturising Lotion 236ml",
-    "code": "10314962",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/cetaphil-moisturising-lotion-236ml-10314962",
-    "why": "Straightforward lightweight sensitive-skin moisturiser.",
-    "image": "assets/products/cet_moist_lotion.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10314962?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10314962?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10314962?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "cet_daily_defence",
-    "brand": "Cetaphil",
-    "name": "Daily Defence Cream SPF50 50g",
-    "code": "10246697",
-    "role": "spf",
-    "boots": "https://www.boots.com/cetaphil-daily-defence-moisturiser-10246697",
-    "why": "Sensitive-skin SPF50 option when Cetaphil is preferred.",
-    "image": "assets/products/cet_daily_defence.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10246697?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10246697?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10246697?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "spf",
-    "useTime": "am"
-  },
-  {
-    "id": "cet_redness_cleanser",
-    "brand": "Cetaphil",
-    "name": "PRO Redness Prone Cleansing Wash 236ml",
-    "code": "8795282",
-    "role": "cleanser",
-    "boots": "https://www.boots.com/ProductDisplay?catalogId=28501&langId=-1&productId=2367458&storeId=11352",
-    "why": "Gentle cleanser for sensitive redness-prone skin; useful only when the safety screen does not require medical review.",
-    "image": "assets/products/cet_redness_cleanser.jpg?v=173",
-    "imageSourceUrls": [
-      "https://image-cdn.ubuy.com/cetaphil-face-wash-236ml-pro-cleansing/400_400_100/64d64a0c98e12744723661a7.jpg"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "cet_redness_night",
-    "brand": "Cetaphil",
-    "name": "PRO Redness Prone Skin Moisturising Night Cream 50ml",
-    "code": "10276942",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/cetaphil-pro-moisturising-night-cream-50ml-10276942",
-    "why": "Rich sensitive/redness-prone moisturiser for recovery phases.",
-    "image": "assets/products/cet_redness_night.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10276942?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10276942?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10276942?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "vichy_m89",
-    "brand": "Vichy",
-    "name": "Minéral 89 Hyaluronic Acid Hydrating Serum 50ml",
-    "code": "10237663",
-    "role": "barrier",
-    "boots": "https://www.boots.com/vichy/vichy-bestsellers/mineral-89-hyaluronic-acid-hydrating-serum-50ml-10237663",
-    "why": "Hydration/barrier support; useful Vichy fallback without adding an exfoliating active.",
-    "image": "assets/products/vichy_m89.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10237663?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10237663?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10237663?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "barrier",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "vichy_m89_probiotic",
-    "brand": "Vichy",
-    "name": "Minéral 89 Probiotic Fractions Recovery Serum 30ml",
-    "code": "10297029",
-    "role": "barrier",
-    "boots": "https://www.boots.com/vichy-min%C3%89ral-89-probiotic-fractions-recovery-serum-for-stressed-skin-30ml-10297029",
-    "why": "Recovery-focused Vichy serum for stressed skin.",
-    "image": "assets/products/vichy_m89_probiotic.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10297029?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10297029?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10297029?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "barrier",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "vichy_m89_rich",
-    "brand": "Vichy",
-    "name": "Minéral 89 Rich Hydrating Cream 50ml",
-    "code": "10341275",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/vichy-min%C3%89ral-89-100h-hyaluronic-acid-rich-hydrating-cream-dry-skin-50ml-10341275",
-    "why": "Rich hydration option for dry Vichy-preferring patients.",
-    "image": "assets/products/vichy_m89_rich.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10341275?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10341275?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10341275?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "vichy_m89_spf",
-    "brand": "Vichy",
-    "name": "Minéral 89 Daily Fluid SPF50+ 50ml",
-    "code": "10340451",
-    "role": "spf",
-    "boots": "https://www.boots.com/vichy/vichy-skincare/vichy-mineral-89-72h-moisture-boosting-daily-fluid-spf50and-hyaluronic-acid-50ml-10340451",
-    "why": "Hydrating fragrance-free SPF50+ tested on sensitive skin.",
-    "image": "assets/products/vichy_m89_spf.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10340451?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10340451?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10340451?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "spf",
-    "useTime": "am"
-  },
-  {
-    "id": "vichy_normaderm_cleanser",
-    "brand": "Vichy",
-    "name": "Normaderm Phytosolution Purifying Gel 200ml",
-    "code": "10263630",
-    "role": "cleanser",
-    "boots": "https://www.boots.com/vichy-normaderm-phytosolution-purifying-gel-face-wash-200ml-10263630",
-    "why": "Oily/blemish cleanser; lower-ranked in sensitive profiles because it is an active cleansing route.",
-    "image": "assets/products/vichy_normaderm_cleanser.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10263630?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10263630?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10263630?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "vichy_normaderm_double",
-    "brand": "Vichy",
-    "name": "Normaderm Phytosolution Double-Correction Daily Care 50ml",
-    "code": "10263627",
-    "role": "active",
-    "boots": "https://www.boots.com/vichy-normaderm-phytosolution-double-correct-daily-moisturiser-50ml-10263627",
-    "why": "Brand-specific blemish/oil option with exfoliating activity; staged rather than treated as a plain moisturiser.",
-    "image": "assets/products/vichy_normaderm_double.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10263627?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10263627?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10263627?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "blemish_acid",
-    "useTime": "pm"
-  },
-  {
-    "id": "vichy_b3_darkspot",
-    "brand": "Vichy",
-    "name": "Liftactiv B3 Dark Spots & Pigmentation Serum 30ml",
-    "code": "10306572",
-    "role": "pigment",
-    "boots": "https://www.boots.com/beauty/skincare/skin-type/vichy-liftactiv-b3-dark-spot-and-wrinkles-serum-30ml-10306572",
-    "why": "Dedicated dark-spot serum; used as the single pigment active in its phase.",
-    "image": "assets/products/vichy_b3_darkspot.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10306572?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10306572?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10306572?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "pigment",
-    "useTime": "pm"
-  },
-  {
-    "id": "vichy_collagen16",
-    "brand": "Vichy",
-    "name": "Liftactiv Collagen Specialist 16 Bonding Serum 30ml",
-    "code": "10354938",
-    "role": "ageing",
-    "boots": "https://www.boots.com/beauty/skincare/skin-type/vichy-liftactiv-collagen-specialist-16-bonding-serum-30ml-10354938",
-    "why": "Non-retinoid ageing serum for a Vichy-preferred later phase.",
-    "image": "assets/products/vichy_collagen16.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10354938?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10354938?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10354938?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "ageing_support",
-    "useTime": "pm"
-  },
-  {
-    "id": "neutro_hydro_water",
-    "brand": "Neutrogena",
-    "name": "Hydro Boost Water Gel Moisturiser 50ml",
-    "code": "10216727",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/neutrogena-hydro-boost-water-gel-moisturiser-10216727",
-    "why": "Light hydration option for normal/combination skin; fragrance means it ranks below minimalist sensitive-skin choices.",
-    "image": "assets/products/neutro_hydro_water.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10216727?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10216727?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10216727?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "neutro_hydro_gelcream",
-    "brand": "Neutrogena",
-    "name": "Hydro Boost Gel Cream Moisturiser for Dry Skin 50ml",
-    "code": "10216728",
-    "role": "moisturiser",
-    "boots": "https://www.boots.com/neutrogena-hydro-boost-gel-cream-moisturiser-10216728",
-    "why": "Hydrating gel-cream with ceramides for dry skin; useful brand-specific fallback.",
-    "image": "assets/products/neutro_hydro_gelcream.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10216728?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10216728?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10216728?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "base",
-    "useTime": "am_pm"
-  },
-  {
-    "id": "neutro_clear_defend",
-    "brand": "Neutrogena",
-    "name": "Clear & Defend+ Daily Serum 30ml",
-    "code": "1162225",
-    "role": "active",
-    "boots": "https://www.boots.com/ProductDisplay?catalogId=28501&langId=-1&productId=2651596&storeId=11352",
-    "why": "AHA/BHA/PHA serum for blemishes, pores and post-blemish marks; ranked lower because it is a multi-acid active.",
-    "image": "assets/products/neutro_clear_defend.jpg?v=173",
-    "imageSourceUrls": [
-      "https://images.pharm24.gr/8984894898419489489489348984.jpg"
-    ],
-    "therapy": "multi_acid",
-    "useTime": "pm"
-  },
-  {
-    "id": "neutro_retinol",
-    "brand": "Neutrogena",
-    "name": "Retinol Boost Serum 30ml",
-    "code": "10331381",
-    "role": "retinoid",
-    "boots": "https://www.boots.com/neutrogena-retinol-boost-serum-30ml-10331381",
-    "why": "Retinol option with manufacturer guidance to phase in gradually.",
-    "image": "assets/products/neutro_retinol.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10331381?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10331381?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10331381?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "retinoid",
-    "useTime": "pm"
-  },
-  {
-    "id": "lrp_melab3",
-    "brand": "La Roche-Posay",
-    "name": "MelaB3 Intense Anti-Dark Spot Serum 30ml",
-    "code": "10340939",
-    "role": "pigment",
-    "boots": "https://www.boots.com/la-roche-posay-mela-b3-intense-anti-dark-spots-serum-30ml-10340939",
-    "why": "Dedicated hyperpigmentation/post-acne-mark serum; useful when La Roche-Posay is the preferred brand. Kept as a separate staged pigmentation treatment in the conservative engine.",
-    "image": "assets/products/lrp_melab3.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10340939?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10340939?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10340939?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "pigment",
-    "useTime": "pm"
-  },
-  {
-    "id": "avene_vitamin_cg",
-    "brand": "Avène",
-    "name": "Vitamin Activ Cg Radiance Concentrated Serum 30ml",
-    "code": "10357585",
-    "role": "pigment",
-    "boots": "https://www.boots.com/beauty/skincare/facial-skincare/serum-and-treatments/avene-vitamin-activ-cg-radiance-concentrated-serum-30ml-10357585",
-    "why": "Avène treatment option for dark spots/radiance with Vitamin Cg, niacinamide and bakuchiol; also provides non-retinoid ageing support.",
-    "image": "assets/products/avene_vitamin_cg.jpg?v=172",
-    "imageSourceUrls": [
-      "https://boots.scene7.com/is/image/Boots/10357585?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1",
-      "https://boots.scene7.com/is/image/Boots/10357585?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha",
-      "https://boots.scene7.com/is/image/Boots/10357585?wid=1000&hei=1000&fmt=jpeg&qlt=95"
-    ],
-    "therapy": "pigment",
-    "useTime": "pm"
   }
 ]
