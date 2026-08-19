@@ -1,4 +1,4 @@
-SkinPlan v17.21.4 demo import link
+SkinPlan v17.21.5 demo import link
 
 Paste this exact URL into the X3 report field after login:
 

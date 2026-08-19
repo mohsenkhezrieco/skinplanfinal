@@ -1,7 +1,7 @@
 {
   "name": "skinplan-clinic-production",
   "private": true,
-  "version": "17.21.4",
+  "version": "17.21.5",
   "type": "module",
   "dependencies": {}
 }
