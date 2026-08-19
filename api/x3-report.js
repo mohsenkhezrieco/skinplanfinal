@@ -1,3 +1,4 @@
+import {requireSession,sameOrigin} from './_private/auth.mjs';
 const METRICS = [
   ['acne',['pockmark','reflection']],
   ['blackhead',['blackhead']],
@@ -52,7 +53,7 @@ function pick(a,paths){
   return [null,null];
 }
 
-function sanitize(raw,shareId){
+function sanitize(raw){
   const a=raw?.analysis;
   if(!a)throw new Error('X3 response did not contain an analysis object.');
 
@@ -67,7 +68,6 @@ function sanitize(raw,shareId){
   if(!/^[OD][SR][PN][WT]$/.test(baumann))throw new Error('Valid Baumann type was not found in the X3 response.');
 
   return {
-    shareId,
     baumann,
     moisture:a.water?.result??a.water?.score??null,
     skinAge:a.age?.result??null,
@@ -77,6 +77,8 @@ function sanitize(raw,shareId){
 }
 
 export async function POST(request){
+  const auth=await requireSession(request);if(auth)return auth;
+  if(!sameOrigin(request))return Response.json({error:'Origin rejected.'},{status:403,headers:{'Cache-Control':'no-store'}});
   try{
     const body=await request.json();
     const {shareId,qrId}=parseReportUrl(body?.url);
@@ -111,7 +113,7 @@ export async function POST(request){
       return Response.json({error:`X3 API error ${raw.code}.`},{status:502,headers:{'Cache-Control':'no-store'}});
     }
 
-    const clean=sanitize(raw,shareId);
+    const clean=sanitize(raw);
     return Response.json(clean,{
       status:200,
       headers:{
@@ -128,9 +130,4 @@ export async function POST(request){
   }
 }
 
-export function GET(){
-  return Response.json(
-    {ok:true,service:'SkinPlan X3 report importer'},
-    {headers:{'Cache-Control':'no-store'}}
-  );
-}
+export function GET(){return new Response(null,{status:405,headers:{'Allow':'POST','Cache-Control':'no-store'}})}

@@ -3,1074 +3,284 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SkinPlan Clinic v17.14.0</title>
-<meta name="theme-color" content="#272764">
-<link rel="manifest" href="manifest.webmanifest">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>SkinPlan Clinic — Sign in</title>
+<meta name="theme-color" content="#f5efe6">
 <style>
-:root{--bg:#121438;--panel:#272764;--panel2:#303078;--line:#454597;--purple:#6252ff;--pink:#f35ac8;--cyan:#50d7ff;--text:#fff;--muted:#bcc2ea;--white:#fff;--ink:#102348;--soft:#f4f7fb;--red:#ff4f70;--amber:#f2a84a;--green:#2fc7a0}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#10122f,#151741 60%,#10122f);color:var(--text)}
-button,input,select{font:inherit} a{color:inherit}
-.shell{max-width:1220px;margin:auto;padding:22px}
-.hero{display:flex;justify-content:space-between;gap:18px;align-items:center;background:linear-gradient(135deg,#29286d,#2f2a72 55%,#1e245c);border:1px solid #43438c;border-radius:22px;padding:24px;box-shadow:0 20px 50px #06071d66}
-.hero h1{margin:0;font-size:30px}.hero p{margin:6px 0 0;color:var(--muted)}.badge{background:#5147d7;border:1px solid #776dff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.tab{border:0;background:#252659;color:#d9ddff;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:800}
-.tab.active{background:linear-gradient(90deg,#5b50ff,#d94cbf);color:#fff}
-.page{display:none}.page.active{display:block}
-.card{background:var(--panel);border:1px solid #3e4083;border-radius:20px;padding:20px;margin-bottom:16px;box-shadow:0 16px 40px #08091f40}
-.card h2,.card h3{margin-top:0}.small{font-size:12px;color:var(--muted);line-height:1.5}
-.importrow{display:grid;grid-template-columns:1fr auto;gap:10px}
-input,select{width:100%;border:1px solid #58599a;background:#1a1c4b;color:#fff;border-radius:12px;padding:12px}
-button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:800}
-.primary{background:linear-gradient(90deg,#6556ff,#df4fc0);color:#fff}.soft{background:#34367b;color:#fff;border:1px solid #5658a1}.danger{background:#5b294d;color:#ffd5eb}
-.status{margin-top:10px;padding:10px 12px;border-radius:12px;background:#1c1f4f;border:1px solid #4c4e91;color:#dbe0ff}.status.ok{border-color:#2fc7a0;color:#bff6e8}.status.err{border-color:#ff6b86;color:#ffd6de}
-.profilegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
-.pstat{background:#1b1e50;border:1px solid #46488d;border-radius:15px;padding:13px}.pstat .k{color:#aeb5e4;font-size:10px;text-transform:uppercase}.pstat .v{font-size:24px;font-weight:900;margin-top:4px}
-.prioritygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.priority{background:#1b1e50;border:1px solid #46488d;border-radius:15px;padding:13px}.priority h4{margin:0 0 8px}.priority ul{margin:0;padding-left:18px;font-size:12px;line-height:1.55}
-.metricgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metric{display:grid;grid-template-columns:1fr 86px 86px;gap:8px;align-items:center;background:#1b1e50;border:1px solid #44468a;border-radius:12px;padding:9px}.metric b{font-size:13px}.metric input{text-align:center;font-size:18px;font-weight:900;padding:8px}.lvl{border-radius:999px;padding:7px;font-size:10px;font-weight:900;text-align:center}.l1,.l2{background:#1b6f60;color:#d8fff5}.l3{background:#7b571e;color:#fff0c8}.l4,.l5{background:#7d2940;color:#ffd9e2}
-.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.checks label{background:#1b1e50;border:1px solid #44468a;border-radius:12px;padding:11px;font-size:12px}.checks input{width:auto;margin-right:7px}
-.safetyNote{background:#171a48;border:1px solid #5b5eaa;border-radius:12px;padding:11px 12px;color:#dce3ff;font-size:12px;line-height:1.5;margin:8px 0 10px}
-.safetyDetails{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.safetyDetails .detail{display:none}.safetyDetails .detail.show{display:block}.safetyDetails label{display:block;font-size:11px;color:#cbd1f5;margin-bottom:5px}
-.reviewConfirm{display:flex!important;gap:8px;align-items:flex-start;background:#1a274c!important;border-color:#4f80a8!important;font-weight:800}.reviewConfirm input{margin-top:2px!important}
-.reviewStatus{margin-top:9px;font-size:12px;color:#ffd9a4}.reviewStatus.ok{color:#bff6e8}.reviewStatus.err{color:#ffd6de}
-.auditFields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.auditFields label{font-size:11px;color:#cbd1f5;display:block;margin-bottom:5px}
-.criticalHold{background:#fff0f2;border:2px solid #e05b72;border-radius:13px;padding:12px;margin-top:12px;font-size:11px}.criticalHold h3{margin:0 0 6px;color:#8e1730}.criticalHold ul{margin:5px 0;padding-left:18px}
-.auditBox{background:#f7f8fb;border:1px solid #dfe4ef;border-radius:12px;padding:11px;margin-top:12px;font-size:10px}.auditBox table{width:100%;border-collapse:collapse;margin-top:7px}.auditBox th,.auditBox td{border:1px solid #e0e4ed;padding:6px;text-align:left;vertical-align:top}.auditBox th{background:#eef1f7}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.brandgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.brandtoggle{background:#1b1e50;border:1px solid #44468a;border-radius:14px;padding:13px}.brandtoggle label{display:flex;gap:9px;align-items:center;font-weight:800}.brandtoggle input{width:auto}
-.ranktop{display:grid;grid-template-columns:1fr 220px;gap:10px;align-items:end}.ranking{margin-top:12px;display:grid;gap:8px}.rankrow{display:grid;grid-template-columns:38px 60px 1fr auto;gap:10px;align-items:center;background:#1b1e50;border:1px solid #44468a;border-radius:13px;padding:9px}.ranknum{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#5048c8;font-weight:900}.rankrow img{width:58px;height:58px;object-fit:contain;background:#fff;border-radius:9px}.rankrow .why{font-size:11px;color:#b9c0e7;margin-top:3px}
-.librarygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.prod{background:#1b1e50;border:1px solid #44468a;border-radius:16px;padding:12px;position:relative}.prod.disabled{opacity:.42}.prod img{width:100%;height:150px;object-fit:contain;background:#fff;border-radius:12px}.prod .brand{color:#c3c9ef;font-size:11px;margin-top:9px}.prod h3{font-size:14px;margin:4px 0}.prod .why{font-size:11px;color:#adb4df;line-height:1.45}.prod a button{width:100%;margin-top:8px}
-.note{background:#181b48;border-left:4px solid #54d7ff;border-radius:10px;padding:11px 12px;color:#dce7ff;font-size:12px;line-height:1.55}
-.logic{line-height:1.65;color:#d8dcfa}.logic code{background:#16183f;padding:2px 5px;border-radius:5px}
-.report-shell{background:#eef2f8;border-radius:18px;padding:15px;margin-top:18px}.report{background:#fff;color:#12213f;max-width:1050px;margin:auto;padding:24px;border-radius:16px}
-.rhead{background:linear-gradient(135deg,#272764,#383082);color:#fff;border-radius:16px;padding:18px;display:flex;justify-content:space-between;gap:14px}.rhead h1{margin:0;font-size:27px}.rmeta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.rmeta div{background:#f4f6fb;border:1px solid #dfe4ef;border-radius:11px;padding:9px;font-size:11px}.rmeta b{display:block;font-size:17px;color:#242b69}
-.rpriority{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:11px 0}.rpriority>div{border-radius:12px;padding:10px;background:#f7f8fb;border:1px solid #e1e5ef;font-size:11px}.rpriority h4{margin:0 0 5px;color:#29296e}
-.band{text-align:center;font-weight:900;border-radius:10px;padding:9px;margin:15px 0 10px}.am{background:#fff0a9;color:#40320a}.pm{background:#dcecff;color:#183b72}.phaseband{background:#eee9ff;color:#3a277c}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.step{border:1px solid #e1e5ee;border-radius:13px;padding:10px;text-align:center;min-height:250px}.step .n{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;margin:auto;background:#25266f;color:#fff;font-weight:900}.step img{width:100%;height:120px;object-fit:contain;margin:4px 0;background:#fff}.step h4{margin:3px 0;font-size:13px}.step p{font-size:10px;line-height:1.45;color:#556077}.step .brandname{font-weight:900;color:#28306a}
-.phase{border:1px solid #dedfea;border-radius:13px;padding:12px;margin-top:10px}.phase h3{margin:0 0 7px;color:#2e2b72}.phase ul{margin:5px 0;padding-left:18px;font-size:11px;line-height:1.55}
-.warnbox{background:#fff3f3;border:1px solid #ffb9c4;border-radius:12px;padding:11px;margin-top:10px;font-size:11px}.goodbox{background:#f1fbf7;border:1px solid #aee2cf;border-radius:12px;padding:11px;margin-top:10px;font-size:11px}
-.footer{font-size:9px;color:#737b8f;margin-top:16px;border-top:1px solid #e4e7ed;padding-top:8px}
-@media(max-width:900px){.librarygrid{grid-template-columns:repeat(2,1fr)}.brandgrid{grid-template-columns:repeat(2,1fr)}.profilegrid,.rmeta{grid-template-columns:repeat(2,1fr)}.prioritygrid,.rpriority{grid-template-columns:1fr}.metricgrid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.shell{padding:10px}.hero{padding:17px}.hero h1{font-size:23px}.importrow,.ranktop{grid-template-columns:1fr}.librarygrid,.brandgrid,.checks{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.metric{grid-template-columns:1fr 70px 75px}}
-@media print{body{background:#fff}.shell{padding:0;max-width:none}.no-print,.hero,.tabs,.page{display:none!important}#generator{display:block!important}.report-shell{padding:0;background:#fff}#reportArea{display:block!important}.report{max-width:none;border-radius:0;padding:10mm}.step{break-inside:avoid}}
-
-.phaseProduct{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;margin:10px 0 12px;padding:10px;border:1px solid #dfe3ee;border-radius:12px;background:#fafbfe}
-.phaseProduct img{width:110px;height:110px;object-fit:contain;background:#fff;border-radius:10px}
-.phaseProduct .phaseBrand{font-size:11px;font-weight:900;color:#2e2b72;text-transform:uppercase;letter-spacing:.02em}
-.phaseProduct .phaseName{font-size:14px;font-weight:900;color:#17264b;margin:3px 0}
-.phaseProduct .phaseWhy{font-size:10px;line-height:1.45;color:#68728a}
-.selectedGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
-.selectedCard{display:grid;grid-template-columns:72px 1fr;gap:8px;align-items:center;border:1px solid #e1e5ee;border-radius:11px;padding:8px;background:#fbfcff}
-.selectedCard img{width:70px;height:70px;object-fit:contain;background:#fff;border-radius:8px}
-.selectedCard b{font-size:10px;color:#25266f}
-.selectedCard div{font-size:9px;line-height:1.35;color:#59637b}
-@media(max-width:700px){.phaseProduct{grid-template-columns:90px 1fr}.phaseProduct img{width:85px;height:85px}.selectedGrid{grid-template-columns:1fr}}
-@media print{.phaseProduct,.selectedCard{break-inside:avoid}}
-
-
-.phaseDetailed{border:1px solid #dfe3ee;border-radius:15px;padding:14px;margin-top:14px;background:#fff}
-.phaseDetailed>h3{margin:0 0 6px;color:#2e2b72;font-size:18px}
-.phaseIntro{font-size:11px;color:#5f6980;line-height:1.55;margin-bottom:9px}
-.phaseRoutineBand{font-weight:900;text-align:center;border-radius:9px;padding:8px;margin:11px 0 8px;font-size:12px}
-.phaseRoutineBand.morning{background:#fff0a9;color:#46370d}
-.phaseRoutineBand.treatment{background:#e9e5ff;color:#3b2a7a}
-.phaseRoutineBand.recovery{background:#dff3ff;color:#164f78}
-.phaseRoutineNote{font-size:10px;color:#5e687e;line-height:1.45;margin:-2px 0 8px;padding:0 4px}
-.phaseRule{background:#f7f5ff;border-left:4px solid #6b5cff;border-radius:9px;padding:9px 10px;font-size:10px;line-height:1.5;margin-top:9px}
-.phaseDetailed .steps{margin-bottom:4px}
-@media print{
-  .phaseDetailed{break-inside:auto}
-  .phaseRoutineBand,.phaseRule{break-after:avoid}
-  .phaseDetailed .steps{break-inside:avoid}
+:root{
+  --cream:#f7f2ea;
+  --cream2:#fffdf9;
+  --ink:#3b2a20;
+  --muted:#7c7068;
+  --brown:#8b6446;
+  --brown-dark:#694831;
+  --line:#e5dcd1;
+  --danger:#9b3d42;
+  --danger-bg:#fff0f0;
 }
-
-
-.prefpanel{display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:10px;align-items:end;margin:12px 0 16px;padding:14px;border-radius:15px;background:#1b1e50;border:1px solid #4b4d91}
-.prefpanel .prefcheck{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid #505297;border-radius:11px;min-height:44px}.prefpanel .prefcheck input{width:auto}
-.rankchoice{display:inline-block;margin-left:6px;padding:3px 7px;border-radius:999px;background:#1f735f;color:#d9fff5;font-size:9px;font-weight:900}.rankfallback{background:#78551e;color:#fff0c5}
-.summaryHint{font-size:10px;color:#68728a;line-height:1.45;margin:-2px 0 8px}.summaryWrap{margin:13px 0 17px}.summaryWrap h3{margin:0 0 7px;color:#29296e}.summaryTable{width:100%;border-collapse:separate;border-spacing:0;font-size:9px;border:1px solid #dfe4ef;border-radius:12px;overflow:hidden}.summaryTable th{background:#29296e;color:#fff;text-align:left;padding:8px}.summaryTable td{padding:8px;vertical-align:top;border-top:1px solid #e4e8f0;border-right:1px solid #e9ecf2;line-height:1.4}.summaryTable td:last-child,.summaryTable th:last-child{border-right:0}.summaryTable tr:nth-child(even) td{background:#fafbfe}.summaryPhase{font-weight:900;color:#2e2b72}.weekMini{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-top:4px}.weekMini span{display:block;border-radius:5px;background:#eef2f8;padding:3px 2px;text-align:center;font-size:7px;line-height:1.2}.weekMini span.active{background:#eee9ff;color:#3f2d85;font-weight:800}.weekMini span.recovery{background:#e8f7f2;color:#20654f}.fallbackNote{font-size:9px;color:#7a5a16;margin-top:3px;font-weight:700}
-@media(max-width:800px){.prefpanel{grid-template-columns:1fr}.summaryTable{font-size:8px}.summaryWrap{overflow-x:auto}.summaryTable{min-width:900px}}
-@media print{.summaryWrap{break-inside:avoid}.summaryTable{font-size:8px}.weekMini span{font-size:6.5px}}
-
-
-/* v17.12 — three price tiers + exclusive selection strategy */
-.strategyPanel{margin:14px 0;padding:14px;border-radius:16px;background:#1b1e50;border:1px solid #4b4d91;display:grid;gap:9px}
-.strategyTitle{font-weight:900;font-size:15px}.strategyTitle span{font-size:10px;font-weight:700;opacity:.7;margin-left:7px;text-transform:uppercase;letter-spacing:.7px}
-.strategyOption{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid #4e5192;border-radius:12px;background:#11143e;cursor:pointer}
-.strategyOption input,.noPriority input,.brandPriority input{width:auto;margin-top:3px}.strategyOption span{display:grid;gap:3px}.strategyOption small{opacity:.78;line-height:1.45}
-.priorityPanel{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin:12px 0 18px;padding:13px 14px;border-radius:14px;background:#151842;border:1px solid #3f427f}.noPriority{white-space:nowrap;font-weight:800;display:flex;gap:7px;align-items:center}
-.tierGroup{margin:14px 0 18px}.tierHeader{display:flex;align-items:center;gap:9px;margin:0 0 9px;font-weight:900}.tierPill,.productTier{display:inline-block;border-radius:999px;padding:3px 8px;font-size:9px;font-weight:900;letter-spacing:.4px;text-transform:uppercase;border:1px solid #5a5da0;background:#24275f;color:#eef0ff}
-.tierHeader small{opacity:.7;font-weight:600}.brandgrid{grid-template-columns:repeat(3,1fr)}
-.brandtoggle{display:grid;gap:8px}.brandTop{display:flex;justify-content:space-between;gap:8px;align-items:center}.brandTop>label{min-width:0}.brandPriority{display:flex!important;gap:5px!important;font-size:10px!important;font-weight:800!important;opacity:.9;white-space:nowrap}.brandCount{font-size:10px;opacity:.72}.tierActions{flex-wrap:wrap}
-.rankTier{margin-left:6px}.libraryTier{margin-left:5px}
-@media(max-width:800px){.priorityPanel{grid-template-columns:1fr}.brandgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.brandgrid{grid-template-columns:1fr}}
-
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 85%,rgba(153,113,75,.08),transparent 28%),
+    radial-gradient(circle at 90% 70%,rgba(153,113,75,.07),transparent 26%),
+    var(--cream);
+}
+button,input{font:inherit}
+.page{
+  min-height:100vh;
+  background:var(--cream);
+  overflow:hidden;
+  position:relative;
+}
+.hero{
+  position:relative;
+  width:100%;
+  height:clamp(300px,39vw,565px);
+  min-height:300px;
+  background-image:url('/assets/bear-kingdom-hero.jpg');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+.license-badge{
+  position:absolute;
+  top:18px;
+  right:20px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 12px;
+  border-radius:999px;
+  color:#fff;
+  background:rgba(48,34,24,.52);
+  border:1px solid rgba(255,255,255,.34);
+  box-shadow:0 8px 28px rgba(33,21,13,.18);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.01em;
+}
+.content{
+  position:relative;
+  z-index:2;
+  width:min(900px,calc(100% - 32px));
+  margin:-8px auto 0;
+  padding:20px 0 48px;
+  text-align:center;
+}
+.royal-mark{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  color:#b1845d;
+  margin:0 auto 12px;
+  font-size:19px;
+}
+.royal-mark::before,.royal-mark::after{
+  content:"";
+  width:42px;
+  height:1px;
+  background:#d7b99c;
+}
+h1{
+  margin:0 auto;
+  max-width:790px;
+  font-family:Georgia,"Times New Roman",serif;
+  color:#3a281d;
+  font-size:clamp(27px,3.1vw,43px);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  font-weight:700;
+}
+.decree{
+  margin:10px auto 0;
+  max-width:760px;
+  color:#4a362a;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(16px,1.7vw,22px);
+  line-height:1.42;
+}
+.decree b{font-weight:700}
+.wink{
+  margin:9px 0 18px;
+  color:var(--muted);
+  font-size:15px;
+}
+.login-card{
+  position:relative;
+  width:min(520px,100%);
+  margin:0 auto;
+  padding:28px 30px 25px;
+  border:1px solid rgba(118,88,65,.13);
+  border-radius:24px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 18px 50px rgba(67,45,29,.15),inset 0 1px 0 rgba(255,255,255,.85);
+  backdrop-filter:blur(13px);
+  -webkit-backdrop-filter:blur(13px);
+}
+.login-title{
+  margin:0 0 18px;
+  color:#75583f;
+  font-size:11px;
+  font-weight:850;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+}
+.formgrid{display:grid;gap:13px}
+.field{
+  position:relative;
+  text-align:left;
+}
+.field label{
+  display:block;
+  margin:0 0 6px 3px;
+  color:#796b61;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+.input-wrap{position:relative}
+.input-icon{
+  position:absolute;
+  left:15px;
+  top:50%;
+  transform:translateY(-50%);
+  width:20px;
+  height:20px;
+  color:#8d8178;
+  pointer-events:none;
+}
+.field input{
+  width:100%;
+  min-height:52px;
+  padding:13px 15px 13px 46px;
+  color:#3d3028;
+  background:rgba(255,255,255,.72);
+  border:1px solid #ddd4ca;
+  border-radius:14px;
+  outline:none;
+  transition:border-color .16s,box-shadow .16s,background .16s;
+}
+.field input::placeholder{color:#9d948d}
+.field input:focus{
+  background:#fff;
+  border-color:#aa8566;
+  box-shadow:0 0 0 4px rgba(139,100,70,.11);
+}
+button{
+  width:100%;
+  min-height:52px;
+  margin-top:4px;
+  border:0;
+  border-radius:999px;
+  padding:13px 18px;
+  cursor:pointer;
+  color:#fff;
+  background:linear-gradient(180deg,#987050,#80593e);
+  box-shadow:0 10px 22px rgba(97,65,42,.23),inset 0 1px 0 rgba(255,255,255,.19);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  font-weight:700;
+  transition:transform .16s,filter .16s,opacity .16s;
+}
+button:hover{transform:translateY(-1px);filter:brightness(1.04)}
+button:active{transform:translateY(0)}
+button:disabled{opacity:.55;cursor:wait;transform:none}
+.status{
+  margin-top:13px;
+  padding:9px 12px;
+  border-radius:12px;
+  color:#776a60;
+  background:#f8f4ee;
+  border:1px solid #e7ded4;
+  font-size:12px;
+  text-align:center;
+}
+.status.err{
+  color:var(--danger);
+  background:var(--danger-bg);
+  border-color:#e9b9bb;
+}
+.foot{
+  margin-top:14px;
+  color:#968c84;
+  font-size:10.5px;
+  line-height:1.5;
+}
+.paw{
+  position:absolute;
+  z-index:0;
+  font-size:78px;
+  opacity:.045;
+  filter:grayscale(1);
+  pointer-events:none;
+  user-select:none;
+}
+.paw.left{left:5%;top:63%;transform:rotate(-18deg)}
+.paw.right{right:5%;top:72%;transform:rotate(18deg)}
+@media(max-width:720px){
+  .hero{height:330px;background-position:48% center}
+  .license-badge{top:12px;right:12px;padding:7px 10px;font-size:10px}
+  .content{width:min(100% - 24px,650px);padding-top:15px}
+  .login-card{padding:24px 18px 22px;border-radius:20px}
+  .decree{font-size:17px}
+  .paw{display:none}
+}
+@media(max-width:420px){
+  .hero{height:305px;background-position:46% center}
+  .license-badge{max-width:calc(100% - 24px);white-space:nowrap}
+  .content{margin-top:-5px}
+  h1{font-size:27px}
+  .wink{font-size:13px}
+}
 </style>
-<style>
-.summaryWrap{margin-top:14px}.summaryCards{display:grid;gap:12px}.summaryCard{border:1px solid #dfe4ef;border-radius:16px;background:#fbfcff;overflow:hidden}.summaryCardHead{background:#f3f0ff;padding:12px 14px;border-bottom:1px solid #e2e6f1}.summaryPhaseTitle{font-size:16px;font-weight:900;color:#2e2b72}.summaryTrigger{margin-top:5px;font-size:12px;color:#5d6681}.summaryCardBody{padding:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.summaryBlock{background:#fff;border:1px solid #e2e6f1;border-radius:12px;padding:11px}.summaryWide{grid-column:1 / -1}.summaryLabel{font-size:11px;font-weight:900;color:#2b3676;text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}.summaryValue,.summaryBlock ul{font-size:12px;line-height:1.55;color:#36425f}.summaryBlock ul{margin:0;padding-left:18px}.summaryFreq{font-size:13px;font-weight:800;color:#17264b;line-height:1.5;margin-bottom:8px}.summaryGate{border-left:4px solid #7e6bff;background:#f7f4ff}.gateBox{background:#f7f4ff;border:1px solid #d8cffc;border-radius:12px;padding:10px 12px;margin:8px 0 10px;font-size:11px;line-height:1.6;color:#3b326f}.summaryHint b{color:#2f2b74}@media(max-width:800px){.summaryCardBody{grid-template-columns:1fr}.summaryWide{grid-column:auto}}
-</style>
-
-<style id="v179-style">
-/* v17.9: compact roadmap at top; the actual 7-day timetable lives with each full phase */
-.roadmapWrap{margin:14px 0 18px}
-.roadmapWrap h3{margin:0 0 5px;color:#29296e;font-size:18px}
-.roadmapHint{font-size:10px;color:#68728a;line-height:1.45;margin:0 0 9px}
-.roadmapTable{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #dfe4ef;border-radius:13px;overflow:hidden;font-size:9.5px;table-layout:fixed}
-.roadmapTable th{background:#29296e;color:#fff;text-align:left;padding:9px 10px;font-size:9px;letter-spacing:.01em}
-.roadmapTable td{padding:10px;vertical-align:top;border-top:1px solid #e3e7f0;border-right:1px solid #e8ebf2;line-height:1.45;background:#fff}
-.roadmapTable tr:nth-child(even) td{background:#fafbfe}
-.roadmapTable th:last-child,.roadmapTable td:last-child{border-right:0}
-.roadmapTable .phaseCol{width:18%}.roadmapTable .focusCol{width:22%}.roadmapTable .treatmentCol{width:31%}.roadmapTable .reviewCol{width:29%}
-.roadmapPhase{font-weight:900;color:#29296e;font-size:11px}
-.roadmapWhen{display:inline-block;margin-top:5px;padding:4px 7px;border-radius:999px;background:#f0edff;color:#514293;font-size:8px;font-weight:900}
-.roadmapTrigger{margin-top:5px;color:#68728a;font-size:8.5px}
-.roadmapTreatment{font-weight:900;color:#17264b}
-.roadmapSub{margin-top:4px;color:#5f6980;font-size:8.7px;line-height:1.45}
-.roadmapReview{color:#37425f;font-size:9px;line-height:1.5}
-.phaseWeekSchedule{margin:12px 0 2px;border:1px solid #dbe2ee;border-radius:12px;background:#fbfcff;padding:10px}
-.phaseWeekTitle{text-align:center;font-size:10px;font-weight:900;color:#2c2d72;letter-spacing:.03em;margin-bottom:7px}
-.phaseWeekSchedule .weekMini{margin-top:0;gap:4px}
-.phaseWeekSchedule .weekMini span{font-size:8px;padding:6px 3px;border-radius:7px}
-.phaseWeekNote{font-size:8.7px;color:#68728a;line-height:1.45;margin-top:7px;text-align:center}
-.phaseWeekCaution{font-size:8.7px;color:#6e4f17;background:#fff8e7;border:1px solid #f0d999;border-radius:8px;padding:7px 9px;margin-top:7px;line-height:1.45}
-@media(max-width:800px){.roadmapWrap{overflow-x:auto}.roadmapTable{min-width:760px}.roadmapTable{font-size:9px}}
-@media print{.roadmapWrap{break-inside:avoid}.phaseWeekSchedule{break-inside:avoid}.roadmapTable{font-size:8px}}
-</style>
-
 </head>
 <body>
-<div class="shell">
-  <div class="hero no-print">
-    <div><h1>SkinPlan Clinic v17.14.0</h1><p>X3 report → safety-gated review → preferred-brand fallback engine → phased weekly plan</p></div>
-    <div class="badge">X3 API · local product-image library</div>
-  </div>
-
-  <div class="tabs no-print">
-    <button class="tab active" data-tab="generator">Generate plan</button>
-    <button class="tab" data-tab="library">Product library</button>
-    <button class="tab" data-tab="settings">Settings</button>
-    <button class="tab" data-tab="logic">Algorithm</button>
-  </div>
-
-  <section id="generator" class="page active">
-    <div class="card no-print">
-      <h2>Import X3 comprehensive report</h2>
-      <div class="importrow">
-        <input id="x3Link" placeholder="Paste the X3 comprehensive-report link">
-        <button id="importBtn" class="primary">Import X3 Report</button>
-      </div>
-      <div id="importStatus" class="status">Paste the patient's X3 share link and tap Import.</div>
-    </div>
-
-    <div id="devicePanel" class="card no-print" style="display:none">
-      <h2>Imported device profile</h2>
-      <div class="profilegrid">
-        <div class="pstat"><div class="k">Baumann type</div><div class="v" id="sumBaumann">—</div></div>
-        <div class="pstat"><div class="k">Moisture</div><div class="v" id="sumMoisture">—</div></div>
-        <div class="pstat"><div class="k">Skin age</div><div class="v" id="sumAge">—</div></div>
-        <div class="pstat"><div class="k">Total score</div><div class="v" id="sumTotal">—</div></div>
-      </div>
-      <div class="prioritygrid">
-        <div class="priority"><h4>X3 high priority · Levels IV–V</h4><ul id="urgentList"></ul></div>
-        <div class="priority"><h4>Continuous · Level III</h4><ul id="continuousList"></ul></div>
-        <div class="priority"><h4>Preventive · Levels I–II</h4><ul id="preventiveList"></ul></div>
-      </div>
-      <h3 style="margin-top:18px">14 X3 indicators</h3>
-      <div id="metricGrid" class="metricgrid"></div>
-
-      <h3 style="margin-top:18px">Safety & clinical red-flag screen</h3>
-      <div class="safetyNote"><b>Required review:</b> actively ask each item below. An unchecked box is treated as “No” only after the reviewer confirms the safety screen was completed.</div>
-      <div class="checks">
-        <label><input id="pregnant" type="checkbox">Currently pregnant</label>
-        <label><input id="trying" type="checkbox">Trying to conceive</label>
-        <label><input id="breastfeeding" type="checkbox">Breastfeeding</label>
-        <label><input id="eczema" type="checkbox">Active eczema / dermatitis</label>
-        <label><input id="rosacea" type="checkbox">Rosacea / persistent inflammatory redness</label>
-        <label><input id="rx" type="checkbox">Prescription skin treatment</label>
-        <label><input id="procedure" type="checkbox">Recent peel / laser / microneedling</label>
-        <label><input id="allergy" type="checkbox">Known skincare allergy</label>
-        <label><input id="currentActive" type="checkbox">Currently using retinoid / benzoyl peroxide / exfoliating acid</label>
-        <label><input id="redFlagLesion" type="checkbox">New / changing / bleeding / ulcerated pigmented lesion</label>
-        <label><input id="redFlagAcne" type="checkbox">Painful nodular/cystic or scarring acne</label>
-        <label><input id="redFlagInfection" type="checkbox">Possible infection, severe swelling, blistering or rapidly worsening rash</label>
-      </div>
-      <div class="safetyDetails">
-        <div id="rxDetailsWrap" class="detail"><label>Prescription treatment — name / active / frequency *</label><input id="rxDetails" placeholder="e.g. adapalene 0.1% nightly"></div>
-        <div id="procedureDetailsWrap" class="detail"><label>Procedure — type / date / recovery status *</label><input id="procedureDetails" placeholder="e.g. microneedling, 10 days ago"></div>
-        <div id="allergyDetailsWrap" class="detail"><label>Known allergy — ingredient / product / reaction *</label><input id="allergyDetails" placeholder="Required before a report can be generated"></div>
-        <div id="currentActiveDetailsWrap" class="detail"><label>Current active — product / active / concentration / frequency *</label><input id="currentActiveDetails" placeholder="e.g. benzoyl peroxide 5%, 3 nights/week"></div>
-        <div id="redFlagDetailsWrap" class="detail"><label>Red-flag notes / action already taken *</label><input id="redFlagDetails" placeholder="Brief clinical note or referral action"></div>
-      </div>
-      <div class="auditFields">
-        <div><label>Clinic / patient reference</label><input id="patient" placeholder="Initials or clinic reference"></div>
-        <div><label>Clinician / reviewer initials *</label><input id="reviewer" placeholder="Required for audit trail"></div>
-      </div>
-      <div id="correctionReasonWrap" style="display:none;margin-top:10px"><label style="display:block;font-size:11px;color:#cbd1f5;margin-bottom:5px">Reason for manual X3 score correction *</label><input id="correctionReason" placeholder="Required if any device score is manually changed"></div>
-      <div class="checks" style="grid-template-columns:1fr;margin-top:10px">
-        <label class="reviewConfirm"><input id="safetyReviewed" type="checkbox"><span>I confirm the safety and red-flag questions above were actively reviewed with the patient / record, and unchecked items were answered “No”.</span></label>
-      </div>
-      <div id="safetyStatus" class="reviewStatus">Complete the safety review before generating a plan.</div>
-      <div class="actions"><button id="generateBtn" class="primary" disabled>Generate Personalised Plan</button></div>
-    </div>
-
-    <div id="reportArea" class="report-shell" style="display:none">
-      <div class="actions no-print"><button id="pdfBtn" class="primary">Print / Save PDF</button><button id="pngBtn" class="soft" disabled title="Removed in v17.14 to avoid third-party page-capture scripts">PNG export removed</button></div>
-      <div id="report" class="report"></div>
-    </div>
+<main class="page">
+  <section class="hero" aria-label="Waving bear">
+    <div class="license-badge">🔒 SkinPlan licensed access · v17.20.0</div>
   </section>
 
-  <section id="library" class="page">
-    <div class="card no-print">
-      <h2>Ranked product library</h2><div class="note"><b>Local images:</b> product packshots normally use local files under <code>assets/products</code>. For newly audited products, the site first serves a real packshot through the same-origin SkinPlan image endpoint; the GitHub Action can then cache that packshot locally.</div>
-      <div class="note">Rank means <b>engine priority for a specific job</b>, not a claim that one brand is universally superior. Ranking reflects role-fit, efficacy evidence, irritation/tolerance burden, formulation, UV coverage where relevant and routine simplicity. Price tier is shown separately and does not change the ranking order itself.</div><div class="note"><b>v17.13 formulary audit:</b> ageing is split into a conservative clinic-starter retinoid list and a separate advanced-efficacy list for experienced users. Eye ageing now has dedicated non-retinoid and retinoid/retinal rankings. A product is not forced into a role just to give every brand equal representation.</div>
-      <div class="ranktop" style="margin-top:14px">
-        <div><label>Show ranking for</label><select id="roleSelect"></select></div>
-        <div><button id="showRankingBtn" class="primary" style="width:100%">Refresh ranking</button></div>
+  <span class="paw left" aria-hidden="true">🐾</span>
+  <span class="paw right" aria-hidden="true">🐾</span>
+
+  <section class="content">
+    <div class="royal-mark" aria-hidden="true">♛</div>
+    <h1>On this website, Mohsen Khezri is the ruler.</h1>
+    <p class="decree">Any attempt to make him angry may result in your account being dramatically suspended.</p>
+    <p class="wink">Behave wisely. The bear is watching. 😄</p>
+
+    <div class="login-card">
+      <div class="login-title">Licensed access</div>
+      <div class="formgrid">
+        <div class="field">
+          <label for="username">Username</label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 20c.8-4 3.2-6 7.5-6s6.7 2 7.5 6"></path></svg>
+            <input id="username" type="text" autocomplete="username" maxlength="40" placeholder="Username" autofocus>
+          </div>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+            <input id="password" type="password" autocomplete="current-password" maxlength="128" placeholder="Password">
+          </div>
+        </div>
+        <button id="loginBtn" type="button">Enter the Kingdom</button>
       </div>
-      <div id="rankingList" class="ranking"></div>
-    </div>
-    <div class="card no-print">
-      <h2>All selected products</h2>
-      <div id="libraryGrid" class="librarygrid"></div>
+      <div id="status" class="status">Authentication required.</div>
+      <div class="foot">Licensed access only · Accounts are controlled by the SkinPlan owner.</div>
     </div>
   </section>
-
-  <section id="settings" class="page">
-    <div class="card no-print">
-      <h2>Product selection & brand availability</h2>
-      <p class="small">The library is limited to nine curated brands in three internal price tiers. <b>Product rankings inside every therapeutic role remain efficacy/clinical-fit rankings</b>; the tier only changes where the engine looks first when Budget tier first is selected.</p>
-
-      <div class="strategyPanel">
-        <div class="strategyTitle">Product Selection Strategy <span>choose one</span></div>
-        <label class="strategyOption"><input type="radio" name="selectionStrategy" value="clinical"> <span><b>Clinical efficacy first</b><small>Ignore price tier and choose the highest-ranked compatible product from the enabled brands.</small></span></label>
-        <label class="strategyOption"><input type="radio" name="selectionStrategy" value="budget"> <span><b>Budget tier first</b><small>Look in Budget first, then Mid-range, then Premium. Inside each tier the highest efficacy/clinical-fit ranking still wins.</small></span></label>
-      </div>
-
-      <div class="priorityPanel">
-        <div><b>Priority brand</b><div class="small">Optional. If selected, that brand is checked first for every therapeutic role. If it has no suitable product, the strategy above decides the fallback.</div></div>
-        <label class="noPriority"><input type="radio" name="priorityBrand" value=""> No priority brand</label>
-      </div>
-
-      <h3>Available brands</h3>
-      <p class="small">Use the checkboxes to decide which brands may appear in a plan. The small Priority control is optional and only one brand can be priority at a time.</p>
-      <div id="brandTierGroups"></div>
-      <div class="actions tierActions">
-        <button id="allBrandsBtn" class="soft">Enable all 9</button>
-        <button id="budgetBrandsBtn" class="soft">Budget only</button>
-        <button id="midBrandsBtn" class="soft">Mid-range only</button>
-        <button id="premiumBrandsBtn" class="soft">Premium only</button>
-      </div>
-      <div id="settingsStatus" class="status ok">Settings are saved automatically on this browser.</div>
-    </div>
-  </section>
-
-  <section id="logic" class="page">
-    <div class="card no-print">
-      <h2>Combination logic</h2>
-      <div id="logicText" class="logic"></div>
-    </div>
-  </section>
-</div>
-
-<script src="engine-core.js"></script>
-<script src="selection-core.js"></script>
-<script>
-const PRODUCTS=[{"id":"ord_aloe","brand":"The Ordinary","name":"Aloe 2% + NAG 2% Solution 30ml","code":"10328368","role":"support","boots":"https://www.boots.com/beauty/vegan-range/the-ordinary-aloe-2--nag-2-solution-30ml-10328368","why":"Gentle post-blemish/texture support used only in later phases and not with direct acids.","image":"assets/products/ord_aloe.jpg?v=172","imageSourceUrls":["https://cdn11.bigcommerce.com/s-63354/images/stencil/1280x1280/products/6838/16780/The_Ordinary_-_Aloe_2_NAG_2_Solution_30ml__53234.1687174954.jpg?c=2"],"therapy":"postblemish","useTime":"pm"},{"id":"ord_az","brand":"The Ordinary","name":"Azelaic Acid Suspension 10% 30ml","code":"8630364","role":"active","boots":"https://www.boots.com/the-ordinary-azelaic-acid-suspension-10-10267775/","why":"Preferred shared active for blemish + pigmentation pathways.","image":"assets/products/ord_az.jpg?v=172","imageSourceUrls":["https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwedfce090/Images/products/The%20Ordinary/rdn-azelaic-acid-suspension-10pct-100ml.png?sh=900&sm=fit&sw=900"],"therapy":"azelaic","useTime":"pm"},{"id":"ord_glycolipid_cleanser","brand":"The Ordinary","name":"Glycolipid Cream Cleanser 150ml","code":"10328369","role":"cleanser","boots":"https://www.boots.com/the-ordinary-glycolipid-cream-cleanser150ml-10328369","why":"Minimalist non-foaming cream cleanser that removes daily impurities without stripping; a useful budget option for dry or sensitive skin.","image":"assets/products/ord_glycolipid_cleanser.jpg?v=1712","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10328369?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10328369?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"ord_granactive","brand":"The Ordinary","name":"Granactive Retinoid 2% Emulsion 30ml","code":"8629730","role":"retinoid","boots":"https://www.boots.com/beauty/skincare/skincare-all-skincare/the-ordinary-granactive-retinoid-2-emulsion-10267778","why":"Gentler retinoid option using hydroxypinacolone retinoate plus retinol; useful when a lower-irritation retinoid is preferred, but ranked below better-established direct retinol/retinal wrinkle treatments.","image":"assets/products/ord_granactive.jpg?v=172","imageSourceUrls":["https://beautyhouse.co/wp-content/uploads/2019/03/graactide.jpg"],"therapy":"retinoid","useTime":"pm"},{"id":"ord_peptide","brand":"The Ordinary","name":"Multi-Peptide + HA Serum 30ml","code":"10320154","role":"ageing","boots":"https://www.boots.com/beauty/skincare/facial-skincare/anti-aging-products/the-ordinary-multi-peptide-ha-serum-30ml-10320154","why":"Preferred non-retinoid ageing support for sensitive or borderline ageing profiles.","image":"assets/products/ord_peptide.jpg?v=172","imageSourceUrls":["https://cdn.redcare-pharmacie.fr/images/BE0/465/784/7/BE04657847-p3-fr.jpg"],"therapy":"peptide","useTime":"pm"},{"id":"ord_multi_peptide_eye","brand":"The Ordinary","name":"Multi-Peptide Eye Serum 15ml","code":"","role":"eye_ageing","boots":"https://theordinary.com/en-gb/category/skincare/eye-serums","why":"Dedicated eye-area peptide serum for crow's feet, under-eye wrinkles, puffiness and dark circles; a non-retinoid eye-ageing option.","image":"/api/product-image?id=ord_multi_peptide_eye&v=17133","imageSourceUrls":["https://fumeimgint-21439.kxcdn.com/208543/5ca1f4e3f63f7c5d0bb7bb05d28df9e8/detailsc/multi-peptide-eye-serum-15ml_1.jpg"],"therapy":"peptide_eye","useTime":"am_pm"},{"id":"ord_beta","brand":"The Ordinary","name":"Natural Moisturizing Factors + Beta Glucan 100ml","code":"10329958","role":"moisturiser","boots":"https://www.boots.com/the-ordinary-natural-moisturizing-factors-beta-glucan-100ml-10329958","why":"Lightweight moisturiser suited to oily/combination profiles.","image":"assets/products/ord_beta.jpg?v=172","imageSourceUrls":["https://cdn.notinoimg.com/detail_main_hq/the_ordinary/769915232400_04/the-ordinary-natural-moisturizing-factors-beta-glucan-crema-gel-idratante___230613.jpg"],"therapy":"base","useTime":"am_pm"},{"id":"ord_phyto","brand":"The Ordinary","name":"Natural Moisturizing Factors + PhytoCeramides 100ml","code":"10330796","role":"moisturiser","boots":"https://www.boots.com/the-ordinary-natural-moisturizing-factors-phytoceramides-100ml-10330796","why":"Rich NMF/lipid/phyto-ceramide moisturiser for dry or compromised skin.","image":"assets/products/ord_phyto.jpg?v=172","imageSourceUrls":["https://www.makeupsens.com/49606/the-ordinary-natural-moisturizing-factors-phytoceramides.jpg"],"therapy":"base","useTime":"am_pm"},{"id":"ord_nia","brand":"The Ordinary","name":"Niacinamide 10% + Zinc 1% 30ml","code":"10267783","role":"support","boots":"https://www.boots.com/the-ordinary-niacinamide-10-zinc-1-10267783","why":"Optional oil/shine and pore-appearance support; not used as a primary acne treatment.","image":"assets/products/ord_nia.jpg?v=172","imageSourceUrls":["https://media.myaster.com/images/products/1060952/the-ordinary-niacinamide-10-zinc-1-water-based-serum-30ml/1060952_3.jpg?fit=bounds&width=840"],"therapy":"oil_support","useTime":"am_pm"},{"id":"ord_retinal_02","brand":"The Ordinary","name":"Retinal 0.2% Emulsion 15ml","code":"10340633","role":"retinoid","boots":"https://www.boots.com/beauty/skincare/facial-skincare/serum-and-treatments/the-ordinary-retinal-0-2-emulsion-serum-15ml-10340633","why":"High-strength 0.2% retinaldehyde option for advanced age support. Kept as an advanced clinician-selected alternative rather than the default starter retinoid.","image":"assets/products/ord_retinal_02.jpg?v=1712","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10340633?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10340633?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"retinoid","useTime":"pm"},{"id":"ord_sal","brand":"The Ordinary","name":"Salicylic Acid 2% Solution 30ml","code":"10317695","role":"active","boots":"https://www.boots.com/the-ordinary/the-ordinary-direct-acids/the-ordinary-salicylic-acid-2solution-30ml-10317695","why":"Preferred leave-on BHA for blackhead/pore-dominant congestion when sensitivity is controlled.","image":"assets/products/ord_sal.jpg?v=172","imageSourceUrls":["https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwcece52fb/Images/products/The%20Ordinary/rdn-salicylic-acid-2pct-solution-30ml.png?sh=900&sm=fit&sw=900"],"therapy":"bha","useTime":"pm"},{"id":"ord_barrier","brand":"The Ordinary","name":"Soothing & Barrier Support Serum 30ml","code":"10335060","role":"barrier","boots":"https://www.boots.com/the-ordinary-soothing-and-barrier-support-serum-10335060","why":"Barrier support, hydration and visible redness support; preferred serum for recovery phases.","image":"assets/products/ord_barrier.jpg?v=172","imageSourceUrls":["https://www.ecatalog.pk/wp-content/uploads/2025/02/the-ordinary-soothing-barrier-support-serum.png"],"therapy":"barrier","useTime":"am_pm"},{"id":"inkey_advanced_retinal","brand":"The INKEY List","name":"Advanced 0.2% Retinal Serum 15ml","code":"10378709","role":"retinoid","boots":"https://www.boots.com/the-inkey-list-advanced-retinal-serum-15ml-10378709","why":"High-strength encapsulated retinal option for experienced retinoid users; kept below starter retinoids in the automatic clinic ranking.","image":"assets/products/inkey_advanced_retinal.jpg?v=1712","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10378709?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10378709?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"retinoid","useTime":"pm"},{"id":"inkey_bha","brand":"The INKEY List","name":"Beta Hydroxy Acid Serum 30ml","code":"8644012","role":"active","boots":"https://www.boots.com/the-inkey-list-beta-hydroxy-acid-serum-30ml-10271185","why":"Salicylic/BHA alternative for congestion if The Ordinary is disabled.","image":"assets/products/inkey_bha.jpg?v=172","imageSourceUrls":["https://i.makeup.it/600x600/3jtcxjo28ch4.jpg"],"therapy":"bha","useTime":"pm"},{"id":"inkey_bio_ceramide","brand":"The INKEY List","name":"Bio-Active Ceramide Moisturizer 50ml","code":"10339432","role":"moisturiser","boots":"https://www.boots.com/the-inkey-list-bio-active-ceramide-repairing-and-plumping-moisturizer-50ml-10339432","why":"Rich ceramide moisturiser with ageing/barrier positioning.","image":"assets/products/inkey_bio_ceramide.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10339432?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10339432?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10339432?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"inkey_oat_cleanser","brand":"The INKEY List","name":"Oat Cleansing Balm 150ml","code":"10385987","role":"cleanser","boots":"https://www.boots.com/the-inkey-list-oat-balm-cleanser-150ml-10385987","why":"Gentle non-stripping cleansing balm for makeup/SPF removal and dry or sensitive skin; useful as a budget cleanser option.","image":"assets/products/inkey_oat_cleanser.jpg?v=1712","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10385987?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10385987?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"inkey_omega","brand":"The INKEY List","name":"Omega Water Cream Moisturizer 50ml","code":"10307463","role":"moisturiser","boots":"https://www.boots.com/the-inkey-list/the-inkey-list-hydrated-skin/the-inkey-list-omega-water-cream-moisturizer-50ml-10307463","why":"Light oil-free water cream suited to oily/combination profiles.","image":"assets/products/inkey_omega.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10307463?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10307463?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10307463?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"inkey_peptide_moist","brand":"The INKEY List","name":"Peptide Moisturiser 50ml","code":"10278180","role":"moisturiser","boots":"https://www.boots.com/beauty/skincare/skin-type/the-inkey-list-peptide-moisturizer-50ml-10278180","why":"Nourishing peptide moisturiser for dry skin with fine-line support; useful when a budget brand is preferred for base hydration.","image":"assets/products/inkey_peptide_moist.jpg?v=1712","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10278180?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10278180?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"inkey_retinol_eye","brand":"The INKEY List","name":"Retinol Eye Cream 15ml","code":"","role":"eye_ageing","boots":"https://uk.theinkeylist.com/products/retinol-eye-cream","why":"Eye-specific slow-release retinol treatment for fine lines and wrinkles; intended for gradual PM introduction around the eye contour.","image":"/api/product-image?id=inkey_retinol_eye&v=17133","imageSourceUrls":["https://media.douglas.nl/medias/3YsUW21116807-0-dgl-NL.jpg?context=bWFzdGVyfGltYWdlc3w1MDExN3xpbWFnZS9qcGVnfGFEVm1MMmc1WlM4M09USTBOVEkxTXpNM09EQTNPQzh6V1hOVlZ6SXhNVEUyT0RBM1h6QmZaR2RzTFU1TUxtcHdad3w0M2MwMGIyMDdjNWE3YTU2MDZhZjJjNzFiNjJmMWIyZWNmNmJkMzZiNjRlM2Y5ODVjZjYzOGVlOGZhZmMyYmY4&grid=true","https://media.stylist.co.uk/app/uploads/2023/06/30120718/the-inkey-list-retinol-eye-cream-747x1120.png"],"therapy":"retinoid_eye","useTime":"pm"},{"id":"inkey_retinol","brand":"The INKEY List","name":"Retinol Serum 30ml","code":"10311217","role":"retinoid","boots":"https://www.boots.com/retinol-serum-10311217","why":"Gradual vitamin-A/retinoid option for early ageing; retained as an alternative but ranked below dedicated wrinkle-focused retinal/retinol products.","image":"assets/products/inkey_retinol.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10311217?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10311217?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10311217?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"retinoid","useTime":"pm"},{"id":"inkey_az","brand":"The INKEY List","name":"SuperSolutions 10% Azelaic Acid Serum 30ml","code":"3836479","role":"active","boots":"https://www.boots.com/the-inkey-list/the-inkey-list-shop-all/supersolutions-10-azelaic-serum-10316417","why":"Azelaic-acid alternative if The Ordinary is disabled.","image":"assets/products/inkey_az.jpg?v=172","imageSourceUrls":["https://skinstash.pk/cdn/shop/files/Untitleddesign-2024-08-10T170426.209.png?v=1754244477"],"therapy":"azelaic","useTime":"pm"},{"id":"boj_calming","brand":"Beauty of Joseon","name":"Calming Serum: Green Tea + Panthenol 30ml","code":"10377434","role":"barrier","boots":"https://www.boots.com/beauty-of-joseon-calming-serum--green-teaandpanthenol-30ml-10377434","why":"Calming serum option for stressed/reactive skin; a gentler brand-specific support step.","image":"assets/products/boj_calming.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10377434?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10377434?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10377434?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"barrier","useTime":"am_pm"},{"id":"boj_dynasty","brand":"Beauty of Joseon","name":"Dynasty Cream 50ml","code":"10348094","role":"moisturiser","boots":"https://www.boots.com/beauty-of-joseon-dynasty-cream-50ml-10348094","why":"Hydrating cream option when Beauty of Joseon is preferred.","image":"assets/products/boj_dynasty.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10348094?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10348094?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10348094?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"boj_glow_deep","brand":"Beauty of Joseon","name":"Glow Deep Serum: Rice + Alpha-Arbutin 30ml","code":"10352393","role":"pigment","boots":"https://www.boots.com/beauty-of-joseon-glow-deep-serum--riceandalpha-arbutin-30ml-10352393","why":"2% alpha-arbutin with rice-water support for uneven tone and visible dark spots; a useful lower-cost pigmentation option.","image":"assets/products/boj_glow_deep.jpg?v=1711","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10352393?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10352393?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"pigment","useTime":"am_pm"},{"id":"boj_glow_serum","brand":"Beauty of Joseon","name":"Glow Serum: Propolis + Niacinamide 30ml","code":"10348091","role":"support","boots":"https://www.boots.com/beauty-of-joseon-glow-serum--propolis-and-niacinamide-30ml-10348091","why":"Niacinamide/propolis support for excess sebum, visible pores and hydration; supportive rather than a primary acne treatment.","image":"assets/products/boj_glow_serum.jpg?v=1711","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10348091?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10348091?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"oil_support","useTime":"am_pm"},{"id":"boj_green_plum_cleanser","brand":"Beauty of Joseon","name":"Green Plum Refreshing Cleanser 100ml","code":"10352396","role":"cleanser","boots":"https://www.boots.com/beauty-of-joseon-green-plum-refreshing-cleanser-100ml-10352396","why":"Gentle slightly acidic gel cleanser with plum water and mung bean; useful affordable option for normal, combination and mildly sensitive skin.","image":"assets/products/boj_green_plum_cleanser.jpg?v=1711","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10352396?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10352396?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"boj_green_plum_toner","brand":"Beauty of Joseon","name":"Green Plum Refreshing Toner AHA + BHA 150ml","code":"10377436","role":"active","boots":"https://www.boots.com/beauty-of-joseon-green-plum-refreshing-toner-aha-and-bha-150ml-10377436","why":"Gentle AHA/BHA exfoliating toner for texture and clogged pores; ranked below dedicated leave-on BHA options in the conservative congestion pathway.","image":"assets/products/boj_green_plum_toner.jpg?v=1711","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10377436?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10377436?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"multi_acid","useTime":"pm"},{"id":"boj_red_bean_gel","brand":"Beauty of Joseon","name":"Red Bean Water Gel 100ml","code":"10377438","role":"moisturiser","boots":"https://www.boots.com/beauty-of-joseon-red-bean-water-gel-100ml-10377438","why":"Lightweight gel moisturiser for oily/combination skin with red bean, panthenol and peptides; useful when richer creams feel heavy.","image":"assets/products/boj_red_bean_gel.jpg?v=1711","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10377438?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10377438?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"boj_aqua_fresh_spf","brand":"Beauty of Joseon","name":"Relief Sun Aqua-Fresh: Rice + B5 SPF50+ 50ml","code":"10357359","role":"spf","boots":"https://www.boots.com/beauty-of-joseon-relief-sun-aqua-fresh-rice-and-b5-spf50and-50ml-10357359","why":"Lightweight hydrating SPF50+ option that suits combination/oilier skin when the original Relief Sun feels too rich.","image":"assets/products/boj_aqua_fresh_spf.jpg?v=1711","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10357359?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10357359?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"spf","useTime":"am"},{"id":"boj_relief","brand":"Beauty of Joseon","name":"Relief Sun: Rice + Probiotics SPF50+ PA++++ 50ml","code":"5218357","role":"spf","boots":"https://www.boots.com/beauty-of-joseon-relief-sun--rice-and-probiotics-50ml-10348088","why":"Comfortable hydrating daily sunscreen; ranked below specialist pigmentation SPFs but excellent for adherence.","image":"assets/products/boj_relief.jpg?v=172","imageSourceUrls":["https://static.sole.ro/cs-photos/products/original/relief-sun-cream-spf-50-crema-de-fata-cu-extract-de-orez-si-probiotice-50-ml_25270_6_1771572043.jpg"],"therapy":"spf","useTime":"am"},{"id":"boj_revive_eye","brand":"Beauty of Joseon","name":"Revive Eye Serum: Ginseng + Retinal 30ml","code":"10348093","role":"eye_ageing","boots":"https://www.boots.com/beauty-of-joseon-revive-eye-serum-ginseng-and-retinal-30ml-10348093","why":"Dedicated eye-contour retinal serum for fine lines/crow’s-feet and elasticity. Kept as a clinician-selected eye option rather than triggered automatically by the general X3 wrinkle score.","image":"assets/products/boj_revive_eye.jpg?v=1711","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10348093?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10348093?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"retinoid_eye","useTime":"pm"},{"id":"cerave_am_spf","brand":"CeraVe","name":"AM Facial Moisturising Lotion SPF50","code":"10311334","role":"spf","boots":"https://www.boots.com/beauty/skincare/expert-skincare-/beauty-expert-skincare-expert-skincare-shop-all/cerave-am-facial-moisturising-lotion-spf-50-for-normal-to-dry-skin-52ml-10311334","why":"Moisturising SPF50 fallback for dry skin when specialist sunscreens are disabled.","image":"assets/products/cerave_am_spf.jpg?v=172","imageSourceUrls":["https://thevitaminshop.pk/cdn/shop/files/9993326035257_0_1200x1200.jpg?v=1775030198"],"therapy":"spf","useTime":"am"},{"id":"cerave_foaming","brand":"CeraVe","name":"Foaming Cleanser 236ml","code":"10246702","role":"cleanser","boots":"https://www.boots.com/cerave-foaming-cleanser-236ml-10246702","why":"Simple foaming cleanser for robust oily profiles.","image":"assets/products/cerave_foaming.jpg?v=172","imageSourceUrls":["https://www.adorebeauty.co.nz/pim_media/000/446/165/CeraVe_Foaming_Cleanser_236ml.png?fmt=webp&h=386&w=386"],"therapy":"base","useTime":"am_pm"},{"id":"cerave_hydrating","brand":"CeraVe","name":"Hydrating Cleanser 236ml","code":"10246701","role":"cleanser","boots":"https://www.boots.com/cerave/cerave-dry-normal-skin/cerave-hydrating-cleanser-236ml-10246701-","why":"Gentle default cleanser for dry, sensitive or barrier-impaired profiles.","image":"assets/products/cerave_hydrating.jpg?v=172","imageSourceUrls":["https://leftovershop.pk/cdn/shop/files/IMG-7171.webp?v=1749457684"],"therapy":"base","useTime":"am_pm"},{"id":"cerave_hydrating_ha","brand":"CeraVe","name":"Hydrating Hyaluronic Acid Serum 30ml","code":"","role":"barrier","boots":"https://www.cerave.co.uk/skincare/moisturisers/hydrating-hyaluronic-acid-serum","why":"Barrier-supportive hydration with hyaluronic acid, vitamin B5 and three essential ceramides; suitable for sensitive skin and useful in recovery phases.","image":"/api/product-image?id=cerave_hydrating_ha&v=17133","imageSourceUrls":["https://www.heygirl.pk/cdn/shop/files/ceravehyaluronicserum_1.jpg?v=1701834311"],"therapy":"barrier","useTime":"am_pm"},{"id":"cerave_cream","brand":"CeraVe","name":"Moisturising Cream 454g","code":"8105693","role":"moisturiser","boots":"https://www.boots.com/beauty/skincare/skin-type/cerave-moisturising-cream-pot-454g-10246704","why":"Ceramide-rich rich moisturiser; strong value fallback for dry/very dry skin.","image":"assets/products/cerave_cream.jpg?v=172","imageSourceUrls":["https://s4.thcdn.com/productimg/1600/1600/11798691-1975145763464057.jpg"],"therapy":"base","useTime":"am_pm"},{"id":"cerave_oil_control","brand":"CeraVe","name":"Oil Control Moisturising Gel-Cream 52ml","code":"10345215","role":"moisturiser","boots":"https://www.boots.com/cerave-oil-control-moistursing-gel-52ml-10345215","why":"Core lightweight moisturiser for combination/oily skin with barrier support.","image":"assets/products/cerave_oil_control.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10345215?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10345215?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10345215?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"cerave_pm","brand":"CeraVe","name":"PM Facial Moisturising Lotion 52ml","code":"10258275","role":"moisturiser","boots":"https://www.boots.com/beauty/facial-skincare/moisturiser/cerave-facial-moisturising-lotion-52ml-10258275","why":"Light ceramide/niacinamide moisturiser and reliable core fallback.","image":"assets/products/cerave_pm.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10258275?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10258275?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10258275?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"cerave_skin_renewing_eye","brand":"CeraVe","name":"Skin Renewing Eye Cream for Signs of Ageing 15ml","code":"","role":"eye_ageing","boots":"https://www.cerave.co.uk/skincare/moisturisers/skin-renewing-eye-cream","why":"Peptide-complex eye cream targeting fine lines, crow's feet, dullness and texture while supporting the eye-area barrier; suitable for sensitive skin and eyes.","image":"/api/product-image?id=cerave_skin_renewing_eye&v=17133","imageSourceUrls":["https://www.cerave.co.uk/-/media/project/loreal/brand-sites/cerave/emea/uk/products/july-pdp/june-packshots/skin-renewing-eye-cream-lg.jpg?hash=E88D32EB2B80C22740B72A4063B9DBAA&rev=-1%3Fw%3D667"],"therapy":"peptide_eye","useTime":"am_pm"},{"id":"cerave_skin_renewing_retinol","brand":"CeraVe","name":"Skin Renewing Retinol Serum 30ml","code":"","role":"retinoid","boots":"https://www.cerave.co.uk/skincare/moisturisers/skin-renewing-retinol-serum","why":"CeraVe's dedicated anti-ageing retinol serum for fine lines and wrinkles, with niacinamide, hyaluronic acid and ceramides; replaces the post-acne Resurfacing Retinol in the wrinkle ranking.","image":"/api/product-image?id=cerave_skin_renewing_retinol&v=17133","imageSourceUrls":["https://fantasticlook.al/cdn/shop/products/SkinRenewingRetinolSerum1.png?v=1676937496"],"therapy":"retinoid","useTime":"pm"},{"id":"neutro_clear_defend_wash","brand":"Neutrogena","name":"Clear & Defend 2% Salicylic Acid Face Wash 200ml","code":"","role":"cleanser","boots":"https://www.neutrogena.co.uk/skincare/cleansers-washes/clear-and-defend-daily-wash","why":"2% salicylic-acid wash for oily, spot-prone skin. Kept in the oily/blemish cleanser ranking, not in barrier or sensitive cleansing.","image":"/api/product-image?id=neutro_clear_defend_wash&v=17133","imageSourceUrls":["https://cdn.shopify.com/s/files/1/0907/5028/8215/files/qpsraxsnqg10yc7ndum8n3dgw746.jpg?v=1776274759","https://www.supermart.ng/cdn/shop/files/spmtsc3832.jpg?v=1760751362"],"therapy":"active_cleanser","useTime":"am_pm"},{"id":"neutro_clear_defend","brand":"Neutrogena","name":"Clear & Defend+ Daily Serum 30ml","code":"1162225","role":"active","boots":"https://www.boots.com/ProductDisplay?catalogId=28501&langId=-1&productId=2651596&storeId=11352","why":"AHA/BHA/PHA serum for blemishes, pores and post-blemish marks; ranked lower because it is a multi-acid active.","image":"assets/products/neutro_clear_defend.jpg?v=173","imageSourceUrls":["https://images.pharm24.gr/8984894898419489489489348984.jpg"],"therapy":"multi_acid","useTime":"pm"},{"id":"neutro_nia","brand":"Neutrogena","name":"Hydro Boost 10% Niacinamide Serum 30ml","code":"10365028","role":"support","boots":"https://www.boots.com/neutrogena-hydro-boost-niacinamide-serum-30ml-10365028","why":"Hydrating 10% niacinamide support for visible pores, oiliness and uneven-looking tone; supportive rather than a primary acne treatment.","image":"assets/products/neutro_nia.jpg?v=1712","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10365028?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10365028?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"oil_support","useTime":"am_pm"},{"id":"neutro_hydro_cleanser","brand":"Neutrogena","name":"Hydro Boost Fragrance-Free Water Gel Cleanser 200ml","code":"10346059","role":"cleanser","boots":"https://www.boots.com/neutrogena-hydro-boost-water-gel-cleanser-fragrance-free-with-hyaluronic-acid-and-glycerin-200ml-10346059","why":"Fragrance-free hydrating gel cleanser that respects the barrier and suits sensitive as well as normal/combination skin.","image":"assets/products/neutro_hydro_cleanser.jpg?v=1712","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10346059?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10346059?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"neutro_hydro_gelcream","brand":"Neutrogena","name":"Hydro Boost Gel Cream Moisturiser for Dry Skin 50ml","code":"10216728","role":"moisturiser","boots":"https://www.boots.com/neutrogena-hydro-boost-gel-cream-moisturiser-10216728","why":"Hydrating gel-cream with ceramides for dry skin; useful brand-specific fallback.","image":"assets/products/neutro_hydro_gelcream.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10216728?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10216728?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10216728?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"neutro_hydro_water","brand":"Neutrogena","name":"Hydro Boost Water Gel Moisturiser 50ml","code":"10216727","role":"moisturiser","boots":"https://www.boots.com/neutrogena-hydro-boost-water-gel-moisturiser-10216727","why":"Light hydration option for normal/combination skin; fragrance means it ranks below minimalist sensitive-skin choices.","image":"assets/products/neutro_hydro_water.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10216727?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10216727?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10216727?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"neutro_retinol_eye","brand":"Neutrogena","name":"Retinol Boost Eye Cream 15ml","code":"","role":"eye_ageing","boots":"https://www.neutrogena.co.uk/skincare/retinol-boost/neutrogena-retinol-boost-eye-cream","why":"Eye-specific fragrance-free pure-retinol cream with hyaluronic acid, clinically positioned for fine lines and crow's feet; phase in gradually.","image":"/api/product-image?id=neutro_retinol_eye&v=17133","imageSourceUrls":["https://lifeline.mk/wp-content/uploads/2024/09/neutrogena-krem-za-okolu-ochi-so-retinol-15-ml.jpeg"],"therapy":"retinoid_eye","useTime":"pm"},{"id":"neutro_retinol","brand":"Neutrogena","name":"Retinol Boost Serum 30ml","code":"10331381","role":"retinoid","boots":"https://www.boots.com/neutrogena-retinol-boost-serum-30ml-10331381","why":"Dedicated pure-retinol anti-ageing serum targeting fine lines, wrinkles, firmness and tone; ranked ahead of multipurpose/post-acne retinol options.","image":"assets/products/neutro_retinol.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10331381?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10331381?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10331381?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"retinoid","useTime":"pm"},{"id":"neutro_retinol_intense","brand":"Neutrogena","name":"Retinol Boost+ Intense Night Serum 30ml","code":"","role":"retinoid","boots":"https://www.neutrogena.co.uk/skincare/retinol-boost/neutrogena-retinol-boost-intense-night-serum","why":"Neutrogena's highest-concentration pure-retinol night serum for established fine lines and deeper wrinkles; reserved for experienced retinoid users.","image":"/api/product-image?id=neutro_retinol_intense&v=17133","imageSourceUrls":["https://i5.walmartimages.com/asr/f897a602-1590-4986-bd81-2858e00ff94a.efb7e1bb79adaa35e76f0c1de2d4fa38.jpeg"],"therapy":"retinoid","useTime":"pm"},{"id":"bioderma_xdefense","brand":"Bioderma","name":"Photoderm XDefense Ultra Fluid SPF50+ 40ml","code":"9213643","role":"spf","boots":"https://www.boots.com/bioderma-photoderm-x-defense-ultra-fluid-spf50-face-sunscreen-40ml-10363690","why":"Broad environmental/visible-light protection option; lower rank for very reactive skin because the invisible version is fragranced.","image":"assets/products/bioderma_xdefense.jpg?v=172","imageSourceUrls":["https://lafamilleatable.com/cdn/shop/files/03701129813614_C1N1_s02_a16e39c9-1a06-4834-8ef6-f7d69d55d4db.jpg?v=1757585357&width=1445"],"therapy":"spf","useTime":"am"},{"id":"bioderma_pigment_c","brand":"Bioderma","name":"Pigmentbio C-Concentrate 15ml","code":"10286771","role":"pigment","boots":"https://www.boots.com/bioderma-pigmentbio-brightening-vitamin-c-face-serum-anti-dark-spot-15ml-10286771","why":"Dedicated Bioderma dark-spot treatment; introduced cautiously as a treatment serum.","image":"assets/products/bioderma_pigment_c.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10286771?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10286771?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10286771?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"pigment","useTime":"pm"},{"id":"bioderma_pigment_night","brand":"Bioderma","name":"Pigmentbio Night Renewer 50ml","code":"10286773","role":"pigment","boots":"https://www.boots.com/bioderma-pigmentbio-brightening-night-face-cream-anti-dark-spot-50ml-10286773","why":"Night pigmentation-care option for Bioderma-preferring patients.","image":"assets/products/bioderma_pigment_night.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10286773?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10286773?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10286773?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"pigment","useTime":"pm"},{"id":"bioderma_defensive","brand":"Bioderma","name":"Sensibio Defensive Serum 30ml","code":"5297834","role":"barrier","boots":"https://www.boots.com/bioderma/bioderma-face-care/bioderma-sensibio-defensive-serum-soothing-serum-for-sensitive-skin-30ml-10324364","why":"Soothing barrier-support serum for sensitive/reactive skin with an inflamm-ageing positioning; also provides a mid-range non-retinoid ageing-support fallback.","image":"assets/products/bioderma_defensive.jpg?v=172","imageSourceUrls":["https://detommasis.it/image/cache/catalog/Bioderma%20Sensibio%20Defensive%20Siero%20Idratante_Lenitivo%2030ml-766x1000.png"],"therapy":"ageing_support","useTime":"am_pm"},{"id":"bioderma_sensibio_gel","brand":"Bioderma","name":"Sensibio Foaming Gel 200ml","code":"9213872","role":"cleanser","boots":"https://www.boots.com/bioderma-sensibio-foaming-gel-face-wash-for-sensitive-skin-200ml-10364379","why":"Gentle soap-free cleanser for sensitive skin; useful when a rinse-off gel is preferred.","image":"assets/products/bioderma_sensibio_gel.jpg?v=172","imageSourceUrls":["https://image-cdn.ubuy.com/bioderma-sensibio-foaming-gel/400_400_100/6676cd82dcea845581368b13.jpg"],"therapy":"base","useTime":"am_pm"},{"id":"bioderma_kerato","brand":"Bioderma","name":"Sébium Kerato+ Anti-Blemish Gel-Cream 30ml","code":"10324365","role":"active","boots":"https://www.boots.com/bioderma-sebium-kerato-30ml-anti-blemish-gel-cream-for-acne-prone-skin-30ml-10324365","why":"Acid-based blemish/comedone option; lower-ranked for reactive skin.","image":"assets/products/bioderma_kerato.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10324365?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10324365?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10324365?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"bha","useTime":"pm"},{"id":"bioderma_sebium_serum","brand":"Bioderma","name":"Sébium Serum for Adult Acne 30ml","code":"10332065","role":"active","boots":"https://www.boots.com/bioderma-sebium-serum-for-adult-acne-30ml-10332065","why":"Targets adult blemishes, marks, pores and texture; used as a staged active.","image":"assets/products/bioderma_sebium_serum.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10332065?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10332065?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10332065?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"multi_acid","useTime":"pm"},{"id":"bioderma_sebium_hydra","brand":"Bioderma","name":"Sébium Ultra-Nourishing Cream 40ml","code":"6414095","role":"moisturiser","boots":"https://www.boots.com/bioderma/bioderma-best-sellers/bioderma-sebium-ultra-nourishing-cream-very-dry-acne-prone-skin-40ml-10202418","why":"Useful niche moisturiser when acne-prone skin has become very dry/tight.","image":"assets/products/bioderma_sebium_hydra.jpg?v=172","imageSourceUrls":["https://vitamania.kz/image/cache/catalog/easyphoto/bioderma-uvlazhnyayushchiy-krem-sebium-hydra-bioderma-gidra-40-ml-680x680.jpg"],"therapy":"base","useTime":"am_pm"},{"id":"lrp_uvmune","brand":"La Roche-Posay","name":"Anthelios UVMune 400 Invisible Fluid SPF50+ 50ml","code":"9005250","role":"spf","boots":"https://www.boots.com/beauty/skincare/skin-type/la-roche-posay-anthelios-uvmune-400-invisible-fluid-spf50-50ml-10306562","why":"Top-ranked high-UVA sunscreen for pigmentation/photoageing and sensitive skin.","image":"assets/products/lrp_uvmune.jpg?v=172","imageSourceUrls":["https://media.myaster.com/images/products/1048235/la-roche-posay-anthelios-uvmune-400-spf50-sunscreen-50ml/1048235_1new.jpg?fit=bounds&width=840"],"therapy":"spf","useTime":"am"},{"id":"lrp_uvmune_oil","brand":"La Roche-Posay","name":"Anthelios UVMune 400 Oil Control Fluid SPF50+ 50ml","code":"5292379","role":"spf","boots":"https://www.boots.com/toiletries/suncare/sunprotection/la-roche-posay-anthelios-uvmune-400-oil-control-fluid-50ml-10324047","why":"Top-ranked SPF50+ for oily/blemish-prone profiles.","image":"assets/products/lrp_uvmune_oil.jpg?v=172","imageSourceUrls":["https://www.laroche-posay.co.uk/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/default/dw8210e9ef/LRP_Product/Anthelios/3337875847292_Anthelios-UVMune-400-Oil-Control-Invisible-Fluid_50ml_01_La_Roche_Posay.jpg?q=90&sfrm=jpg&sh=900&sm=fit&sw=900"],"therapy":"spf","useTime":"am"},{"id":"lrp_cicaplast_serum","brand":"La Roche-Posay","name":"Cicaplast B5 Serum 30ml","code":"","role":"barrier","boots":"https://www.laroche-posay.co.uk/en_GB/cicaplast-b5-face-serum-for-hydrating-and-repairing-skin-barrier/LRP_934.html","why":"10% vitamin B5 barrier-repair serum for dehydrated, irritated or sensitised skin; strong premium barrier-support option.","image":"/api/product-image?id=lrp_cicaplast_serum&v=17133","imageSourceUrls":["https://distcdn.nicehair.dk/products/121561/la-roche-posay-cicaplast-b5-serum-30-ml-1759822508.webp","https://www.notrepharma.com/11144-large_default/la-roche-posay-cicaplast-b5-serum-reparateur-flacon-de-30-ml.jpg"],"therapy":"barrier","useTime":"am_pm"},{"id":"lrp_cicaplast","brand":"La Roche-Posay","name":"Cicaplast Baume B5+ 40ml","code":"6187382","role":"rescue","boots":"https://www.boots.com/la-roche-posay/la-roche-posay-moisturisers/la-roche-posay-cicaplast-balm-40ml-10189518","why":"Top rescue balm for local irritation/dry patches; not automatically used as the whole-face daily moisturiser.","image":"assets/products/lrp_cicaplast.jpg?v=172","imageSourceUrls":["https://media.naheed.pk/catalog/product/cache/ff36c7bc52e2e5dbc63cd67fba513679/1/2/1257691-25rpl-1_1.jpg"],"therapy":"rescue","useTime":"am_pm"},{"id":"lrp_duom","brand":"La Roche-Posay","name":"Effaclar Duo+M Anti-Blemish Corrective Care 40ml","code":"10332063","role":"active","boots":"https://www.boots.com/la-roche-posay-effaclar-duo-anti-breakout-corrective-gel-moisturiser-40ml-10332063","why":"Blemish/post-mark option for oily skin; contains exfoliating actives, so it is staged.","image":"assets/products/lrp_duom.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10332063?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10332063?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10332063?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"blemish_acid","useTime":"pm"},{"id":"lrp_effaclar_cleanser","brand":"La Roche-Posay","name":"Effaclar Purifying Cleansing Gel 200ml","code":"","role":"cleanser","boots":"https://www.laroche-posay.co.uk/en_GB/effaclar-purifying-cleansing-gel/LRP_050.html","why":"Dedicated daily foaming cleanser for oily, blemish-prone skin; restores La Roche-Posay coverage in the oily-cleanser pathway.","image":"/api/product-image?id=lrp_effaclar_cleanser&v=17133","imageSourceUrls":["https://images.nenna.fi/storage/product/jpg/full/2023/11/16/la-roche-posay-effaclar-cleansing-gel-m-200-ml-1.jpg"],"therapy":"base","useTime":"am_pm"},{"id":"lrp_hyalu_b5","brand":"La Roche-Posay","name":"Hyalu B5 Suractivated Serum 30ml","code":"9295844","role":"ageing","boots":"https://www.boots.com/ProductDisplay?catalogId=28501&langId=-1&productId=3149718&storeId=11352","why":"Hydrating non-retinoid ageing support with hyaluronic acid and vitamin B5.","image":"assets/products/lrp_hyalu_b5.jpg?v=173","imageSourceUrls":["https://www.laroche-posay.co.uk/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/en_GB/dw4447b050/LRP_Product/HyaluB5suractivatedserum/LaRochePosay-Product-Skincare-HyaluB5-suractivated-serum-3337875920582-ATF-PIM-Packshot_1.jpg?q=90&sfrm=jpg&sh=900&sm=fit&sw=900"],"therapy":"ageing_support","useTime":"pm"},{"id":"lrp_melab3","brand":"La Roche-Posay","name":"MelaB3 Intense Anti-Dark Spot Serum 30ml","code":"10340939","role":"pigment","boots":"https://www.boots.com/la-roche-posay-mela-b3-intense-anti-dark-spots-serum-30ml-10340939","why":"Dedicated hyperpigmentation/post-acne-mark serum; useful when La Roche-Posay is the preferred brand. Kept as a separate staged pigmentation treatment in the conservative engine.","image":"assets/products/lrp_melab3.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10340939?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10340939?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10340939?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"pigment","useTime":"pm"},{"id":"lrp_redermic_eye","brand":"La Roche-Posay","name":"Redermic Retinol Eye Cream 15ml","code":"","role":"eye_ageing","boots":"https://www.laroche-posay.co.uk/en_GB/redermic-retinol-eye-cream-for-sensitive-skin-15ml/LRP_907.html","why":"Eye-specific anti-wrinkle treatment with 0.1% pure retinol plus retinol linoleate, designed for crow's feet and sensitive eye contours.","image":"/api/product-image?id=lrp_redermic_eye&v=17133","imageSourceUrls":["https://evapharmacy.cy/wp-content/uploads/2024/05/5-19.jpg"],"therapy":"retinoid_eye","useTime":"pm"},{"id":"lrp_retinol_b3","brand":"La Roche-Posay","name":"Retinol B3 Serum 30ml","code":"8752338","role":"retinoid","boots":"https://www.boots.com/la-roche-posay-retinol-b3-serum-30ml-10274729","why":"Dedicated 0.3% retinol + vitamin B3 anti-ageing serum; ranked first for robust/stable wrinkle treatment because the retinol concentration is disclosed and the formula directly targets lines and wrinkles.","image":"assets/products/lrp_retinol_b3.jpg?v=172","imageSourceUrls":["https://www.bloompharmacy.com/cdn/shop/products/la-roche-posay-retinol-b3-serum-30ml-786576.jpg?v=1687732890"],"therapy":"retinoid","useTime":"pm"},{"id":"lrp_dermallergo","brand":"La Roche-Posay","name":"Toleriane Dermallergo Soothing Cream 40ml","code":"7907117","role":"moisturiser","boots":"https://www.boots.com/la-roche-posay-dermallergo-soothing-cream-40ml-10302966","why":"High-tolerance moisturiser for sensitive to ultra-sensitive dry skin.","image":"assets/products/lrp_dermallergo.jpg?v=172","imageSourceUrls":["https://pretties.com.hk/cdn/shop/products/LRP-757614_1__website.jpg?v=1758623375"],"therapy":"base","useTime":"am_pm"},{"id":"lrp_dermo","brand":"La Roche-Posay","name":"Toleriane Dermo-Cleanser 200ml","code":"3956563","role":"cleanser","boots":"https://www.boots.com/la-roche-posay/la-roche-posay-sensitive-skin/la-roche-posay-toleriane-dermo-cleanser-200ml-10083653","why":"Top-ranked ultra-gentle cleanser for highly reactive/sensitive skin.","image":"assets/products/lrp_dermo.jpg?v=172","imageSourceUrls":["https://www.healthana.co/cdn/shop/files/TOLERIANEGENTLECREAMDERMO-CLEANSER200ML.jpg?v=1718536093"],"therapy":"base","useTime":"am_pm"},{"id":"avene_spf_pigment","brand":"Avène","name":"Anti-Pigmentation SPF50+ for Dark Spots 40ml","code":"10356447","role":"spf","boots":"https://www.boots.com/avene-anti-pigmentation-spf50plus-for-dark-spots-40ml-10356447","why":"High-protection Avène option specifically positioned for dark-spot prevention.","image":"assets/products/avene_spf_pigment.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10356447?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10356447?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10356447?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"spf","useTime":"am"},{"id":"avene_cicalfate","brand":"Avène","name":"Cicalfate+ Restorative Protective Cream 40ml","code":"8758468","role":"rescue","boots":"https://www.boots.com/avene-cicalfate-plus-restroritive-cream-40ml-10275275","why":"High-quality alternative rescue cream for local irritated/dry areas.","image":"assets/products/avene_cicalfate.jpg?v=172","imageSourceUrls":["https://www.yeswellness.com/cdn/shop/files/Avene_Cicalfate_Restorative_Cream.jpg?v=1741188739"],"therapy":"rescue","useTime":"am_pm"},{"id":"avene_comedomed","brand":"Avène","name":"Cleanance Comedomed Anti-Blemish Care 30ml","code":"10371745","role":"active","boots":"https://www.boots.com/avene-cleanance-comedomed-anti-blemish-care-30ml-10371745","why":"Brand-specific blemish/blackhead option; useful when Avène is preferred and the barrier is stable.","image":"assets/products/avene_comedomed.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10371745?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10371745?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10371745?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"blemish","useTime":"pm"},{"id":"avene_retinal_night","brand":"Avène","name":"Hyaluron Activ B3 Night Cream 40ml","code":"10323735","role":"retinoid","boots":"https://www.boots.com/avene-hyaluron-activ-b3-night-cream-40ml-10323735","why":"Dedicated retinal anti-wrinkle night treatment for stable, non-irritated skin; ranked high because retinaldehyde has direct clinical evidence for photoageing.","image":"assets/products/avene_retinal_night.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10323735?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10323735?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10323735?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"retinoid","useTime":"pm"},{"id":"avene_hyaluron_b3","brand":"Avène","name":"Hyaluron Activ B3 Serum 30ml","code":"10323737","role":"ageing","boots":"https://www.boots.com/av%C3%A8ne-hyaluron-activ-b3-serum-30ml-10323737","why":"Fragrance-free hyaluronic-acid/niacinamide ageing support; good non-retinoid Avène option.","image":"assets/products/avene_hyaluron_b3.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10323737?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10323737?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10323737?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"ageing_support","useTime":"pm"},{"id":"avene_eye_b3","brand":"Avène","name":"Hyaluron Activ B3 Triple Correction Eye Care 15ml","code":"","role":"eye_ageing","boots":"https://www.avene.co.uk/p/hyaluron-activ-b3-triple-correction-eye-care-3282770153217-b5405ca4","why":"Fragrance-free eye care with niacinamide and hyaluronic acid for wrinkles, firmness, dark circles and puffiness; useful when retinoid eye treatment is not preferred.","image":"/api/product-image?id=avene_eye_b3&v=17133","imageSourceUrls":["https://www.nettiapteekki.fi/cdn/shop/files/Avene-hyaluron-activ-b3-eye-cream-15-ml.webp?v=1712768557"],"therapy":"ageing_eye_support","useTime":"am_pm"},{"id":"avene_mattifying_cleanser","brand":"Avène","name":"Mattifying Cleansing Foam 150ml","code":"10200099","role":"cleanser","boots":"https://www.boots.com/avene-mattifying-cleansing-foam-150ml-10200099","why":"Avène foaming cleanser for normal/combination sensitive skin and excess sebum.","image":"assets/products/avene_mattifying_cleanser.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10200099?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10200099?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10200099?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"avene_tolerance_balm","brand":"Avène","name":"Tolérance Control Soothing Skin Recovery Balm 40ml","code":"4736818","role":"moisturiser","boots":"https://www.boots.com/av%C3%A8ne-tol%C3%89rance-soothing-skin-recovery-balm-40ml-10298239","why":"Top rich moisturiser for dry hypersensitive/reactive skin.","image":"assets/products/avene_tolerance_balm.jpg?v=172","imageSourceUrls":["https://media.meds.se/meds/images/maxx-27409021-g-2022-02-10-140127877/0/0/auto/c/avene-tolerance-control-soothing-skin-recovery-balm-40-ml.jpeg"],"therapy":"base","useTime":"am_pm"},{"id":"avene_tolerance_cream","brand":"Avène","name":"Tolérance Control Soothing Skin Recovery Cream 40ml","code":"4736796","role":"moisturiser","boots":"https://www.boots.com/av%C3%A8ne-tol%C3%89rance-soothing-skin-recovery-cream-40ml-10298238","why":"Top lightweight high-tolerance moisturiser for reactive/sensitive skin.","image":"assets/products/avene_tolerance_cream.jpg?v=172","imageSourceUrls":["https://media-pierre-fabre.wedia-group.com/api/wedia/dam/transform/u5wa3z31qn5sjxikaymacw7pbf6srdeasour17a/pf_square/u5wa3z31qn5sjxikaymacw7pbf6srdeasour17a?height=800&t=resize&width=800","https://makeuplaneph.com/cdn/shop/files/AveneToleranceControl40ml.png?v=1709283070&width=1445"],"therapy":"base","useTime":"am_pm"},{"id":"avene_cleanser","brand":"Avène","name":"Tolérance Extremely Gentle Cleanser 200ml","code":"6262147","role":"cleanser","boots":"https://www.boots.com/avene-extremely-gentle-cleanser-200ml-10193386","why":"Excellent fragrance-free no-rinse cleanser for hypersensitive/reactive skin.","image":"assets/products/avene_cleanser.jpg?v=172","imageSourceUrls":["https://www.adorebeauty.com.au/pim_media/000/395/905/Av%C3%A8ne_Tolerance_Extremely_Gentle_Cleanser_200ml_-_hero.png?fmt=webp&h=772&w=772"],"therapy":"base","useTime":"am_pm"},{"id":"avene_ultrafluid_spf","brand":"Avène","name":"Ultra Fluid Invisible SPF50 50ml","code":"10337392","role":"spf","boots":"https://www.boots.com/avene/avene-sun-protection-spf50-50ml-10337392","why":"Light, fragrance-free SPF50 for normal/combination and sensitive skin.","image":"assets/products/avene_ultrafluid_spf.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10337392?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10337392?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10337392?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"spf","useTime":"am"},{"id":"avene_vitamin_cg","brand":"Avène","name":"Vitamin Activ Cg Radiance Concentrated Serum 30ml","code":"10357585","role":"pigment","boots":"https://www.boots.com/beauty/skincare/facial-skincare/serum-and-treatments/avene-vitamin-activ-cg-radiance-concentrated-serum-30ml-10357585","why":"Avène treatment option for dark spots/radiance with Vitamin Cg, niacinamide and bakuchiol; also provides non-retinoid ageing support.","image":"assets/products/avene_vitamin_cg.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10357585?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10357585?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10357585?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"pigment","useTime":"pm"},{"id":"eucerin_dual","brand":"Eucerin","name":"Anti-Pigment Dual Serum 30ml","code":"8329117","role":"pigment","boots":"https://www.boots.com/toiletries/skincare/shop-skincare-ingredients/eucerin-anti-pigment-dual-serum-thiamidol-and-hyaluronic-acid-10256457","why":"Top-ranked pigment-only serum in robust skin due to dedicated Thiamidol dark-spot targeting.","image":"assets/products/eucerin_dual.jpg?v=172","imageSourceUrls":["https://meikrem.vtexassets.com/arquivos/ids/159540/AntipigmentDual-Eucerin-Serum.jpg.jpg?v=638785302498630000"],"therapy":"pigment_am","useTime":"am"},{"id":"eucerin_aquaphor","brand":"Eucerin","name":"Aquaphor Soothing Skin Balm 45ml","code":"10131555","role":"rescue","boots":"https://www.boots.com/eucerin-aquaphor-soothing-skin-balm-40ml-10131555","why":"Occlusive rescue balm for local dry/irritated areas; not the default whole-face moisturiser.","image":"assets/products/eucerin_aquaphor.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10131555?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10131555?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10131555?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"rescue","useTime":"am_pm"},{"id":"eucerin_dermatoclean_gel","brand":"Eucerin","name":"DermatoClean Cleansing Gel 200ml","code":"","role":"cleanser","boots":"https://www.eucerin.co.uk/products/dermato-clean/cleansing-gel","why":"Mild daily gel cleanser with hyaluronic acid and moisturising ingredients; suitable for sensitive normal-to-combination skin and replaces the acid Correcting Cleanser as a base cleanser.","image":"/api/product-image?id=eucerin_dermatoclean_gel&v=17133","imageSourceUrls":["https://m.media-amazon.com/images/I/61FSesqTyUL.jpg"],"therapy":"base","useTime":"am_pm"},{"id":"eucerin_triple","brand":"Eucerin","name":"DERMOPURE CLINICAL Triple Action Fluid 40ml","code":"10364091","role":"active","boots":"https://www.boots.com/eucerin-dermopure-clinical-triple-action-serum-40ml-10364091","why":"2% salicylic acid plus Thiamidol; useful for blemishes, comedones and post-acne marks in robust skin.","image":"assets/products/eucerin_triple.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10364091?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10364091?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10364091?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"bha_pigment","useTime":"pm"},{"id":"eucerin_elasticity_3d","brand":"Eucerin","name":"Hyaluron-Filler + Elasticity 3D Serum 30ml","code":"","role":"ageing","boots":"https://www.eucerin.co.uk/products/elasticity-filler/3d-serum","why":"Non-retinoid mature-skin serum addressing deep wrinkles, elasticity and age spots with hyaluronic acid, Arctiin and Thiamidol; useful when a retinoid is not appropriate.","image":"/api/product-image?id=eucerin_elasticity_3d&v=17133","imageSourceUrls":["https://m.media-amazon.com/images/I/61BJcpJRlXL._AC_UF894%2C1000_QL80_.jpg"],"therapy":"ageing_support","useTime":"am_pm"},{"id":"eucerin_elasticity_eye","brand":"Eucerin","name":"Hyaluron-Filler + Elasticity Eye Care 15ml","code":"","role":"eye_ageing","boots":"https://www.eucerin.co.uk/products/elasticity-filler/eye-care","why":"Dedicated anti-ageing eye cream for fine/deep wrinkles, elasticity and dark spots with hyaluronic acid, creatine/collagen-elastin support and Thiamidol.","image":"/api/product-image?id=eucerin_elasticity_eye&v=17133","imageSourceUrls":["https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/eucerin/local/se/produkter/hyaluron-filler/2019/hyaluron_filler_elasticity_eye_care_page.jpeg?rh=1105&rw=1105&rx=0&ry=0"],"therapy":"ageing_eye_support","useTime":"am_pm"},{"id":"eucerin_oil_spf","brand":"Eucerin","name":"Sun Oil Control Dry Touch SPF50+ 50ml","code":"8061300","role":"spf","boots":"https://www.boots.com/eucerin-sun-oil-control-face-protection-spf-50-10242719","why":"High-ranked oily/acne-prone SPF50+ with a matte finish.","image":"assets/products/eucerin_oil_spf.jpg?v=172","imageSourceUrls":["https://m.media-amazon.com/images/I/61ItGj7kJ-L.jpg"],"therapy":"spf","useTime":"am"},{"id":"eucerin_pigment_spf","brand":"Eucerin","name":"Sun Pigment Control SPF50+ 50ml","code":"8379564","role":"spf","boots":"https://www.boots.com/eucerin-sun-pigment-control-spf50-50ml-10265714","why":"Excellent SPF50+ choice for hyperpigmentation; combines UV/HEVIS protection with Thiamidol.","image":"assets/products/eucerin_pigment_spf.jpg?v=172","imageSourceUrls":["https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/media-center-items/6/4/c/8b0b5e3d67f24a11a5b25b7b8f409cd1-screen.jpg"],"therapy":"spf","useTime":"am"},{"id":"eucerin_ultra_dry","brand":"Eucerin","name":"UltraSensitive Soothing Care Dry Skin 50ml","code":"10297386","role":"moisturiser","boots":"https://www.boots.com/eucerin-ultrasensitive-soothing-face-cream-10297386","why":"Minimalist soothing moisturiser option for dry hypersensitive skin.","image":"assets/products/eucerin_ultra_dry.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10297386?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10297386?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10297386?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"},{"id":"eucerin_ultra_comb","brand":"Eucerin","name":"UltraSensitive Soothing Care Normal/Combination 50ml","code":"10297387","role":"moisturiser","boots":"https://www.boots.com/eucerin-ultrasensitive-soothing-face-cream-10297387","why":"Light high-tolerance moisturiser for normal/combination sensitive skin.","image":"assets/products/eucerin_ultra_comb.jpg?v=172","imageSourceUrls":["https://boots.scene7.com/is/image/Boots/10297387?wid=1200&hei=1200&fmt=png-alpha&op_sharpen=1","https://boots.scene7.com/is/image/Boots/10297387?wid=1200&hei=1200&fit=constrain,1&fmt=png-alpha","https://boots.scene7.com/is/image/Boots/10297387?wid=1000&hei=1000&fmt=jpeg&qlt=95"],"therapy":"base","useTime":"am_pm"}];
-const BRANDS=["The Ordinary","The INKEY List","Beauty of Joseon","CeraVe","Neutrogena","Bioderma","La Roche-Posay","Avène","Eucerin"];
-const BRAND_TIERS={"The Ordinary":"budget","The INKEY List":"budget","Beauty of Joseon":"budget","CeraVe":"mid","Neutrogena":"mid","Bioderma":"mid","La Roche-Posay":"premium","Avène":"premium","Eucerin":"premium"};
-const RANKINGS={"cleanser_sensitive":["lrp_dermo","avene_cleanser","cerave_hydrating","eucerin_dermatoclean_gel","neutro_hydro_cleanser","bioderma_sensibio_gel","ord_glycolipid_cleanser","inkey_oat_cleanser","boj_green_plum_cleanser","cerave_foaming","avene_mattifying_cleanser"],"cleanser_oily":["lrp_effaclar_cleanser","cerave_foaming","neutro_clear_defend_wash","avene_mattifying_cleanser","bioderma_sensibio_gel","boj_green_plum_cleanser","neutro_hydro_cleanser","eucerin_dermatoclean_gel","ord_glycolipid_cleanser","inkey_oat_cleanser","lrp_dermo","avene_cleanser"],"moisturiser_barrier_dry":["avene_tolerance_balm","lrp_dermallergo","eucerin_ultra_dry","inkey_bio_ceramide","ord_phyto","cerave_cream","inkey_peptide_moist","neutro_hydro_gelcream","boj_dynasty","cerave_pm","avene_tolerance_cream","bioderma_sebium_hydra","ord_beta"],"moisturiser_sensitive":["avene_tolerance_cream","lrp_dermallergo","eucerin_ultra_dry","cerave_pm","ord_phyto","inkey_bio_ceramide","cerave_cream","inkey_peptide_moist","avene_tolerance_balm","ord_beta","bioderma_sebium_hydra","neutro_hydro_gelcream"],"moisturiser_oily":["ord_beta","boj_red_bean_gel","cerave_oil_control","inkey_omega","eucerin_ultra_comb","neutro_hydro_water","avene_tolerance_cream","cerave_pm","lrp_dermallergo","bioderma_sebium_hydra"],"barrier_support":["lrp_cicaplast_serum","ord_barrier","cerave_hydrating_ha","bioderma_defensive","boj_calming"],"rescue_balm":["lrp_cicaplast","avene_cicalfate","eucerin_aquaphor","avene_tolerance_balm","cerave_cream"],"spf_pigment":["lrp_uvmune","avene_spf_pigment","eucerin_pigment_spf","bioderma_xdefense","avene_ultrafluid_spf","boj_relief","cerave_am_spf","eucerin_oil_spf"],"spf_oily":["lrp_uvmune_oil","eucerin_oil_spf","avene_ultrafluid_spf","boj_aqua_fresh_spf","bioderma_xdefense","boj_relief","lrp_uvmune","cerave_am_spf","avene_spf_pigment"],"spf_general":["lrp_uvmune","avene_ultrafluid_spf","boj_relief","boj_aqua_fresh_spf","cerave_am_spf","bioderma_xdefense","eucerin_oil_spf","eucerin_pigment_spf","avene_spf_pigment"],"acne_pigment_shared":["ord_az","eucerin_triple","inkey_az","lrp_duom","bioderma_sebium_serum","neutro_clear_defend"],"acne_treatment":["ord_az","avene_comedomed","lrp_duom","eucerin_triple","bioderma_sebium_serum","inkey_az","neutro_clear_defend"],"pigment_only":["eucerin_dual","lrp_melab3","avene_vitamin_cg","boj_glow_deep","bioderma_pigment_c","bioderma_pigment_night","ord_az","inkey_az","eucerin_triple","ord_aloe"],"postblemish_gentle":["ord_aloe","bioderma_defensive","boj_calming","eucerin_dual"],"congestion_treatment":["ord_sal","inkey_bha","eucerin_triple","bioderma_kerato","avene_comedomed","lrp_duom","boj_green_plum_toner","neutro_clear_defend","bioderma_sebium_serum"],"oil_support":["ord_nia","boj_glow_serum","neutro_nia","cerave_oil_control","inkey_omega","eucerin_ultra_comb"],"ageing_sensitive":["eucerin_elasticity_3d","ord_peptide","avene_hyaluron_b3","lrp_hyalu_b5","bioderma_defensive","avene_vitamin_cg"],"ageing_retinoid_starter":["lrp_retinol_b3","avene_retinal_night","cerave_skin_renewing_retinol","neutro_retinol","inkey_retinol","ord_granactive"],"ageing_retinoid_advanced":["ord_retinal_02","inkey_advanced_retinal","neutro_retinol_intense","lrp_retinol_b3","avene_retinal_night","neutro_retinol","cerave_skin_renewing_retinol","inkey_retinol","ord_granactive"],"eye_ageing_sensitive":["cerave_skin_renewing_eye","ord_multi_peptide_eye","avene_eye_b3","eucerin_elasticity_eye"],"eye_ageing_retinoid":["lrp_redermic_eye","boj_revive_eye","neutro_retinol_eye","inkey_retinol_eye"],"eye_ageing":["lrp_redermic_eye","boj_revive_eye","neutro_retinol_eye","inkey_retinol_eye","cerave_skin_renewing_eye","ord_multi_peptide_eye","avene_eye_b3","eucerin_elasticity_eye"]};
-const ROLE_LABELS={"cleanser_sensitive":"Cleanser — sensitive / dry / barrier-impaired","cleanser_oily":"Cleanser — oily / robust","moisturiser_barrier_dry":"Moisturiser — dry / barrier repair","moisturiser_sensitive":"Moisturiser — sensitive / reactive","moisturiser_oily":"Moisturiser — oily / lightweight","barrier_support":"Barrier-support treatment","rescue_balm":"Local rescue balm","spf_pigment":"Sunscreen — pigmentation / high UVA priority","spf_oily":"Sunscreen — oily / blemish-prone","spf_general":"Sunscreen — general daily use","acne_pigment_shared":"Single treatment — acne + pigmentation","acne_treatment":"Blemish / acne-support treatment","pigment_only":"Pigmentation treatment","postblemish_gentle":"Gentle post-blemish support","congestion_treatment":"Congestion / blackhead / pore treatment","oil_support":"Oil / pore support","ageing_sensitive":"Ageing — sensitive / non-retinoid","ageing_retinoid_starter":"Ageing — retinoid / retinal · clinic starter","ageing_retinoid_advanced":"Ageing — advanced retinal · experienced user","eye_ageing_sensitive":"Eye ageing — sensitive / non-retinoid","eye_ageing_retinoid":"Eye ageing — retinoid / retinal","eye_ageing":"Eye ageing — combined clinician view"};
-
-const METRICS=[
-  ['acne','Acne'],['blackhead','Blackhead'],['pore','Pore'],['oil','Oil'],['bacteria','Bacteria'],
-  ['surfaceSensitivity','Surface sensitivity'],['deepSensitivity','Deep sensitivity'],['surfaceSpot','Surface spot'],
-  ['deepSpot','Deep spot'],['spotHeat','Spot heat'],['skinColor','Skin colour'],['wrinkle','Wrinkle'],
-  ['collagen','Collagen'],['texture','Texture']
-];
-
-let state={loaded:false,baumann:'',moisture:null,skinAge:null,totalScore:null,metrics:{},audit:[]};
-
-function product(id){return PRODUCTS.find(x=>x.id===id)}
-function enabledMap(){
-  try{
-    const saved=JSON.parse(localStorage.getItem('skinplanEnabledBrands')||'null')||{};
-    return Object.fromEntries(BRANDS.map(b=>[b,saved[b]!==false]));
-  }catch{return Object.fromEntries(BRANDS.map(b=>[b,true]))}
-}
-function saveEnabled(m){localStorage.setItem('skinplanEnabledBrands',JSON.stringify(Object.fromEntries(BRANDS.map(b=>[b,m[b]!==false]))))}
-function isEnabledBrand(brand){return enabledMap()[brand]!==false}
-function selectionStrategy(){return localStorage.getItem('skinplanSelectionStrategy')==='budget'?'budget':'clinical'}
-function priorityBrand(){const b=localStorage.getItem('skinplanPriorityBrand')||'';return BRANDS.includes(b)?b:''}
-function tierOf(brand){return BRAND_TIERS[brand]||'premium'}
-function tierLabel(tier){return ({budget:'Budget',mid:'Mid-range',premium:'Premium'})[tier]||tier}
-function rawRanked(role){return (RANKINGS[role]||[]).map(product).filter(Boolean)}
-function ranked(role){return rawRanked(role).filter(p=>isEnabledBrand(p.brand))}
-function markSelection(p,note,type='clinical'){
-  if(!p)return null;
-  return {...p,_selectionNote:note||'',_selectionType:type};
-}
-function pick(role){
-  const result=SkinPlanSelectionEngine.choose(rawRanked(role),{
-    enabledMap:enabledMap(),
-    strategy:selectionStrategy(),
-    priorityBrand:priorityBrand(),
-    brandTiers:BRAND_TIERS
-  });
-  return result?.product?markSelection(result.product,result.note,result.type):null;
-}
-function requirePick(role,label){
-  const p=pick(role); if(p)return p;
-  throw new Error(`No product remains available for ${label||ROLE_LABELS[role]||role}. Enable at least one compatible brand.`);
-}
-
-document.querySelectorAll('.tab').forEach(btn=>btn.onclick=()=>{
-  document.querySelectorAll('.tab,.page').forEach(x=>x.classList.remove('active'));
-  btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active');
-  if(btn.dataset.tab==='library')renderRankings();
-  if(btn.dataset.tab==='settings')renderBrandSettings();
-});
-
-function setStatus(text,kind=''){const el=document.getElementById('importStatus');el.textContent=text;el.className='status '+kind}
-function cleanReportLink(text){
-  let t=(text||'').trim().replace(/\\&/g,'&').replace(/\^&/g,'&');
-  const md=t.match(/\]\((https?:\/\/[^)]+)\)/);if(md)t=md[1];return t;
-}
-async function importReport(){
-  const btn=document.getElementById('importBtn'),old=btn.textContent;
-  try{
-    btn.disabled=true;btn.textContent='Importing…';setStatus('Fetching X3 report…');
-    const url=cleanReportLink(document.getElementById('x3Link').value);
-    const r=await fetch('/api/x3-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});
-    const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||`HTTP ${r.status}`);
-    state={loaded:true,...j,audit:[]};document.getElementById('x3Link').value='';resetSafetyReview();renderDevice();setStatus('X3 report imported successfully. The share link has been cleared from this page.','ok');
-  }catch(e){setStatus(e.message,'err')}finally{btn.disabled=false;btn.textContent=old}
-}
-document.getElementById('importBtn').onclick=importReport;
-
-function roman(n){return ['','I','II','III','IV','V'][Number(n)]||n}
-function deriveLevel(v){v=Number(v);if(v<=29)return 5;if(v<=49)return 4;if(v<=69)return 3;if(v<=89)return 2;return 1}
-function renderDevice(){
-  document.getElementById('devicePanel').style.display='block';
-  document.getElementById('sumBaumann').textContent=state.baumann||'—';
-  document.getElementById('sumMoisture').textContent=state.moisture==null?'—':state.moisture+'%';
-  document.getElementById('sumAge').textContent=state.skinAge??'—';
-  document.getElementById('sumTotal').textContent=state.totalScore??'—';
-  const grid=document.getElementById('metricGrid');grid.innerHTML='';
-  for(const [id,label] of METRICS){
-    const m=state.metrics[id];
-    grid.insertAdjacentHTML('beforeend',`<div class="metric"><div><b>${label}</b><div class="small">${m.source||''}</div></div><input id="m_${id}" type="number" min="0" max="100" value="${m.score}"><div id="l_${id}" class="lvl l${m.level}">Level ${roman(m.level)}</div></div>`);
-    const metricInput=document.getElementById('m_'+id);
-    if(m.originalScore===undefined){m.originalScore=Number(m.score);m.originalSource=m.source||'X3';m._lastCommittedScore=Number(m.score);}
-    const previewMetric=e=>{const v=Math.max(0,Math.min(100,Number(e.target.value)));if(!Number.isFinite(v))return;e.target.value=v;m.score=v;m.level=deriveLevel(v);m.source=(v===m.originalScore)?m.originalSource:'manual correction';document.getElementById('l_'+id).className='lvl l'+m.level;document.getElementById('l_'+id).textContent='Level '+roman(m.level);renderPriorityLists();updateCorrectionUI();};
-    metricInput.oninput=previewMetric;
-    metricInput.onchange=e=>{const from=Number(m._lastCommittedScore);previewMetric(e);const to=Number(m.score);if(Number.isFinite(from)&&from!==to){state.audit.push({metric:id,label,from,to,at:new Date().toISOString()});m._lastCommittedScore=to;}updateCorrectionUI();};
-  }
-  renderPriorityLists();
-}
-function renderPriorityLists(){
-  const groups={urgent:[],continuous:[],preventive:[]};
-  for(const [id,label] of METRICS){const m=state.metrics[id];const x=`${label} ${m.score} · L${roman(m.level)}`;if(m.level>=4)groups.urgent.push(x);else if(m.level===3)groups.continuous.push(x);else groups.preventive.push(x)}
-  document.getElementById('urgentList').innerHTML=groups.urgent.map(x=>`<li>${x}</li>`).join('')||'<li>None</li>';
-  document.getElementById('continuousList').innerHTML=groups.continuous.map(x=>`<li>${x}</li>`).join('')||'<li>None</li>';
-  document.getElementById('preventiveList').innerHTML=groups.preventive.map(x=>`<li>${x}</li>`).join('')||'<li>None</li>';
-}
-
-function syncMetricsFromInputs(){
-  for(const [id] of METRICS){
-    const el=document.getElementById('m_'+id);
-    const m=state.metrics[id];
-    if(!el||!m)continue;
-    const v=Math.max(0,Math.min(100,Number(el.value)));
-    if(!Number.isFinite(v))continue;
-    m.score=v;
-    m.level=deriveLevel(v);
-  }
-}
-function M(id){return state.metrics[id]}
-function safetyFlags(){return {
-  pregnant:document.getElementById('pregnant').checked,trying:document.getElementById('trying').checked,breastfeeding:document.getElementById('breastfeeding').checked,
-  eczema:document.getElementById('eczema').checked,rosacea:document.getElementById('rosacea').checked,rx:document.getElementById('rx').checked,
-  procedure:document.getElementById('procedure').checked,allergy:document.getElementById('allergy').checked,currentActive:document.getElementById('currentActive').checked,
-  redFlagLesion:document.getElementById('redFlagLesion').checked,redFlagAcne:document.getElementById('redFlagAcne').checked,redFlagInfection:document.getElementById('redFlagInfection').checked
-}}
-function esc(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
-function hasManualCorrections(){return METRICS.some(([id])=>{const m=state.metrics[id];return m&&m.originalScore!==undefined&&Number(m.score)!==Number(m.originalScore)})}
-function updateCorrectionUI(){const wrap=document.getElementById('correctionReasonWrap');if(wrap)wrap.style.display=hasManualCorrections()?'block':'none'}
-function safetyHoldReasons(f){
-  const r=[];
-  if(f.pregnant)r.push('Pregnancy');
-  if(f.trying)r.push('Trying to conceive');
-  if(f.breastfeeding)r.push('Breastfeeding');
-  if(f.eczema)r.push('Active eczema / dermatitis');
-  if(f.rosacea)r.push('Rosacea / persistent inflammatory redness');
-  if(f.rx)r.push('Prescription skin treatment currently in use');
-  if(f.procedure)r.push('Recent peel / laser / microneedling');
-  if(f.allergy)r.push('Known skincare allergy — automatic product selection withheld');
-  if(f.currentActive)r.push('Current retinoid / benzoyl peroxide / exfoliating acid use');
-  return r;
-}
-function redFlagReasons(f){
-  const r=[];
-  if(f.redFlagLesion)r.push('New / changing / bleeding / ulcerated pigmented lesion');
-  if(f.redFlagAcne)r.push('Painful nodular/cystic or scarring acne');
-  if(f.redFlagInfection)r.push('Possible infection, severe swelling, blistering or rapidly worsening rash');
-  return r;
-}
-function safetyDetails(){return {
-  rx:(document.getElementById('rxDetails').value||'').trim(),procedure:(document.getElementById('procedureDetails').value||'').trim(),
-  allergy:(document.getElementById('allergyDetails').value||'').trim(),currentActive:(document.getElementById('currentActiveDetails').value||'').trim(),
-  redFlag:(document.getElementById('redFlagDetails').value||'').trim()
-}}
-function validateSafetyReview(){
-  const f=safetyFlags(),d=safetyDetails();
-  if(!document.getElementById('safetyReviewed').checked)throw new Error('Complete and confirm the safety / red-flag review before generating a plan.');
-  if(!(document.getElementById('reviewer').value||'').trim())throw new Error('Enter clinician / reviewer initials for the audit trail.');
-  if(f.rx&&!d.rx)throw new Error('Add the prescription treatment name / active / frequency.');
-  if(f.procedure&&!d.procedure)throw new Error('Add the recent procedure type / date / recovery status.');
-  if(f.allergy&&!d.allergy)throw new Error('Add the known allergy ingredient / product / reaction.');
-  if(f.currentActive&&!d.currentActive)throw new Error('Add the current active product / concentration / frequency.');
-  if((f.redFlagLesion||f.redFlagAcne||f.redFlagInfection)&&!d.redFlag)throw new Error('Add a brief note / action for the selected clinical red flag.');
-  if(hasManualCorrections()&&!(document.getElementById('correctionReason').value||'').trim())throw new Error('Add a reason for the manual X3 score correction.');
-  return {flags:f,details:d};
-}
-function updateSafetyUI(){
-  const map={rx:'rxDetailsWrap',procedure:'procedureDetailsWrap',allergy:'allergyDetailsWrap',currentActive:'currentActiveDetailsWrap'};
-  for(const [id,wrap] of Object.entries(map))document.getElementById(wrap).classList.toggle('show',document.getElementById(id).checked);
-  const red=document.getElementById('redFlagLesion').checked||document.getElementById('redFlagAcne').checked||document.getElementById('redFlagInfection').checked;
-  document.getElementById('redFlagDetailsWrap').classList.toggle('show',red);
-  const reviewed=document.getElementById('safetyReviewed').checked;
-  const reviewer=(document.getElementById('reviewer').value||'').trim();
-  const btn=document.getElementById('generateBtn');
-  btn.disabled=!(reviewed&&reviewer);
-  const st=document.getElementById('safetyStatus');
-  st.textContent=reviewed?(reviewer?'Safety review confirmed. Required detail fields will be checked when generating.':'Enter reviewer initials to enable report generation.'):'Complete the safety review before generating a plan.';
-  st.className='reviewStatus '+(reviewed&&reviewer?'ok':'');
-}
-function resetSafetyReview(){
-  ['pregnant','trying','breastfeeding','eczema','rosacea','rx','procedure','allergy','currentActive','redFlagLesion','redFlagAcne','redFlagInfection','safetyReviewed'].forEach(id=>{const e=document.getElementById(id);if(e)e.checked=false});
-  ['rxDetails','procedureDetails','allergyDetails','currentActiveDetails','redFlagDetails','correctionReason','patient'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=''});
-  updateCorrectionUI();updateSafetyUI();
-}
-function concernLevels(){
-  const raw={};
-  for(const [id] of METRICS)raw[id]=M(id).level;
-  return SkinPlanEngine.concernLevels(raw);
-}
-function orderedConcerns(levels){
-  return SkinPlanEngine.orderedConcerns(levels,state.baumann);
-}
-function baseProducts(levels){
-  const policy=SkinPlanEngine.basePolicy({baumann:state.baumann,moisture:state.moisture,levels});
-  const cleanser=requirePick(policy.cleanserRole,'cleanser');
-  const moisturiser=requirePick(policy.moisturiserRole,'moisturiser');
-  const spf=requirePick(policy.spfRole,'sunscreen');
-  return {cleanser,moisturiser,spf,barrierSerum:pick('barrier_support'),rescue:pick('rescue_balm')}
-}
-function activeProtocol(p,cautious=false){
-  const t=p?.therapy||'active';
-  if(t==='pigment_am')return {timing:'am',nights:0,maintenanceNights:0,minGap:0,frequency:'Use once each morning initially; sunscreen remains mandatory.',instructions:['Apply before moisturiser/sunscreen.','If other products from the same active family are added, follow the manufacturer label maximum for combined applications.']};
-  if(t==='retinoid')return {timing:'pm',nights:1,maintenanceNights:2,minGap:2,frequency:'Start 1 evening/week for 1–2 weeks, then 2 non-consecutive evenings/week only if comfortable.',instructions:['Use a small amount on dry skin, followed by moisturiser.','Keep at least 2 nights between the first applications. Do not use acids on the same evening.']};
-  if(t==='bha'||t==='bha_pigment'||t==='multi_acid'||t==='blemish_acid')return {timing:'pm',nights:cautious?1:2,maintenanceNights:2,minGap:2,frequency:cautious?'Start once weekly; increase to twice weekly only if comfortable.':'Start 2 non-consecutive evenings/week.',instructions:['Use as the only exfoliating treatment active that evening.','Leave at least 2 nights between the first applications and do not combine with a retinoid or another direct-acid treatment in the same evening.']};
-  if(t==='azelaic')return {timing:'pm',nights:cautious?2:3,maintenanceNights:3,minGap:1,frequency:cautious?'Start 1–2 non-consecutive evenings/week; increase slowly to 3 if comfortable.':'Start 3 non-consecutive evenings/week; keep recovery nights.',instructions:['Use after cleansing, then moisturise.','During introduction, keep at least 1 non-treatment/recovery night between applications.']};
-  if(t==='blemish')return {timing:'pm',nights:cautious?3:4,maintenanceNights:4,minGap:0,frequency:cautious?'Start on 3 evenings/week; increase gradually if comfortable.':'Use on 4 evenings/week initially.',instructions:['Use as the single targeted blemish treatment in that routine.','If dryness or irritation appears, reduce frequency and add recovery nights.']};
-  if(t==='pigment')return {timing:'pm',nights:cautious?2:3,maintenanceNights:3,minGap:1,frequency:cautious?'Start 2 non-consecutive evenings/week; increase gradually.':'Start 3 evenings/week, keeping recovery nights.',instructions:['Use as the single dedicated pigmentation treatment in that evening routine.','Do not add another exfoliating/retinoid treatment on the same evening.']};
-  if(t==='peptide')return {timing:'pm',nights:3,maintenanceNights:3,minGap:0,frequency:'Use 3 evenings/week on non-acid recovery-style nights.',instructions:['Keep this on different evenings from direct acids/BHA in this conservative programme.','Retinoid can be considered only in a later stable phase if still needed.']};
-  if(t==='ageing_support')return {timing:'pm',nights:3,maintenanceNights:3,minGap:0,frequency:'Use 3 evenings/week as the non-retinoid ageing-support routine.',instructions:['Use on treatment/recovery evenings as shown in the weekly table.','If irritation develops, reduce frequency rather than adding more actives.']};
-  return {timing:'pm',nights:2,maintenanceNights:3,minGap:1,frequency:'Start on 2 non-consecutive evenings/week and increase only if comfortable.',instructions:['Use one treatment active at a time.']};
-}
-function makeTreatmentPhase(title,active,covers,cautious=false){
-  const protocol=activeProtocol(active,cautious);
-  const instructions=[...protocol.instructions];
-  if(active && !instructions.some(x=>/manufacturer|label frequency/i.test(x))){
-    instructions.push('This is a conservative starter schedule. If well tolerated after 2–4 weeks, increase only toward the current manufacturer label frequency and never above it.');
-  }
-  const expanded=SkinPlanEngine.expandedCovers(active,covers,concernLevels());
-  return {title,active,protocol,frequency:protocol.frequency,instructions,covers:expanded};
-}
-function oneActivePhase(concern,levels,cautious=false){
-  const ageingSensitive=state.baumann[1]==='S'||levels.barrier>=3||levels.ageing===3;
-  const d=SkinPlanEngine.phaseDecision(concern,levels,{sensitive:ageingSensitive});
-  if(!d.kind)return {title:'',active:null,protocol:null,frequency:'',instructions:[],covers:[]};
-  const labels={
-    acne_pigment_shared:'a single treatment that can address blemishes + pigmentation',
-    acne_treatment:'blemish treatment',
-    pigment_only:'pigmentation treatment',
-    congestion_treatment:'congestion treatment',
-    ageing_sensitive:'non-retinoid ageing support',
-    ageing_retinoid:'retinoid'
-  };
-  const productRole=d.kind==='ageing_retinoid'?'ageing_retinoid_starter':d.kind;
-  const ph=makeTreatmentPhase(d.title,requirePick(productRole,labels[d.kind]),d.covers,cautious||(concern==='ageing'&&ageingSensitive));
-  ph.triggeredBy=d.covers.slice();
-  if(concern==='acne'&&d.kind==='acne_treatment')ph.instructions.push('If acne is painful, nodular/cystic or scarring, cosmetic skincare is not enough.');
-  return ph;
-}
-
-function buildPlan(){
-  if(!state.loaded)throw new Error('Import an X3 report first.');
-  syncMetricsFromInputs();
-  const reviewed=validateSafetyReview();
-  const f=reviewed.flags,details=reviewed.details,levels=concernLevels(),B=state.baumann;
-  const holdReasons=safetyHoldReasons(f),redFlags=redFlagReasons(f);
-  const hardHold=holdReasons.length>0||redFlags.length>0;
-  const withholdProducts=f.allergy||redFlags.length>0;
-  const base=withholdProducts?null:baseProducts(levels);
-  const barrierFirst=SkinPlanEngine.barrierFirst(levels,B);
-  const concerns=orderedConcerns(levels);
-  let plan={levels,base,hardHold,withholdProducts,holdReasons,redFlags,safetyDetails:details,barrierFirst,phases:[],avoid:[],referral:[],goal:'',mode:'',selected:[]};
-  if(base?.barrierSerum)plan.selected.push(base.barrierSerum);
-  if(base)plan.selected.push(base.cleanser,base.moisturiser,base.spf);
-
-  const addRemainingConcernPhases=(startPhaseNo,coveredInitial,cautiousFirst)=>{
-    const covered=new Set(coveredInitial||[]);
-    let phaseNo=startPhaseNo;
-    let first=true;
-    for(const concern of concerns){
-      if(covered.has(concern.key))continue;
-      const ph=oneActivePhase(concern.key,levels,first?cautiousFirst:true);
-      if(!ph.active)continue;
-      for(const c of ph.covers||[])covered.add(c);
-      const prefix=first
-        ? `Phase ${phaseNo} · Next 6–8 weeks after the previous phase is stable — `
-        : `Phase ${phaseNo} · After a 6–8 week reassessment — `;
-      ph.title=prefix+ph.title;
-      if(!first)ph.frequency='Advance only if the concern is still relevant at reassessment and the previous phase is tolerated. '+ph.frequency;
-      else ph.frequency='Begin only after the previous phase is stable. '+ph.frequency;
-      plan.phases.push(ph);plan.selected.push(ph.active);
-      phaseNo++;first=false;
-    }
-  };
-
-  if(withholdProducts){
-    plan.mode='Clinical review required';
-    plan.goal='Automatic product selection is withheld until the allergy / clinical red flag has been reviewed and documented as safe to proceed.';
-    plan.phases.push({title:'Current status — automatic product plan withheld',active:null,protocol:null,frequency:'Do not use the automated formulary to start new products from this report.',instructions:['Resolve the flagged issue first, then repeat the safety review and regenerate the plan.'],covers:[]});
-  } else if(hardHold){
-    plan.mode='Safety / recovery only';
-    plan.goal='Keep the routine simple until the documented safety issue has been reviewed.';
-    plan.phases.push({
-      title:'Current phase — recovery only',
-      active:null,protocol:null,
-      frequency:'Use only the already-tolerated basic routine while the documented safety item is reviewed; do not automatically add a new treatment active.',
-      instructions:['Do not automatically start acids, retinoids or another treatment active until the specific safety item listed in this report has been reviewed.'],
-      covers:[]
-    });
-  } else if(barrierFirst){
-    plan.mode='Barrier recovery first';
-    plan.goal='Stabilise device-detected sensitivity/barrier concern before introducing one targeted active.';
-    plan.phases.push({
-      title:'Phase 1 · Minimum 2 weeks — Barrier recovery',
-      active:null,protocol:null,
-      frequency:'Barrier-focused routine every day. Continue beyond 2 weeks if sensitivity is not stable.',
-      instructions:[
-        'No salicylic acid or retinoid during this starter phase.',
-        'Do not progress until the skin has been comfortable for at least 7 days with no persistent burning, marked redness, swelling or peeling.'
-      ],
-      covers:['barrier']
-    });
-    addRemainingConcernPhases(2,['barrier'],true);
-  } else {
-    const primary=concerns[0];
-    if(primary){
-      const ph=oneActivePhase(primary.key,levels,B[1]==='S'||levels.barrier===3);
-      ph.title='Phase 1 · First 6–8 weeks — '+ph.title;
-      ph.frequency='Start with this single treatment pathway. '+ph.frequency;
-      plan.phases.push(ph);if(ph.active)plan.selected.push(ph.active);
-      plan.mode=ph.title.replace(/^Phase 1 · First 6–8 weeks — /,'');
-      plan.goal='Treat the highest-priority X3 concern with one treatment pathway at a time.';
-      addRemainingConcernPhases(2,ph.covers||[],true);
-    } else {
-      plan.mode='Maintenance';plan.goal='Maintain barrier function and UV protection without unnecessary actives.';
-      plan.phases.push({title:'Maintenance',active:null,protocol:null,frequency:'Simple routine only.',instructions:['No treatment active is required from the current X3 profile.'],covers:[]});
-    }
-  }
-
-  plan.avoid.push('Introduce only one new treatment pathway at a time.');
-  plan.avoid.push('Do not stack azelaic acid, salicylic/BHA and retinoids in the same evening.');
-  plan.avoid.push('Keep peptide treatment on different evenings from direct acids/BHA in this conservative programme.');
-  plan.avoid.push('Later phases are conditional: re-check tolerance and whether the earlier concern still needs treatment before advancing.');
-  plan.avoid.push('Stop a new active if persistent burning, swelling, blistering, rash or marked worsening occurs.');
-  if(f.pregnant||f.trying)plan.avoid.push('Retinoids are excluded while pregnant or trying to conceive.');
-  if(f.breastfeeding)plan.avoid.push('Breastfeeding is recorded as a safety hold in this conservative automated pathway; review the intended active before treatment selection.');
-  if(f.currentActive)plan.avoid.push('A retinoid, benzoyl peroxide or exfoliating acid is already in use; review the current product and frequency before adding any new treatment active.');
-  if(M('acne').level>=4)plan.referral.push('The X3 acne score is a device screening signal, not a diagnosis. If clinical acne is present and is persistent, widespread, nodular/cystic or scarring, this cosmetic plan is not a substitute for pharmacist/GP/dermatology assessment.');
-  if(M('surfaceSpot').level>=5||M('spotHeat').level>=5)plan.referral.push('New, changing, asymmetric or bleeding pigmentation/lesions need medical assessment rather than cosmetic treatment.');
-  if(f.redFlagLesion)plan.referral.unshift('Clinical red flag recorded: new / changing / bleeding / ulcerated pigmented lesion. Do not target this lesion cosmetically; arrange appropriate medical assessment.');
-  if(f.redFlagAcne)plan.referral.unshift('Clinical red flag recorded: painful nodular/cystic or scarring acne. Cosmetic skincare alone is not an adequate management plan; arrange appropriate clinical assessment.');
-  if(f.redFlagInfection)plan.referral.unshift('Clinical red flag recorded: possible infection, severe swelling, blistering or rapidly worsening rash. Stop automated treatment selection and arrange prompt clinical assessment.');
-  return plan;
-}
-function productImg(p){
-  const fallback=`/api/product-image?id=${encodeURIComponent(p.id)}`;
-  return `<img src="${p.image}" alt="${p.name}" loading="lazy" data-product-id="${p.id}" onerror="if(!this.dataset.realPackshotTried){this.dataset.realPackshotTried='1';this.src='${fallback}';}">`;
-}
-function useText(p,kind){
-  const generic={cleanser:'Use a small amount and cleanse gently with lukewarm water.',moisturiser:'Apply a comfortable layer over face and neck.',spf:'Apply generously as the final morning step. During sustained outdoor exposure, reapply about every 2 hours and after swimming, sweating or towel-drying.',barrier:'Apply a thin layer / 2–3 drops as directed.',active:'Use only on the scheduled treatment nights.',ageing:'Use on the scheduled ageing-support nights.',retinoid:'Use only on scheduled retinoid nights.',support:'Use only when the plan specifically calls for it.',rescue:'Use only on local irritated/dry areas.'};
-  return generic[p.role]||'Use as directed.';
-}
-function stepCard(p,title,i){
-  return `<div class="step"><div class="n">${i+1}</div>${productImg(p)}<h4>${title}</h4><p><span class="brandname">${p.brand}</span><br>${p.name}</p>${p._selectionNote?`<div class="fallbackNote">${p._selectionNote}</div>`:''}<p>${useText(p)}</p></div>`;
-}
-function currentRoutine(plan){
-  const morning=[plan.base.cleanser];
-  if(plan.barrierFirst&&plan.base.barrierSerum)morning.push(plan.base.barrierSerum);
-  morning.push(plan.base.moisturiser,plan.base.spf);
-  const evening=[plan.base.cleanser];
-  if(plan.barrierFirst&&plan.base.barrierSerum)evening.push(plan.base.barrierSerum);
-  evening.push(plan.base.moisturiser);
-  return {morning,evening};
-}
-function devicePriorityHTML(){
-  const groups={urgent:[],continuous:[],preventive:[]};
-  for(const [id,label] of METRICS){const m=M(id),txt=`${label} ${m.score} · L${roman(m.level)}`;if(m.level>=4)groups.urgent.push(txt);else if(m.level===3)groups.continuous.push(txt);else groups.preventive.push(txt)}
-  return `<div class="rpriority"><div><h4>X3 high priority</h4>${groups.urgent.join('<br>')||'None'}</div><div><h4>Continuous</h4>${groups.continuous.join('<br>')||'None'}</div><div><h4>Preventive</h4>${groups.preventive.join('<br>')||'None'}</div></div>`;
-}
-
-function phaseProductHTML(p){
-  if(!p)return '';
-  return `<div class="phaseProduct">
-    ${productImg(p)}
-    <div>
-      <div class="phaseBrand">${p.brand}</div>
-      <div class="phaseName">${p.name}</div>
-      <div class="phaseWhy">${p.why||''}</div>
-    </div>
-  </div>`;
-}
-function selectedProductCardHTML(p){
-  return `<div class="selectedCard">
-    ${productImg(p)}
-    <div><b>${p.brand}</b><br>${p.name}${p._selectionNote?`<div class="fallbackNote">${p._selectionNote}</div>`:''}</div>
-  </div>`;
-}
-
-
-function routineStepTitle(p,index){
-  if(index===0 && p.role==='cleanser')return 'Cleanse';
-  if(p.role==='spf')return 'Protect SPF50+';
-  if(p.role==='barrier')return 'Barrier support';
-  if(p.role==='moisturiser')return 'Moisturise';
-  if(p.role==='retinoid')return 'Retinoid treatment';
-  if(p.role==='ageing')return 'Ageing support';
-  if(p.role==='active'){
-    if(/azelaic/i.test(p.name))return 'Azelaic-acid treatment';
-    if(/salicylic|beta hydroxy|bha/i.test(p.name))return 'BHA / salicylic treatment';
-    return 'Treatment active';
-  }
-  if(p.role==='pigment')return 'Pigmentation treatment';
-  if(p.role==='support')return 'Support treatment';
-  return 'Treatment step';
-}
-function routineCards(products){
-  return `<div class="steps">${products.map((p,i)=>stepCard(p,routineStepTitle(p,i),i)).join('')}</div>`;
-}
-function isMorningDailyActive(p){return !!p && (p.useTime==='am' || p.therapy==='pigment_am');}
-function compactPhaseName(title){
-  return title
-    .replace(/^Phase \d+\s*·\s*/,'')
-    .replace(/\s*—\s*.*/,'')
-    .trim();
-}
-function protocolKind(p){return p?.therapy||'active'}
-function spacingRuleFor(p){
-  if(!p)return 'No treatment-active spacing required.';
-  const t=protocolKind(p);
-  if(t==='retinoid')return 'Keep ≥2 nights between the first retinoid applications; never use a direct acid/BHA on the same evening.';
-  if(['bha','bha_pigment','multi_acid','blemish_acid'].includes(t))return 'Keep ≥2 nights between the first exfoliating applications; never combine with a retinoid or another direct-acid treatment that evening.';
-  if(t==='azelaic')return 'During introduction, keep ≥1 recovery/non-treatment night between applications.';
-  if(t==='pigment_am')return 'Morning treatment; no PM spacing required. Follow label limits if combining products from the same active family.';
-  if(t==='peptide')return 'Keep on different evenings from direct acids/BHA in this conservative programme.';
-  return 'Use on separate treatment nights; add recovery nights if irritation develops.';
-}
-function adjustedNightCounts(plan,phaseIndex,items){
-  const sensitive=plan.barrierFirst||state.baumann[1]==='S';
-  const prepared=items.map(x=>({
-    ...x,
-    key:x.active.id,
-    count:x.index===phaseIndex?(x.phase.protocol?.nights||0):(x.phase.protocol?.maintenanceNights||x.phase.protocol?.nights||0),
-    minGap:x.phase.protocol?.minGap||0
-  }));
-  return SkinPlanEngine.adjustCounts(prepared,{sensitive,currentIndex:phaseIndex}).counts.map(x=>({item:x,count:x.count}));
-}
-function assignWeek(counts){
-  const items=counts.map(x=>({
-    ...x.item,
-    key:x.item.active.id,
-    count:x.count,
-    minGap:x.item.phase.protocol?.minGap||0
-  }));
-  const sensitive=state.baumann[1]==='S';
-  const currentIndex=items.length?Math.max(...items.map(x=>x.index)):-1;
-  const result=SkinPlanEngine.scheduleWeek(items,{sensitive,currentIndex});
-  const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-  if(!result.week)return days.map(d=>({day:d,label:'Recovery',type:'recovery'}));
-  const byKey=Object.fromEntries(items.map(x=>[x.key,x]));
-  return result.week.map((d,i)=>{
-    if(d.type!=='active')return {day:days[i],label:'Recovery',type:'recovery'};
-    const item=byKey[d.key];
-    return {day:days[i],label:routineStepTitle(item.active,1).replace(' treatment',''),type:'active'};
-  });
-}
-function phaseWeekInfo(plan,phaseIndex){
-  const phase=plan.phases[phaseIndex];
-  const introduced=plan.phases.slice(0,phaseIndex+1).map((ph,idx)=>({phase:ph,index:idx,active:ph.active})).filter(x=>x.active);
-  const amActives=introduced.filter(x=>x.phase.protocol?.timing==='am');
-  const pmItems=introduced.filter(x=>x.phase.protocol?.timing!=='am');
-  const sensitive=plan.barrierFirst||state.baumann[1]==='S';
-  const prepared=pmItems.map(x=>({
-    ...x,key:x.active.id,
-    count:x.index===phaseIndex?(x.phase.protocol?.nights||0):(x.phase.protocol?.maintenanceNights||x.phase.protocol?.nights||0),
-    minGap:x.phase.protocol?.minGap||0
-  }));
-  const scheduled=SkinPlanEngine.scheduleWeek(prepared,{sensitive,currentIndex:phaseIndex});
-  const counts=scheduled.counts.map(x=>({item:x,count:x.count}));
-  const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-  const byKey=Object.fromEntries(prepared.map(x=>[x.key,x]));
-  const week=(scheduled.week||days.map((_,i)=>({day:i,type:'recovery',key:null}))).map((d,i)=>{
-    if(d.type!=='active')return {day:days[i],label:'Recovery',type:'recovery'};
-    const item=byKey[d.key];
-    return {day:days[i],label:routineStepTitle(item.active,1).replace(' treatment',''),type:'active'};
-  });
-  const amFreq=amActives.map(x=>`${x.active.brand} ${x.active.name}: daily AM`);
-  const pmFreq=counts.filter(x=>x.count>0).map(x=>`${x.item.active.brand} ${x.item.active.name}: ${x.count} night${x.count===1?'':'s'}/week`);
-  const paused=counts.filter(x=>x.count===0).map(x=>`${x.item.active.brand} ${x.item.active.name}`);
-  const activeFreq=[...amFreq,...pmFreq].join('; ')||'Recovery routine only';
-  const pauseText=paused.length?` Earlier treatment paused in this example phase to avoid overcrowding: ${paused.join('; ')}. Reassess before deciding whether it still needs maintenance.`:'';
-  const allActives=[...amActives,...pmItems.filter(x=>counts.find(c=>c.item.active.id===x.active.id)?.count>0)];
-  const spacing=[...new Set(allActives.map(x=>spacingRuleFor(x.active)))].join(' ')+(allActives.filter(x=>x.phase.protocol?.timing!=='am').length>1?' Different evening treatment actives stay on separate evenings.':'');
-  const morning=[plan.base.cleanser];if(plan.barrierFirst&&plan.base.barrierSerum)morning.push(plan.base.barrierSerum);amActives.forEach(x=>morning.push(x.active));morning.push(plan.base.moisturiser,plan.base.spf);
-  return {phase,morning,week,activeFreq:activeFreq+pauseText,spacing:spacing||'No treatment-active spacing required.',counts};
-}
-function phaseTriggerText(ph){
-  if(!ph.triggeredBy||!ph.triggeredBy.length)return '';
-  const labels={acne:'Acne',pigment:'Pigmentation',congestion:'Congestion',ageing:'Ageing',barrier:'Barrier'};
-  return ph.triggeredBy.map(k=>`${labels[k]||k} L${roman(concernLevels()[k])}`).join(' + ');
-}
-function shortProduct(p){return `${p.brand} — ${p.name.replace(/\s+\d+\s*(ml|g).*$/i,'')}`}
-function weeklyProgrammeTable(plan){
-  const rows=plan.phases.map((ph,idx)=>{
-    const x=phaseWeekInfo(plan,idx);
-    return `<tr><td class="summaryPhase">${ph.title}${phaseTriggerText(ph)?`<div class="small" style="margin-top:6px"><b>Triggered by:</b> ${phaseTriggerText(ph)}</div>`:''}</td><td>${x.morning.map(shortProduct).join('<br>')}</td><td><b>${x.activeFreq}</b><div class="weekMini">${x.week.map(d=>`<span class="${d.type}"><b>${d.day}</b><br>${d.label}</span>`).join('')}</div></td><td>${x.spacing}</td></tr>`;
-  }).join('');
-  return `<div class="summaryWrap"><h3>Weekly programme at a glance</h3><div class="summaryHint">Use this table as the quick reference. Full morning/evening routines with product images are repeated underneath for every phase.</div><table class="summaryTable"><thead><tr><th>Phase / weeks</th><th>Morning products — every day</th><th>Weekly treatment frequency + example evenings</th><th>Spacing between treatment actives</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-}
-
-function phaseDetailedHTML(plan,phaseIndex){
-  const phase=plan.phases[phaseIndex];
-  const introduced=plan.phases
-    .slice(0,phaseIndex+1)
-    .map((ph,idx)=>({phase:ph,index:idx,active:ph.active}))
-    .filter(x=>x.active);
-  const weekInfo=phaseWeekInfo(plan,phaseIndex);
-  const countMap=new Map((weekInfo.counts||[]).map(x=>[x.item.active.id,x.count]));
-  const morningActives=introduced.filter(x=>isMorningDailyActive(x.active));
-  const eveningActives=introduced.filter(x=>!isMorningDailyActive(x.active) && (countMap.get(x.active.id)||0)>0);
-
-  const morning=[plan.base.cleanser];
-  if(plan.barrierFirst && plan.base.barrierSerum)morning.push(plan.base.barrierSerum);
-  morningActives.forEach(x=>morning.push(x.active));
-  morning.push(plan.base.moisturiser,plan.base.spf);
-
-  const recovery=[plan.base.cleanser];
-  if(plan.barrierFirst && plan.base.barrierSerum)recovery.push(plan.base.barrierSerum);
-  recovery.push(plan.base.moisturiser);
-
-  let html=`<div class="phaseDetailed">
-    <h3>${phase.title}</h3>
-    ${phaseTriggerText(phase)?`<div class="phaseIntro"><b>Triggered by:</b> ${phaseTriggerText(phase)}</div>`:''}
-    <div class="phaseIntro"><b>Phase instruction:</b> ${phase.frequency}</div>
-    ${phase.instructions.length?`<ul class="phaseIntro">${phase.instructions.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}
-    <div class="phaseRule"><b>Example weekly spacing:</b> ${phaseWeekInfo(plan,phaseIndex).week.map(d=>`${d.day}: ${d.label}`).join(' · ')}</div>
-
-    <div class="phaseRoutineBand morning">☀ MORNING — EVERY DAY DURING THIS PHASE</div>
-    ${routineCards(morning)}`;
-
-  if(eveningActives.length===0){
-    html+=`
-      <div class="phaseRoutineBand recovery">☾ EVENING — EVERY NIGHT DURING THIS PHASE</div>
-      <div class="phaseRoutineNote">Barrier/recovery routine only.</div>
-      ${routineCards(recovery)}`;
-  }else{
-    eveningActives.forEach(item=>{
-      const current=item.index===phaseIndex;
-      const freq=current
-        ? item.phase.frequency
-        : `Continue this treatment only at the tolerated frequency established in ${compactPhaseName(item.phase.title)}.`;
-      html+=`
-        <div class="phaseRoutineBand treatment">☾ EVENING — ${routineStepTitle(item.active,1).toUpperCase()} NIGHTS</div>
-        <div class="phaseRoutineNote">${freq}</div>
-        ${routineCards([plan.base.cleanser,item.active,plan.base.moisturiser])}`;
-    });
-
-    html+=`
-      <div class="phaseRoutineBand recovery">☾ EVENING — RECOVERY NIGHTS</div>
-      <div class="phaseRoutineNote">Use this routine on evenings not assigned to one of the treatment routines above.</div>
-      ${routineCards(recovery)}
-      <div class="phaseRule"><b>Important:</b> treatment-night routines are separate. Do not use two listed treatment actives on the same evening unless the plan explicitly says to do so.</div>`;
-  }
-
-  html+='</div>';
-  return html;
-}
-
-function safetyBannerHTML(plan){
-  if(!plan.hardHold)return '';
-  const reasons=[...(plan.holdReasons||[]),...(plan.redFlags||[])];
-  const d=plan.safetyDetails||{};
-  const details=[];
-  if(d.rx)details.push(`<li><b>Prescription:</b> ${esc(d.rx)}</li>`);
-  if(d.procedure)details.push(`<li><b>Procedure:</b> ${esc(d.procedure)}</li>`);
-  if(d.allergy)details.push(`<li><b>Allergy:</b> ${esc(d.allergy)}</li>`);
-  if(d.currentActive)details.push(`<li><b>Current active:</b> ${esc(d.currentActive)}</li>`);
-  if(d.redFlag)details.push(`<li><b>Red-flag note/action:</b> ${esc(d.redFlag)}</li>`);
-  return `<div class="criticalHold"><h3>${plan.withholdProducts?'CLINICAL REVIEW REQUIRED — AUTOMATIC PRODUCT SELECTION WITHHELD':'SAFETY HOLD — DO NOT AUTO-START NEW TREATMENT ACTIVES'}</h3><b>Reason(s):</b><ul>${reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${details.length?`<b>Recorded detail:</b><ul>${details.join('')}</ul>`:''}</div>`;
-}
-function auditTrailHTML(){
-  const reviewer=esc((document.getElementById('reviewer').value||'').trim());
-  const generated=esc(new Date().toLocaleString());
-  const reason=esc((document.getElementById('correctionReason').value||'').trim());
-  const rows=(state.audit||[]).map(a=>`<tr><td>${esc(a.label)}</td><td>${esc(a.from)}</td><td>${esc(a.to)}</td><td>${esc(new Date(a.at).toLocaleString())}</td></tr>`).join('');
-  const changed=hasManualCorrections();
-  return `<div class="auditBox"><b>Review / audit record</b><div>Reviewer: ${reviewer} · Report generated: ${generated}</div>${changed?`<div style="margin-top:5px"><b>Manual correction reason:</b> ${reason}</div><table><thead><tr><th>Indicator</th><th>From</th><th>To</th><th>Change time</th></tr></thead><tbody>${rows||'<tr><td colspan="4">Manual correction present; no change event captured.</td></tr>'}</tbody></table>`:'<div style="margin-top:5px">No X3 score was manually changed.</div>'}</div>`;
-}
-function withheldPlanHTML(plan){
-  return `<div class="phase"><h3>Automated treatment plan withheld</h3><p style="font-size:11px;line-height:1.6">The device findings are shown for review, but no automatic product routine or treatment-active schedule is produced while the recorded allergy / clinical red flag remains unresolved. Document the clinical outcome, repeat the safety review, and regenerate only when it is appropriate to proceed.</p></div>`;
-}
-function generateReport(){
-  try{
-    const plan=buildPlan(),ref=esc((document.getElementById('patient').value||'Patient').trim()||'Patient');
-    const selectedUnique=[...new Map(plan.selected.filter(Boolean).map(p=>[p.id,p])).values()];
-    const planBody=plan.withholdProducts
-      ? withheldPlanHTML(plan)
-      : `${weeklyProgrammeTable(plan)}<div class="band phaseband">FULL ROUTINE FOR EACH PHASE</div>${plan.phases.map((ph,idx)=>phaseDetailedHTML(plan,idx)).join('')}`;
-    document.getElementById('report').innerHTML=`
-      <div class="rhead"><div><h1>Personalised Skin Maintenance Plan</h1><div>Generated from X3 device data · SkinPlan v17.14.0</div></div><div><b>${ref}</b><br><small>${esc(plan.mode)}</small></div></div>
-      <div class="rmeta"><div>Baumann<b>${esc(state.baumann)}</b></div><div>Moisture<b>${state.moisture??'—'}${state.moisture!=null?'%':''}</b></div><div>Skin age<b>${state.skinAge??'—'}</b></div><div>Total score<b>${state.totalScore??'—'}</b></div></div>
-      ${safetyBannerHTML(plan)}
-      ${devicePriorityHTML()}
-      <div class="goodbox"><b>Plan goal:</b> ${esc(plan.goal)}</div>
-      ${planBody}
-      <div class="warnbox"><b>Do not use / pause</b><ul>${plan.avoid.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
-      ${plan.referral.length?`<div class="warnbox"><b>When this plan is not enough / referral</b><ul>${plan.referral.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}
-      ${!plan.withholdProducts?`<div class="phase"><h3>Products selected by the ranking engine</h3><div class="selectedGrid">${selectedUnique.map(selectedProductCardHTML).join('')}</div></div>`:''}
-      ${auditTrailHTML()}
-      <div class="footer">Cosmetic skincare maintenance guidance only — not a diagnosis or prescription. X3 scores/Levels and Baumann type are device-derived decision inputs. Safety and red-flag screening must be actively reviewed before generation. Brand settings can change which compatible ranked product is selected, but do not override safety holds. Check current product labels and availability before supply.</div>`;
-    document.getElementById('reportArea').style.display='block';document.getElementById('reportArea').scrollIntoView({behavior:'smooth'});
-  }catch(e){const st=document.getElementById('safetyStatus');if(st){st.textContent=e.message;st.className='reviewStatus err'}alert(e.message)}
-}
-document.getElementById('generateBtn').onclick=generateReport;
-['pregnant','trying','breastfeeding','eczema','rosacea','rx','procedure','allergy','currentActive','redFlagLesion','redFlagAcne','redFlagInfection','safetyReviewed'].forEach(id=>document.getElementById(id).addEventListener('change',updateSafetyUI));
-document.getElementById('reviewer').addEventListener('input',updateSafetyUI);
-updateSafetyUI();
-
-
-
-function setTierOnly(tier){
-  const m=Object.fromEntries(BRANDS.map(b=>[b,tierOf(b)===tier]));
-  saveEnabled(m);
-  const p=priorityBrand(); if(p && !m[p])localStorage.setItem('skinplanPriorityBrand','');
-  renderBrandSettings();renderLibrary();renderRankings();
-}
-function renderBrandSettings(){
-  const map=enabledMap(),wrap=document.getElementById('brandTierGroups');wrap.innerHTML='';
-  const tierOrder=[['budget','Budget','lower-cost brands'],['mid','Mid-range','middle price tier'],['premium','Premium','higher price tier']];
-  for(const [tier,label,desc] of tierOrder){
-    const brands=BRANDS.filter(b=>tierOf(b)===tier);
-    const cards=brands.map(b=>`<div class="brandtoggle"><div class="brandTop"><label><input type="checkbox" data-brand="${b}" ${map[b]!==false?'checked':''}> <span>${b}</span></label><label class="brandPriority"><input type="radio" name="priorityBrand" value="${b}" ${priorityBrand()===b?'checked':''}> Priority</label></div><div class="brandCount">${PRODUCTS.filter(p=>p.brand===b).length} curated products</div></div>`).join('');
-    wrap.insertAdjacentHTML('beforeend',`<div class="tierGroup"><div class="tierHeader"><span class="tierPill">${label}</span><span>${brands.join(' · ')}</span><small>${desc}</small></div><div class="brandgrid">${cards}</div></div>`);
-  }
-  document.querySelectorAll('input[name="selectionStrategy"]').forEach(el=>{el.checked=el.value===selectionStrategy();el.onchange=()=>{if(el.checked){localStorage.setItem('skinplanSelectionStrategy',el.value);renderRankings();renderBrandSettings();}}});
-  document.querySelectorAll('input[name="priorityBrand"]').forEach(el=>{el.checked=el.value===priorityBrand();el.onchange=()=>{if(!el.checked)return;localStorage.setItem('skinplanPriorityBrand',el.value);if(el.value){const m=enabledMap();m[el.value]=true;saveEnabled(m);}renderBrandSettings();renderLibrary();renderRankings();}});
-  wrap.querySelectorAll('input[type="checkbox"][data-brand]').forEach(el=>el.onchange=()=>{const m=enabledMap();m[el.dataset.brand]=el.checked;saveEnabled(m);if(!el.checked&&priorityBrand()===el.dataset.brand)localStorage.setItem('skinplanPriorityBrand','');renderBrandSettings();renderLibrary();renderRankings();});
-  const enabledCount=BRANDS.filter(b=>map[b]!==false).length;
-  document.getElementById('settingsStatus').textContent=`${enabledCount} of 9 brands enabled · ${PRODUCTS.length} curated products · ${selectionStrategy()==='clinical'?'Clinical efficacy first':'Budget tier first'}`;
-}
-document.getElementById('allBrandsBtn').onclick=()=>{saveEnabled(Object.fromEntries(BRANDS.map(b=>[b,true])));renderBrandSettings();renderLibrary();renderRankings()};
-document.getElementById('budgetBrandsBtn').onclick=()=>setTierOnly('budget');
-document.getElementById('midBrandsBtn').onclick=()=>setTierOnly('mid');
-document.getElementById('premiumBrandsBtn').onclick=()=>setTierOnly('premium');
-
-function renderRoleOptions(){
-  document.getElementById('roleSelect').innerHTML=Object.entries(ROLE_LABELS).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
-}
-function renderRankings(){
-  const role=document.getElementById('roleSelect').value||Object.keys(ROLE_LABELS)[0],normal=ranked(role),box=document.getElementById('rankingList'),chosen=pick(role);
-  const arr=[...normal];if(chosen&&!arr.some(p=>p.id===chosen.id))arr.unshift(chosen);
-  box.innerHTML=arr.length?arr.map((p,i)=>`<div class="rankrow"><div class="ranknum">${i+1}</div>${productImg(p)}<div><b>${p.brand} — ${p.name}</b><span class="productTier rankTier">${tierLabel(tierOf(p.brand))}</span>${chosen&&chosen.id===p.id?`<span class="rankchoice">chosen now</span>`:''}<div class="why">${p.why}</div>${chosen&&chosen.id===p.id&&chosen._selectionNote?`<div class="fallbackNote">${chosen._selectionNote}</div>`:''}</div><a href="${p.boots}" target="_blank" rel="noopener"><button class="soft">Product</button></a></div>`).join(''):`<div class="status err">No compatible product is available for this role under the current settings.</div>`;
-}
-document.getElementById('showRankingBtn').onclick=renderRankings;document.getElementById('roleSelect').onchange=renderRankings;
-function renderLibrary(){
-  document.getElementById('libraryGrid').innerHTML=PRODUCTS.map(p=>`<div class="prod ${isEnabledBrand(p.brand)?'':'disabled'}">${productImg(p)}<div class="brand">${p.brand}<span class="productTier libraryTier">${tierLabel(tierOf(p.brand))}</span> ${isEnabledBrand(p.brand)?'':'· disabled'}</div><h3>${p.name}</h3><div class="why">${p.why}</div><a href="${p.boots}" target="_blank" rel="noopener"><button class="soft">View product</button></a></div>`).join('');
-}
-
-document.getElementById('logicText').innerHTML=`
-<h3>1. X3 device data sets the clinical pathway</h3>
-<p>The engine uses all 14 imported X3 indicators, their device Levels I–V, Baumann type and moisture. Product strategy never changes safety gates or the order of skin concerns.</p>
-<h3>2. Safety and barrier first</h3>
-<p>Safety flags override automatic actives. Level IV–V sensitivity/inflammation, or a Baumann Sensitive profile with Level III barrier concern, triggers a recovery phase before treatment actives.</p>
-<h3>3. One new active at a time</h3>
-<p>The next concern is introduced only after the previous phase is stable. Later phases require reassessment rather than automatically replacing earlier treatment.</p>
-<h3>4. Weekly spacing is explicit</h3>
-<p>The report calculates an example 7-day evening schedule inside each detailed phase. Early BHA/direct-acid and retinoid use is deliberately spaced, treatment actives remain on separate nights, and sensitive profiles retain more recovery nights.</p>
-<h3>5. Nine curated brands in three internal price tiers</h3>
-<p><b>Budget:</b> The Ordinary, The INKEY List, Beauty of Joseon. <b>Mid-range:</b> CeraVe, Neutrogena, Bioderma. <b>Premium:</b> La Roche-Posay, Avène, Eucerin. The tier is a navigation tool for product selection; therapeutic rankings themselves are still based on clinical fit and efficacy rather than price.</p>
-<h3>6. Two mutually exclusive product-selection strategies</h3>
-<p><b>Clinical efficacy first</b> ignores price tier and takes the highest-ranked compatible product from enabled brands. <b>Budget tier first</b> checks Budget, then Mid-range, then Premium; within the first tier that contains a suitable product, the highest efficacy/clinical-fit ranking wins.</p>
-<h3>7. Optional Priority brand</h3>
-<p>One enabled brand can be marked Priority. For each therapeutic role that brand is checked first. If it cannot fill the role, the selected strategy determines the fallback. This replaces the old single-brand selection mode.</p>
-<h3>8. Role-by-role formulary audit</h3>
-<p>The library is audited by therapeutic role rather than by brand count. La Roche-Posay now has both sensitive and oily/blemish cleanser coverage; barrier support includes dedicated LRP and CeraVe serums; CeraVe uses its Skin Renewing Retinol for ageing rather than its post-acne Resurfacing Retinol; and Eucerin uses DermatoClean as a base cleanser rather than an acid Correcting Cleanser.</p>
-<h3>9. Ageing and eye-ageing are separated by tolerance</h3>
-<p>The automatic clinic plan uses the conservative starter retinoid ranking. A separate Advanced Retinoid Efficacy ranking places high-strength 0.2% retinal products near the top for experienced users. Eye ageing has separate non-retinoid/sensitive and retinoid/retinal rankings; these are clinician-selected because X3 does not provide a dedicated eye-contour indicator.</p>`
-
-renderRoleOptions();renderBrandSettings();renderLibrary();renderRankings();
-if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
-
-// v17.8 final reassessment + export overrides
-function phaseGateText(plan,phaseIndex){
-  if(phaseIndex===0){
-    if(plan.barrierFirst)return 'Start here. Stay in this phase until the skin has been comfortable for at least 7 days, with no persistent burning, marked redness, swelling or peeling.';
-    return 'Start here. This is the first active pathway chosen from the current X3 profile.';
-  }
-  return 'Only move to this phase after at least 6–8 weeks in the previous phase, only if the previous phase is tolerated, and only if a re-scan / clinical review still shows that this concern remains relevant.';
-}
-function gateTitle(phaseIndex){
-  return phaseIndex===0 ? 'How to read this phase' : 'Reassessment gate before starting this phase';
-}
-function phaseCheckpointHTML(plan,phaseIndex){
-  return `<div class="gateBox"><b>${gateTitle(phaseIndex)}:</b> ${phaseGateText(plan,phaseIndex)}</div>`;
-}
-weeklyProgrammeTable=function(plan){
-  const cards=plan.phases.map((ph,idx)=>{
-    const x=phaseWeekInfo(plan,idx);
-    const morningList=x.morning.map(p=>`<li>${shortProduct(p)}</li>`).join('');
-    const trigger=phaseTriggerText(ph);
-    return `<div class="summaryCard"><div class="summaryCardHead"><div class="summaryPhaseTitle">${ph.title}</div>${trigger?`<div class="summaryTrigger"><b>Triggered by:</b> ${trigger}</div>`:''}</div><div class="summaryCardBody"><div class="summaryBlock summaryGate"><div class="summaryLabel">Start / move to this phase</div><div class="summaryValue">${phaseGateText(plan,idx)}</div></div><div class="summaryBlock"><div class="summaryLabel">Morning — every day</div><ul>${morningList}</ul></div><div class="summaryBlock summaryWide"><div class="summaryLabel">Evening plan — example week</div><div class="summaryFreq">${x.activeFreq}</div><div class="weekMini">${x.week.map(d=>`<span class="${d.type}"><b>${d.day}</b><br>${d.label}</span>`).join('')}</div></div><div class="summaryBlock summaryWide"><div class="summaryLabel">Spacing / safety rule</div><div class="summaryValue">${x.spacing}</div></div></div></div>`;
-  }).join('');
-  return `<div class="summaryWrap"><h3>Weekly programme at a glance</h3><div class="summaryHint"><b>How to use it:</b> read the phases from top to bottom. Do not jump to the next phase until the gate written in each card is satisfied. Full morning/evening routines with product images are repeated underneath for every phase.</div><div class="summaryCards">${cards}</div></div>`;
-};
-phaseDetailedHTML=function(plan,phaseIndex){
-  const phase=plan.phases[phaseIndex];
-  const introduced=plan.phases.slice(0,phaseIndex+1).map((ph,idx)=>({phase:ph,index:idx,active:ph.active})).filter(x=>x.active);
-  const weekInfo=phaseWeekInfo(plan,phaseIndex);
-  const countMap=new Map((weekInfo.counts||[]).map(x=>[x.item.active.id,x.count]));
-  const morningActives=introduced.filter(x=>isMorningDailyActive(x.active));
-  const eveningActives=introduced.filter(x=>!isMorningDailyActive(x.active) && (countMap.get(x.active.id)||0)>0);
-  const morning=[plan.base.cleanser];
-  if(plan.barrierFirst && plan.base.barrierSerum)morning.push(plan.base.barrierSerum);
-  morningActives.forEach(x=>morning.push(x.active));
-  morning.push(plan.base.moisturiser,plan.base.spf);
-  const recovery=[plan.base.cleanser];
-  if(plan.barrierFirst && plan.base.barrierSerum)recovery.push(plan.base.barrierSerum);
-  recovery.push(plan.base.moisturiser);
-  let html=`<div class="phaseDetailed"><h3>${phase.title}</h3>${phaseTriggerText(phase)?`<div class="phaseIntro"><b>Triggered by:</b> ${phaseTriggerText(phase)}</div>`:''}${phaseCheckpointHTML(plan,phaseIndex)}<div class="phaseIntro"><b>Phase instruction:</b> ${phase.frequency}</div>${phase.instructions.length?`<ul class="phaseIntro">${phase.instructions.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<div class="phaseRule"><b>Example weekly spacing:</b> ${phaseWeekInfo(plan,phaseIndex).week.map(d=>`${d.day}: ${d.label}`).join(' · ')}</div><div class="phaseRoutineBand morning">☀ MORNING — EVERY DAY DURING THIS PHASE</div>${routineCards(morning)}`;
-  if(eveningActives.length===0){
-    html+=`<div class="phaseRoutineBand recovery">☾ EVENING — EVERY NIGHT DURING THIS PHASE</div><div class="phaseRoutineNote">Barrier/recovery routine only.</div>${routineCards(recovery)}`;
-  }else{
-    eveningActives.forEach(item=>{
-      const current=item.index===phaseIndex;
-      const freq=current ? item.phase.frequency : `Continue this treatment only at the tolerated frequency established in ${compactPhaseName(item.phase.title)}.`;
-      html+=`<div class="phaseRoutineBand treatment">☾ EVENING — ${routineStepTitle(item.active,1).toUpperCase()} NIGHTS</div><div class="phaseRoutineNote">${freq}</div>${routineCards([plan.base.cleanser,item.active,plan.base.moisturiser])}`;
-    });
-    html+=`<div class="phaseRoutineBand recovery">☾ EVENING — RECOVERY NIGHTS</div><div class="phaseRoutineNote">Use this routine on evenings not assigned to one of the treatment routines above.</div>${routineCards(recovery)}<div class="phaseRule"><b>Important:</b> treatment-night routines are separate. Do not use two listed treatment actives on the same evening unless the plan explicitly says to do so.</div>`;
-  }
-  html+='</div>';
-  return html;
-};
-
-
-
-
-// v17.9 layout overrides -------------------------------------------------
-function roadmapShortTitle(phase,index){
-  let t=(phase.title||'').replace(/^Phase\s+\d+\s*·\s*/i,'');
-  t=t.replace(/^Minimum\s+2\s+weeks\s*[—-]\s*/i,'');
-  t=t.replace(/^First\s+6[–-]8\s+weeks\s*[—-]\s*/i,'');
-  t=t.replace(/^Next\s+6[–-]8\s+weeks\s+after\s+the\s+previous\s+phase\s+is\s+stable\s*[—-]\s*/i,'');
-  t=t.replace(/^After\s+a?\s*6[–-]8\s+week\s+reassessment\s*[—-]\s*/i,'');
-  return t||`Phase ${index+1}`;
-}
-function roadmapTiming(plan,index){
-  if(index===0 && plan.barrierFirst)return 'Minimum 2 weeks';
-  if(index===0)return 'First 6–8 weeks';
-  return 'After 6–8 week review';
-}
-function roadmapTreatmentText(phase){
-  if(!phase.active)return {main:'Recovery / foundation routine',sub:'No treatment active in this phase.'};
-  const p=phase.active,pr=phase.protocol||{};
-  let dose='';
-  if(pr.timing==='am')dose='Daily morning treatment';
-  else if(pr.nights)dose=`Starter frequency: ${pr.nights} night${pr.nights===1?'':'s'}/week`;
-  else dose=phase.frequency||'';
-  return {main:`${p.brand} — ${p.name}`,sub:dose};
-}
-function roadmapReviewText(plan,index){
-  const last=index===plan.phases.length-1;
-  if(index===0 && plan.barrierFirst)return 'Move on only after the skin has been comfortable for at least 7 days without persistent burning, marked redness, swelling or peeling.';
-  if(last)return 'Re-scan / review after 6–8 weeks. Continue, reduce or pause treatments according to what still needs treatment; do not stop earlier treatment automatically.';
-  return 'Re-scan / review after 6–8 weeks before moving on. Decide at that review whether earlier treatment should continue, reduce or pause.';
-}
-weeklyProgrammeTable=function(plan){
-  const rows=plan.phases.map((ph,idx)=>{
-    const tr=roadmapTreatmentText(ph),trigger=phaseTriggerText(ph);
-    return `<tr>
-      <td><div class="roadmapPhase">Phase ${idx+1}</div><div>${roadmapShortTitle(ph,idx)}</div><div class="roadmapWhen">${roadmapTiming(plan,idx)}</div></td>
-      <td><b>${trigger|| (idx===0&&plan.barrierFirst?'Barrier / sensitivity recovery':'Maintenance')}</b>${trigger?`<div class="roadmapTrigger">Triggered by: ${trigger}</div>`:''}</td>
-      <td><div class="roadmapTreatment">${tr.main}</div><div class="roadmapSub">${tr.sub}</div></td>
-      <td><div class="roadmapReview">${roadmapReviewText(plan,idx)}</div></td>
-    </tr>`;
-  }).join('');
-  return `<div class="roadmapWrap"><h3>Treatment roadmap</h3><div class="roadmapHint">A quick overview only. Exact morning/evening steps, product images and the 7-day example are shown in the full phase sections below.</div><table class="roadmapTable"><thead><tr><th class="phaseCol">Phase / timing</th><th class="focusCol">Main focus</th><th class="treatmentCol">Main treatment</th><th class="reviewCol">Review before moving on</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-};
-
-function phaseWeekScheduleHTML(plan,phaseIndex){
-  const x=phaseWeekInfo(plan,phaseIndex);
-  const caution=phaseIndex>0
-    ? '<div class="phaseWeekCaution"><b>Reassessment rule:</b> this 7-day example applies only after the review confirms entry into this phase. Earlier treatments should be continued, reduced or paused according to the review — not automatically.</div>'
-    : '';
-  return `<div class="phaseWeekSchedule"><div class="phaseWeekTitle">7-DAY EXAMPLE — THIS PHASE</div><div class="weekMini">${x.week.map(d=>`<span class="${d.type}"><b>${d.day}</b><br>${d.label}</span>`).join('')}</div><div class="phaseWeekNote">${x.spacing}</div>${caution}</div>`;
-}
-
-phaseDetailedHTML=function(plan,phaseIndex){
-  const phase=plan.phases[phaseIndex];
-  const introduced=plan.phases.slice(0,phaseIndex+1).map((ph,idx)=>({phase:ph,index:idx,active:ph.active})).filter(x=>x.active);
-  const weekInfo=phaseWeekInfo(plan,phaseIndex);
-  const countMap=new Map((weekInfo.counts||[]).map(x=>[x.item.active.id,x.count]));
-  const morningActives=introduced.filter(x=>isMorningDailyActive(x.active));
-  const eveningActives=introduced.filter(x=>!isMorningDailyActive(x.active) && (countMap.get(x.active.id)||0)>0);
-  const morning=[plan.base.cleanser];
-  if(plan.barrierFirst && plan.base.barrierSerum)morning.push(plan.base.barrierSerum);
-  morningActives.forEach(x=>morning.push(x.active));
-  morning.push(plan.base.moisturiser,plan.base.spf);
-  const recovery=[plan.base.cleanser];
-  if(plan.barrierFirst && plan.base.barrierSerum)recovery.push(plan.base.barrierSerum);
-  recovery.push(plan.base.moisturiser);
-  let out=`<div class="phaseDetailed"><h3>${phase.title}</h3>${phaseTriggerText(phase)?`<div class="phaseIntro"><b>Triggered by:</b> ${phaseTriggerText(phase)}</div>`:''}${phaseCheckpointHTML(plan,phaseIndex)}<div class="phaseIntro"><b>Phase instruction:</b> ${phase.frequency}</div>${phase.instructions.length?`<ul class="phaseIntro">${phase.instructions.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<div class="phaseRoutineBand morning">☀ MORNING — EVERY DAY DURING THIS PHASE</div>${routineCards(morning)}`;
-  if(eveningActives.length===0){
-    out+=`<div class="phaseRoutineBand recovery">☾ EVENING — EVERY NIGHT DURING THIS PHASE</div><div class="phaseRoutineNote">Barrier/recovery routine only.</div>${routineCards(recovery)}`;
-  }else{
-    eveningActives.forEach(item=>{
-      const current=item.index===phaseIndex;
-      const freq=current ? item.phase.frequency : `Continue this treatment only at the tolerated frequency established in ${compactPhaseName(item.phase.title)}.`;
-      out+=`<div class="phaseRoutineBand treatment">☾ EVENING — ${routineStepTitle(item.active,1).toUpperCase()} NIGHTS</div><div class="phaseRoutineNote">${freq}</div>${routineCards([plan.base.cleanser,item.active,plan.base.moisturiser])}`;
-    });
-    out+=`<div class="phaseRoutineBand recovery">☾ EVENING — RECOVERY NIGHTS</div><div class="phaseRoutineNote">Use this routine on evenings not assigned to one of the treatment routines above.</div>${routineCards(recovery)}<div class="phaseRule"><b>Important:</b> treatment-night routines are separate. Do not use two listed treatment actives on the same evening unless the plan explicitly says to do so.</div>`;
-  }
-  // The weekly calendar intentionally comes AFTER the phase product images.
-  out+=phaseWeekScheduleHTML(plan,phaseIndex);
-  out+='</div>';
-  return out;
-};
-
-// v17.14 privacy/security export policy: no third-party page-capture JavaScript.
-// Browser print preserves the existing print stylesheet and lets the user choose Save as PDF.
-document.getElementById('pdfBtn').onclick=()=>window.print();
-const pngExportBtn=document.getElementById('pngBtn');
-pngExportBtn.disabled=true;pngExportBtn.textContent='PNG export removed';
-
-// ----------------------------------------------------------------------
-
-</script>
-</body></html>
+</main>
+<script src="/assets/login.js" defer></script>
+</body>
+</html>

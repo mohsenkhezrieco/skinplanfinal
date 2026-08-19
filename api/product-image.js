@@ -1,12 +1,7 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import {PRODUCTS,PRODUCT_IMAGE_SOURCES as sourceMap} from './_private/formulary.mjs';
+import {requireSession} from './_private/auth.mjs';
 
-const root=process.cwd();
-const [products,sourceMap]=await Promise.all([
-  fs.readFile(path.join(root,'products.json'),'utf8').then(JSON.parse),
-  fs.readFile(path.join(root,'product-image-sources.json'),'utf8').then(JSON.parse)
-]);
-const productById=new Map(products.map(p=>[p.id,p]));
+const productById=new Map(PRODUCTS.map(p=>[p.id,p]));
 
 const headers={
   'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/150 Safari/537.36',
@@ -75,6 +70,7 @@ async function fetchImage(url){
 }
 
 export async function GET(request){
+  const auth=await requireSession(request);if(auth)return auth;
   const id=new URL(request.url).searchParams.get('id')||'';
   const p=productById.get(id);
   if(!p){
@@ -98,7 +94,6 @@ export async function GET(request){
         headers:{
           'Content-Type':img.contentType,
           'Cache-Control':'public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000',
-          'Access-Control-Allow-Origin':'*',
           'X-Content-Type-Options':'nosniff'
         }
       });

@@ -1,25 +1,20 @@
-# SkinPlan Clinic v17.13 — Final Library Role Audit
+# SkinPlan Clinic v17.20.0 — Multi-user licensed access
 
-This build retains the 9-brand tier system and performs a role-by-role formulary correction. The library now contains 91 curated products.
+This build is designed for selling/licensing SkinPlan to individual customers or clinics.
 
-## Brand tiers
-- Budget: The Ordinary, The INKEY List, Beauty of Joseon
-- Mid-range: CeraVe, Neutrogena, Bioderma
-- Premium: La Roche-Posay, Avène, Eucerin
+The public login now uses the approved warm cream/brown “Kingdom” theme with the waving bear hero. Authentication and the protected server-side engine are unchanged.
 
-## Major library corrections
-- La Roche-Posay now has both sensitive and oily/blemish cleanser pathways.
-- Dedicated eye-ageing rankings now include eight products across the three price tiers.
-- CeraVe Skin Renewing Retinol replaces Resurfacing Retinol for wrinkle/ageing ranking.
-- Eucerin DermatoClean replaces the acid Correcting Cleanser as a base cleanser.
-- Barrier-support rankings now include LRP Cicaplast B5 Serum and CeraVe Hydrating HA Serum.
-- Face retinoid ranking is split into a conservative automatic clinic-starter list and a separate advanced-efficacy list. The Ordinary Retinal 0.2% leads the advanced list.
+## What changed
 
-Product strategy remains mutually exclusive: Clinical efficacy first OR Budget tier first. Optional Priority Brand remains available.
+- Login now uses a **username + password** instead of one shared access code.
+- The SkinPlan owner has a protected **Access Control** panel at `/api/admin`.
+- The owner can create customer accounts, disable/enable access, change passwords, rename usernames, add customer notes, and set an optional licence expiry date.
+- Disabling an account, changing its password, renaming it, or changing its expiry increments the account session version, invalidating existing sessions on the next server check.
+- The open clinic page checks session status periodically, so a revoked account is redirected back to login even if the page was left open.
+- Passwords are never stored in plaintext. They are salted and hashed server-side with scrypt.
+- User records are stored in Upstash Redis so account changes persist without editing or redeploying the SkinPlan source.
+- The proprietary decision engine and product rankings remain server-side as in v17.17.0.
 
-Product images remain local under `assets/products/`. Pushing the changed `products.json` triggers the included GitHub Action to cache packshots for new products.
+## Deployment
 
-Cosmetic skincare maintenance guidance only — not a diagnosis or prescription.
-
-## v17.13.2 real packshot fallback
-If a newly added product has not yet been cached into `assets/products/`, the website now loads its real product packshot through the same-origin `/api/product-image` route. This removes blank product cards while keeping local cached images as the preferred source and preserving PNG/PDF export compatibility.
+This is not a static-only website. Deploy to Vercel (or a compatible serverless platform), connect an Upstash Redis database, and configure the environment variables described in `SECURITY_DEPLOYMENT.md`.
