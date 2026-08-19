@@ -34,7 +34,7 @@ const auth=await import('../api/_private/auth.mjs');
 const login=await import('../api/login.js');
 const adminUsers=await import('../api/admin-users.js');
 const library=await import('../api/library.js');
-const adminFormulary=await import('../api/admin-formulary.js');
+const adminEndpoint=await import('../api/admin.js');
 
 await auth.ensureAuthReady();
 const owner=await store.authenticateUser('owner','OwnerPassword123!');
@@ -59,8 +59,8 @@ assert.equal(libJson.products.length,92);
 assert.ok(libJson.categories.length>=7);
 assert.ok(libJson.products.every(p=>!('rank' in p)&&!('why' in p)&&!('role' in p)&&!('therapy' in p)));
 for(let i=1;i<libJson.products.length;i++){const a=libJson.products[i-1],b=libJson.products[i];assert.ok(a.brand.localeCompare(b.brand,'en')<0||(a.brand===b.brand&&a.name.localeCompare(b.name,'en')<=0));}
-let ownerForm=await adminFormulary.GET(ownerReq);assert.equal(ownerForm.status,200);assert.match(await ownerForm.text(),/Owner Formulary View/);
-let buyerForm=await adminFormulary.GET(buyerReq);assert.equal(buyerForm.status,403);
+let ownerForm=await adminEndpoint.GET(new Request('https://skinplan.test/api/admin?view=formulary',{headers:{cookie:`skinplan_session=${encodeURIComponent(ownerToken)}`} }));assert.equal(ownerForm.status,200);assert.match(await ownerForm.text(),/Owner Formulary View/);
+let buyerForm=await adminEndpoint.GET(new Request('https://skinplan.test/api/admin?view=formulary',{headers:{cookie:`skinplan_session=${encodeURIComponent(buyerToken)}`} }));assert.equal(buyerForm.status,403);
 
 await store.setUserEnabled('buyer.one',false);
 let denied=await auth.requireSession(buyerReq);assert.equal(denied.status,401);

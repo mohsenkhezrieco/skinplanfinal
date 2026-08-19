@@ -1,4 +1,4 @@
-# SkinPlan Clinic v17.21.0 — Multi-user licensed access
+# SkinPlan Clinic v17.21.1 — Multi-user licensed access
 
 This build is designed for selling/licensing SkinPlan to individual customers or clinics.
 

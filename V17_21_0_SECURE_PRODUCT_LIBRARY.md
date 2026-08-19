@@ -1,4 +1,4 @@
-# SkinPlan v17.21.0 — Secure Product Library
+# SkinPlan v17.21.1 — Secure Product Library
 
 - Restores a customer-facing Product Library tab.
 - Customer catalogue is alphabetically sorted and exposes only safe product metadata: brand, product name, public category, image, generic use-time guidance and product-information link.
