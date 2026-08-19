@@ -24,5 +24,5 @@ export async function GET(request){
   const auth=await requireSession(request);if(auth)return auth;
   const products=Object.values(PRODUCTS).map(p=>({brand:p.brand,name:p.name,category:categoryFor(p),image:imageUrl(p),imageFallback:'/api/product-image?id='+encodeURIComponent(p.id),summary:SUMMARY[p.therapy]||'Curated SkinPlan formulary product.',useTime:useLabel(p),infoUrl:p.boots||''})).sort((a,b)=>a.brand.localeCompare(b.brand,'en')||a.name.localeCompare(b.name,'en'));
   const categories=[...new Set(products.map(p=>p.category))].sort((a,b)=>a.localeCompare(b,'en'));
-  return Response.json({version:'17.21.3',brands:[...BRANDS],categories,products},{headers:{'Cache-Control':'no-store, no-cache, must-revalidate','X-Content-Type-Options':'nosniff'}});
+  return Response.json({version:'17.21.4',brands:[...BRANDS],categories,products},{headers:{'Cache-Control':'no-store, no-cache, must-revalidate','X-Content-Type-Options':'nosniff'}});
 }

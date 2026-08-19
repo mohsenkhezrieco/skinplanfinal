@@ -1,0 +1,10 @@
+SkinPlan v17.21.4 demo import link
+
+Paste this exact URL into the X3 report field after login:
+
+https://x3.aiskinia.com/xcx3skinweb/?shareId=de000000000000000000000000000001&qr_id=999001
+
+This reserved demo ID is intercepted by SkinPlan server-side and does not call the live X3 service.
+It returns a fixed OSPW sample profile for end-to-end testing of Import -> Safety Review -> Generate Plan.
+
+Real X3 links continue to use the live X3 API exactly as before.

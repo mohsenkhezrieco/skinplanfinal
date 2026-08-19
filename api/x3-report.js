@@ -46,6 +46,37 @@ function parseReportUrl(input){
   return {shareId,qrId};
 }
 
+
+const DEMO_SHARE_ID = 'de000000000000000000000000000001';
+const DEMO_QR_ID = '999001';
+
+function demoReport(){
+  const scores={
+    acne:38,
+    blackhead:44,
+    pore:55,
+    oil:62,
+    bacteria:42,
+    surfaceSensitivity:72,
+    deepSensitivity:68,
+    surfaceSpot:46,
+    deepSpot:41,
+    spotHeat:58,
+    skinColor:73,
+    wrinkle:66,
+    collagen:61,
+    texture:52
+  };
+  return {
+    demo:true,
+    baumann:'OSPW',
+    moisture:42,
+    skinAge:38,
+    totalScore:57,
+    metrics:Object.fromEntries(Object.entries(scores).map(([id,score])=>[id,{score,level:deriveLevel(score),source:'SkinPlan demo sample'}]))
+  };
+}
+
 function pick(a,paths){
   for(const p of paths){
     if(a?.[p] && typeof a[p]==='object')return [p,a[p]];
@@ -82,6 +113,17 @@ export async function POST(request){
   try{
     const body=await request.json();
     const {shareId,qrId}=parseReportUrl(body?.url);
+
+    if(shareId.toLowerCase()===DEMO_SHARE_ID && qrId===DEMO_QR_ID){
+      return Response.json(demoReport(),{
+        status:200,
+        headers:{
+          'Cache-Control':'no-store, no-cache, must-revalidate',
+          'Pragma':'no-cache',
+          'X-Content-Type-Options':'nosniff'
+        }
+      });
+    }
 
     const target=`https://x3.aiskinia.com/xcX3SkinSrv/analysis/shareDetail?shareId=${encodeURIComponent(shareId)}&qr_id=${encodeURIComponent(qrId)}`;
     const upstream=await fetch(target,{
