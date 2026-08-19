@@ -3,11 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SkinPlan Clinic v17.10</title>
+<title>SkinPlan Clinic v17.14.0</title>
 <meta name="theme-color" content="#272764">
 <link rel="manifest" href="manifest.webmanifest">
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <style>
 :root{--bg:#121438;--panel:#272764;--panel2:#303078;--line:#454597;--purple:#6252ff;--pink:#f35ac8;--cyan:#50d7ff;--text:#fff;--muted:#bcc2ea;--white:#fff;--ink:#102348;--soft:#f4f7fb;--red:#ff4f70;--amber:#f2a84a;--green:#2fc7a0}
 *{box-sizing:border-box} html{scroll-behavior:smooth}
@@ -32,6 +30,13 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 .prioritygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.priority{background:#1b1e50;border:1px solid #46488d;border-radius:15px;padding:13px}.priority h4{margin:0 0 8px}.priority ul{margin:0;padding-left:18px;font-size:12px;line-height:1.55}
 .metricgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metric{display:grid;grid-template-columns:1fr 86px 86px;gap:8px;align-items:center;background:#1b1e50;border:1px solid #44468a;border-radius:12px;padding:9px}.metric b{font-size:13px}.metric input{text-align:center;font-size:18px;font-weight:900;padding:8px}.lvl{border-radius:999px;padding:7px;font-size:10px;font-weight:900;text-align:center}.l1,.l2{background:#1b6f60;color:#d8fff5}.l3{background:#7b571e;color:#fff0c8}.l4,.l5{background:#7d2940;color:#ffd9e2}
 .checks{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.checks label{background:#1b1e50;border:1px solid #44468a;border-radius:12px;padding:11px;font-size:12px}.checks input{width:auto;margin-right:7px}
+.safetyNote{background:#171a48;border:1px solid #5b5eaa;border-radius:12px;padding:11px 12px;color:#dce3ff;font-size:12px;line-height:1.5;margin:8px 0 10px}
+.safetyDetails{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.safetyDetails .detail{display:none}.safetyDetails .detail.show{display:block}.safetyDetails label{display:block;font-size:11px;color:#cbd1f5;margin-bottom:5px}
+.reviewConfirm{display:flex!important;gap:8px;align-items:flex-start;background:#1a274c!important;border-color:#4f80a8!important;font-weight:800}.reviewConfirm input{margin-top:2px!important}
+.reviewStatus{margin-top:9px;font-size:12px;color:#ffd9a4}.reviewStatus.ok{color:#bff6e8}.reviewStatus.err{color:#ffd6de}
+.auditFields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.auditFields label{font-size:11px;color:#cbd1f5;display:block;margin-bottom:5px}
+.criticalHold{background:#fff0f2;border:2px solid #e05b72;border-radius:13px;padding:12px;margin-top:12px;font-size:11px}.criticalHold h3{margin:0 0 6px;color:#8e1730}.criticalHold ul{margin:5px 0;padding-left:18px}
+.auditBox{background:#f7f8fb;border:1px solid #dfe4ef;border-radius:12px;padding:11px;margin-top:12px;font-size:10px}.auditBox table{width:100%;border-collapse:collapse;margin-top:7px}.auditBox th,.auditBox td{border:1px solid #e0e4ed;padding:6px;text-align:left;vertical-align:top}.auditBox th{background:#eef1f7}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .brandgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.brandtoggle{background:#1b1e50;border:1px solid #44468a;border-radius:14px;padding:13px}.brandtoggle label{display:flex;gap:9px;align-items:center;font-weight:800}.brandtoggle input{width:auto}
 .ranktop{display:grid;grid-template-columns:1fr 220px;gap:10px;align-items:end}.ranking{margin-top:12px;display:grid;gap:8px}.rankrow{display:grid;grid-template-columns:38px 60px 1fr auto;gap:10px;align-items:center;background:#1b1e50;border:1px solid #44468a;border-radius:13px;padding:9px}.ranknum{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#5048c8;font-weight:900}.rankrow img{width:58px;height:58px;object-fit:contain;background:#fff;border-radius:9px}.rankrow .why{font-size:11px;color:#b9c0e7;margin-top:3px}
@@ -48,7 +53,7 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 .footer{font-size:9px;color:#737b8f;margin-top:16px;border-top:1px solid #e4e7ed;padding-top:8px}
 @media(max-width:900px){.librarygrid{grid-template-columns:repeat(2,1fr)}.brandgrid{grid-template-columns:repeat(2,1fr)}.profilegrid,.rmeta{grid-template-columns:repeat(2,1fr)}.prioritygrid,.rpriority{grid-template-columns:1fr}.metricgrid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.shell{padding:10px}.hero{padding:17px}.hero h1{font-size:23px}.importrow,.ranktop{grid-template-columns:1fr}.librarygrid,.brandgrid,.checks{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.metric{grid-template-columns:1fr 70px 75px}}
-@media print{body{background:#fff}.shell{padding:0;max-width:none}.no-print,.hero,.tabs,.page{display:none!important}.report-shell{padding:0;background:#fff}#reportArea{display:block!important}.report{max-width:none;border-radius:0;padding:10mm}.step{break-inside:avoid}}
+@media print{body{background:#fff}.shell{padding:0;max-width:none}.no-print,.hero,.tabs,.page{display:none!important}#generator{display:block!important}.report-shell{padding:0;background:#fff}#reportArea{display:block!important}.report{max-width:none;border-radius:0;padding:10mm}.step{break-inside:avoid}}
 
 .phaseProduct{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;margin:10px 0 12px;padding:10px;border:1px solid #dfe3ee;border-radius:12px;background:#fafbfe}
 .phaseProduct img{width:110px;height:110px;object-fit:contain;background:#fff;border-radius:10px}
@@ -138,7 +143,7 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 <body>
 <div class="shell">
   <div class="hero no-print">
-    <div><h1>SkinPlan Clinic v17.10</h1><p>X3 report → preferred-brand fallback engine → phased weekly plan</p></div>
+    <div><h1>SkinPlan Clinic v17.14.0</h1><p>X3 report → safety-gated review → preferred-brand fallback engine → phased weekly plan</p></div>
     <div class="badge">X3 API · local product-image library</div>
   </div>
 
@@ -175,23 +180,43 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
       <h3 style="margin-top:18px">14 X3 indicators</h3>
       <div id="metricGrid" class="metricgrid"></div>
 
-      <h3 style="margin-top:18px">Safety screen</h3>
+      <h3 style="margin-top:18px">Safety & clinical red-flag screen</h3>
+      <div class="safetyNote"><b>Required review:</b> actively ask each item below. An unchecked box is treated as “No” only after the reviewer confirms the safety screen was completed.</div>
       <div class="checks">
-        <label><input id="preg" type="checkbox">Pregnant / trying / breastfeeding</label>
+        <label><input id="pregnant" type="checkbox">Currently pregnant</label>
+        <label><input id="trying" type="checkbox">Trying to conceive</label>
+        <label><input id="breastfeeding" type="checkbox">Breastfeeding</label>
         <label><input id="eczema" type="checkbox">Active eczema / dermatitis</label>
         <label><input id="rosacea" type="checkbox">Rosacea / persistent inflammatory redness</label>
         <label><input id="rx" type="checkbox">Prescription skin treatment</label>
         <label><input id="procedure" type="checkbox">Recent peel / laser / microneedling</label>
         <label><input id="allergy" type="checkbox">Known skincare allergy</label>
         <label><input id="currentActive" type="checkbox">Currently using retinoid / benzoyl peroxide / exfoliating acid</label>
+        <label><input id="redFlagLesion" type="checkbox">New / changing / bleeding / ulcerated pigmented lesion</label>
+        <label><input id="redFlagAcne" type="checkbox">Painful nodular/cystic or scarring acne</label>
+        <label><input id="redFlagInfection" type="checkbox">Possible infection, severe swelling, blistering or rapidly worsening rash</label>
       </div>
-      <label style="display:block;margin-top:12px">Clinic / patient reference</label>
-      <input id="patient" placeholder="Initials or clinic reference">
-      <div class="actions"><button id="generateBtn" class="primary">Generate Personalised Plan</button></div>
+      <div class="safetyDetails">
+        <div id="rxDetailsWrap" class="detail"><label>Prescription treatment — name / active / frequency *</label><input id="rxDetails" placeholder="e.g. adapalene 0.1% nightly"></div>
+        <div id="procedureDetailsWrap" class="detail"><label>Procedure — type / date / recovery status *</label><input id="procedureDetails" placeholder="e.g. microneedling, 10 days ago"></div>
+        <div id="allergyDetailsWrap" class="detail"><label>Known allergy — ingredient / product / reaction *</label><input id="allergyDetails" placeholder="Required before a report can be generated"></div>
+        <div id="currentActiveDetailsWrap" class="detail"><label>Current active — product / active / concentration / frequency *</label><input id="currentActiveDetails" placeholder="e.g. benzoyl peroxide 5%, 3 nights/week"></div>
+        <div id="redFlagDetailsWrap" class="detail"><label>Red-flag notes / action already taken *</label><input id="redFlagDetails" placeholder="Brief clinical note or referral action"></div>
+      </div>
+      <div class="auditFields">
+        <div><label>Clinic / patient reference</label><input id="patient" placeholder="Initials or clinic reference"></div>
+        <div><label>Clinician / reviewer initials *</label><input id="reviewer" placeholder="Required for audit trail"></div>
+      </div>
+      <div id="correctionReasonWrap" style="display:none;margin-top:10px"><label style="display:block;font-size:11px;color:#cbd1f5;margin-bottom:5px">Reason for manual X3 score correction *</label><input id="correctionReason" placeholder="Required if any device score is manually changed"></div>
+      <div class="checks" style="grid-template-columns:1fr;margin-top:10px">
+        <label class="reviewConfirm"><input id="safetyReviewed" type="checkbox"><span>I confirm the safety and red-flag questions above were actively reviewed with the patient / record, and unchecked items were answered “No”.</span></label>
+      </div>
+      <div id="safetyStatus" class="reviewStatus">Complete the safety review before generating a plan.</div>
+      <div class="actions"><button id="generateBtn" class="primary" disabled>Generate Personalised Plan</button></div>
     </div>
 
     <div id="reportArea" class="report-shell" style="display:none">
-      <div class="actions no-print"><button id="pdfBtn" class="primary">Download A4 PDF</button><button id="pngBtn" class="soft">Download PNG</button></div>
+      <div class="actions no-print"><button id="pdfBtn" class="primary">Print / Save PDF</button><button id="pngBtn" class="soft" disabled title="Removed in v17.14 to avoid third-party page-capture scripts">PNG export removed</button></div>
       <div id="report" class="report"></div>
     </div>
   </section>
@@ -265,7 +290,7 @@ const METRICS=[
   ['collagen','Collagen'],['texture','Texture']
 ];
 
-let state={loaded:false,baumann:'',moisture:null,skinAge:null,totalScore:null,metrics:{}};
+let state={loaded:false,baumann:'',moisture:null,skinAge:null,totalScore:null,metrics:{},audit:[]};
 
 function product(id){return PRODUCTS.find(x=>x.id===id)}
 function enabledMap(){
@@ -319,7 +344,7 @@ async function importReport(){
     const url=cleanReportLink(document.getElementById('x3Link').value);
     const r=await fetch('/api/x3-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});
     const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||`HTTP ${r.status}`);
-    state={loaded:true,...j};renderDevice();setStatus('X3 report imported successfully.','ok');
+    state={loaded:true,...j,audit:[]};document.getElementById('x3Link').value='';resetSafetyReview();renderDevice();setStatus('X3 report imported successfully. The share link has been cleared from this page.','ok');
   }catch(e){setStatus(e.message,'err')}finally{btn.disabled=false;btn.textContent=old}
 }
 document.getElementById('importBtn').onclick=importReport;
@@ -337,8 +362,10 @@ function renderDevice(){
     const m=state.metrics[id];
     grid.insertAdjacentHTML('beforeend',`<div class="metric"><div><b>${label}</b><div class="small">${m.source||''}</div></div><input id="m_${id}" type="number" min="0" max="100" value="${m.score}"><div id="l_${id}" class="lvl l${m.level}">Level ${roman(m.level)}</div></div>`);
     const metricInput=document.getElementById('m_'+id);
-    const commitMetric=e=>{const v=Math.max(0,Math.min(100,Number(e.target.value)));if(!Number.isFinite(v))return;e.target.value=v;m.score=v;m.level=deriveLevel(v);m.source='manual correction';document.getElementById('l_'+id).className='lvl l'+m.level;document.getElementById('l_'+id).textContent='Level '+roman(m.level);renderPriorityLists();};
-    metricInput.oninput=commitMetric;metricInput.onchange=commitMetric;
+    if(m.originalScore===undefined){m.originalScore=Number(m.score);m.originalSource=m.source||'X3';m._lastCommittedScore=Number(m.score);}
+    const previewMetric=e=>{const v=Math.max(0,Math.min(100,Number(e.target.value)));if(!Number.isFinite(v))return;e.target.value=v;m.score=v;m.level=deriveLevel(v);m.source=(v===m.originalScore)?m.originalSource:'manual correction';document.getElementById('l_'+id).className='lvl l'+m.level;document.getElementById('l_'+id).textContent='Level '+roman(m.level);renderPriorityLists();updateCorrectionUI();};
+    metricInput.oninput=previewMetric;
+    metricInput.onchange=e=>{const from=Number(m._lastCommittedScore);previewMetric(e);const to=Number(m.score);if(Number.isFinite(from)&&from!==to){state.audit.push({metric:id,label,from,to,at:new Date().toISOString()});m._lastCommittedScore=to;}updateCorrectionUI();};
   }
   renderPriorityLists();
 }
@@ -363,11 +390,69 @@ function syncMetricsFromInputs(){
 }
 function M(id){return state.metrics[id]}
 function safetyFlags(){return {
-  preg:document.getElementById('preg').checked,eczema:document.getElementById('eczema').checked,
-  rosacea:document.getElementById('rosacea').checked,rx:document.getElementById('rx').checked,
-  procedure:document.getElementById('procedure').checked,allergy:document.getElementById('allergy').checked,
-  currentActive:document.getElementById('currentActive').checked
+  pregnant:document.getElementById('pregnant').checked,trying:document.getElementById('trying').checked,breastfeeding:document.getElementById('breastfeeding').checked,
+  eczema:document.getElementById('eczema').checked,rosacea:document.getElementById('rosacea').checked,rx:document.getElementById('rx').checked,
+  procedure:document.getElementById('procedure').checked,allergy:document.getElementById('allergy').checked,currentActive:document.getElementById('currentActive').checked,
+  redFlagLesion:document.getElementById('redFlagLesion').checked,redFlagAcne:document.getElementById('redFlagAcne').checked,redFlagInfection:document.getElementById('redFlagInfection').checked
 }}
+function esc(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function hasManualCorrections(){return METRICS.some(([id])=>{const m=state.metrics[id];return m&&m.originalScore!==undefined&&Number(m.score)!==Number(m.originalScore)})}
+function updateCorrectionUI(){const wrap=document.getElementById('correctionReasonWrap');if(wrap)wrap.style.display=hasManualCorrections()?'block':'none'}
+function safetyHoldReasons(f){
+  const r=[];
+  if(f.pregnant)r.push('Pregnancy');
+  if(f.trying)r.push('Trying to conceive');
+  if(f.breastfeeding)r.push('Breastfeeding');
+  if(f.eczema)r.push('Active eczema / dermatitis');
+  if(f.rosacea)r.push('Rosacea / persistent inflammatory redness');
+  if(f.rx)r.push('Prescription skin treatment currently in use');
+  if(f.procedure)r.push('Recent peel / laser / microneedling');
+  if(f.allergy)r.push('Known skincare allergy — automatic product selection withheld');
+  if(f.currentActive)r.push('Current retinoid / benzoyl peroxide / exfoliating acid use');
+  return r;
+}
+function redFlagReasons(f){
+  const r=[];
+  if(f.redFlagLesion)r.push('New / changing / bleeding / ulcerated pigmented lesion');
+  if(f.redFlagAcne)r.push('Painful nodular/cystic or scarring acne');
+  if(f.redFlagInfection)r.push('Possible infection, severe swelling, blistering or rapidly worsening rash');
+  return r;
+}
+function safetyDetails(){return {
+  rx:(document.getElementById('rxDetails').value||'').trim(),procedure:(document.getElementById('procedureDetails').value||'').trim(),
+  allergy:(document.getElementById('allergyDetails').value||'').trim(),currentActive:(document.getElementById('currentActiveDetails').value||'').trim(),
+  redFlag:(document.getElementById('redFlagDetails').value||'').trim()
+}}
+function validateSafetyReview(){
+  const f=safetyFlags(),d=safetyDetails();
+  if(!document.getElementById('safetyReviewed').checked)throw new Error('Complete and confirm the safety / red-flag review before generating a plan.');
+  if(!(document.getElementById('reviewer').value||'').trim())throw new Error('Enter clinician / reviewer initials for the audit trail.');
+  if(f.rx&&!d.rx)throw new Error('Add the prescription treatment name / active / frequency.');
+  if(f.procedure&&!d.procedure)throw new Error('Add the recent procedure type / date / recovery status.');
+  if(f.allergy&&!d.allergy)throw new Error('Add the known allergy ingredient / product / reaction.');
+  if(f.currentActive&&!d.currentActive)throw new Error('Add the current active product / concentration / frequency.');
+  if((f.redFlagLesion||f.redFlagAcne||f.redFlagInfection)&&!d.redFlag)throw new Error('Add a brief note / action for the selected clinical red flag.');
+  if(hasManualCorrections()&&!(document.getElementById('correctionReason').value||'').trim())throw new Error('Add a reason for the manual X3 score correction.');
+  return {flags:f,details:d};
+}
+function updateSafetyUI(){
+  const map={rx:'rxDetailsWrap',procedure:'procedureDetailsWrap',allergy:'allergyDetailsWrap',currentActive:'currentActiveDetailsWrap'};
+  for(const [id,wrap] of Object.entries(map))document.getElementById(wrap).classList.toggle('show',document.getElementById(id).checked);
+  const red=document.getElementById('redFlagLesion').checked||document.getElementById('redFlagAcne').checked||document.getElementById('redFlagInfection').checked;
+  document.getElementById('redFlagDetailsWrap').classList.toggle('show',red);
+  const reviewed=document.getElementById('safetyReviewed').checked;
+  const reviewer=(document.getElementById('reviewer').value||'').trim();
+  const btn=document.getElementById('generateBtn');
+  btn.disabled=!(reviewed&&reviewer);
+  const st=document.getElementById('safetyStatus');
+  st.textContent=reviewed?(reviewer?'Safety review confirmed. Required detail fields will be checked when generating.':'Enter reviewer initials to enable report generation.'):'Complete the safety review before generating a plan.';
+  st.className='reviewStatus '+(reviewed&&reviewer?'ok':'');
+}
+function resetSafetyReview(){
+  ['pregnant','trying','breastfeeding','eczema','rosacea','rx','procedure','allergy','currentActive','redFlagLesion','redFlagAcne','redFlagInfection','safetyReviewed'].forEach(id=>{const e=document.getElementById(id);if(e)e.checked=false});
+  ['rxDetails','procedureDetails','allergyDetails','currentActiveDetails','redFlagDetails','correctionReason','patient'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=''});
+  updateCorrectionUI();updateSafetyUI();
+}
 function concernLevels(){
   const raw={};
   for(const [id] of METRICS)raw[id]=M(id).level;
@@ -426,13 +511,17 @@ function oneActivePhase(concern,levels,cautious=false){
 function buildPlan(){
   if(!state.loaded)throw new Error('Import an X3 report first.');
   syncMetricsFromInputs();
-  const f=safetyFlags(),levels=concernLevels(),base=baseProducts(levels),B=state.baumann;
-  const hardHold=f.preg||f.eczema||f.rosacea||f.rx||f.procedure||f.allergy||f.currentActive;
+  const reviewed=validateSafetyReview();
+  const f=reviewed.flags,details=reviewed.details,levels=concernLevels(),B=state.baumann;
+  const holdReasons=safetyHoldReasons(f),redFlags=redFlagReasons(f);
+  const hardHold=holdReasons.length>0||redFlags.length>0;
+  const withholdProducts=f.allergy||redFlags.length>0;
+  const base=withholdProducts?null:baseProducts(levels);
   const barrierFirst=SkinPlanEngine.barrierFirst(levels,B);
   const concerns=orderedConcerns(levels);
-  let plan={levels,base,hardHold,barrierFirst,phases:[],avoid:[],referral:[],goal:'',mode:'',selected:[]};
-  if(base.barrierSerum)plan.selected.push(base.barrierSerum);
-  plan.selected.push(base.cleanser,base.moisturiser,base.spf);
+  let plan={levels,base,hardHold,withholdProducts,holdReasons,redFlags,safetyDetails:details,barrierFirst,phases:[],avoid:[],referral:[],goal:'',mode:'',selected:[]};
+  if(base?.barrierSerum)plan.selected.push(base.barrierSerum);
+  if(base)plan.selected.push(base.cleanser,base.moisturiser,base.spf);
 
   const addRemainingConcernPhases=(startPhaseNo,coveredInitial,cautiousFirst)=>{
     const covered=new Set(coveredInitial||[]);
@@ -454,14 +543,18 @@ function buildPlan(){
     }
   };
 
-  if(hardHold){
+  if(withholdProducts){
+    plan.mode='Clinical review required';
+    plan.goal='Automatic product selection is withheld until the allergy / clinical red flag has been reviewed and documented as safe to proceed.';
+    plan.phases.push({title:'Current status — automatic product plan withheld',active:null,protocol:null,frequency:'Do not use the automated formulary to start new products from this report.',instructions:['Resolve the flagged issue first, then repeat the safety review and regenerate the plan.'],covers:[]});
+  } else if(hardHold){
     plan.mode='Safety / recovery only';
-    plan.goal='Keep the routine simple until the safety issue has been reviewed.';
+    plan.goal='Keep the routine simple until the documented safety issue has been reviewed.';
     plan.phases.push({
       title:'Current phase — recovery only',
       active:null,protocol:null,
-      frequency:'Use cleanser + moisturiser + sunscreen; barrier serum can be used if comfortable.',
-      instructions:['Do not automatically start acids, retinoids or another treatment active until the safety item has been reviewed.'],
+      frequency:'Use only the already-tolerated basic routine while the documented safety item is reviewed; do not automatically add a new treatment active.',
+      instructions:['Do not automatically start acids, retinoids or another treatment active until the specific safety item listed in this report has been reviewed.'],
       covers:[]
     });
   } else if(barrierFirst){
@@ -499,10 +592,14 @@ function buildPlan(){
   plan.avoid.push('Keep peptide treatment on different evenings from direct acids/BHA in this conservative programme.');
   plan.avoid.push('Later phases are conditional: re-check tolerance and whether the earlier concern still needs treatment before advancing.');
   plan.avoid.push('Stop a new active if persistent burning, swelling, blistering, rash or marked worsening occurs.');
-  if(f.preg)plan.avoid.push('Retinoids are excluded during pregnancy/trying/breastfeeding.');
+  if(f.pregnant||f.trying)plan.avoid.push('Retinoids are excluded while pregnant or trying to conceive.');
+  if(f.breastfeeding)plan.avoid.push('Breastfeeding is recorded as a safety hold in this conservative automated pathway; review the intended active before treatment selection.');
   if(f.currentActive)plan.avoid.push('A retinoid, benzoyl peroxide or exfoliating acid is already in use; review the current product and frequency before adding any new treatment active.');
   if(M('acne').level>=4)plan.referral.push('The X3 acne score is a device screening signal, not a diagnosis. If clinical acne is present and is persistent, widespread, nodular/cystic or scarring, this cosmetic plan is not a substitute for pharmacist/GP/dermatology assessment.');
   if(M('surfaceSpot').level>=5||M('spotHeat').level>=5)plan.referral.push('New, changing, asymmetric or bleeding pigmentation/lesions need medical assessment rather than cosmetic treatment.');
+  if(f.redFlagLesion)plan.referral.unshift('Clinical red flag recorded: new / changing / bleeding / ulcerated pigmented lesion. Do not target this lesion cosmetically; arrange appropriate medical assessment.');
+  if(f.redFlagAcne)plan.referral.unshift('Clinical red flag recorded: painful nodular/cystic or scarring acne. Cosmetic skincare alone is not an adequate management plan; arrange appropriate clinical assessment.');
+  if(f.redFlagInfection)plan.referral.unshift('Clinical red flag recorded: possible infection, severe swelling, blistering or rapidly worsening rash. Stop automated treatment selection and arrange prompt clinical assessment.');
   return plan;
 }
 function productImg(p){
@@ -718,32 +815,57 @@ function phaseDetailedHTML(plan,phaseIndex){
   return html;
 }
 
+function safetyBannerHTML(plan){
+  if(!plan.hardHold)return '';
+  const reasons=[...(plan.holdReasons||[]),...(plan.redFlags||[])];
+  const d=plan.safetyDetails||{};
+  const details=[];
+  if(d.rx)details.push(`<li><b>Prescription:</b> ${esc(d.rx)}</li>`);
+  if(d.procedure)details.push(`<li><b>Procedure:</b> ${esc(d.procedure)}</li>`);
+  if(d.allergy)details.push(`<li><b>Allergy:</b> ${esc(d.allergy)}</li>`);
+  if(d.currentActive)details.push(`<li><b>Current active:</b> ${esc(d.currentActive)}</li>`);
+  if(d.redFlag)details.push(`<li><b>Red-flag note/action:</b> ${esc(d.redFlag)}</li>`);
+  return `<div class="criticalHold"><h3>${plan.withholdProducts?'CLINICAL REVIEW REQUIRED — AUTOMATIC PRODUCT SELECTION WITHHELD':'SAFETY HOLD — DO NOT AUTO-START NEW TREATMENT ACTIVES'}</h3><b>Reason(s):</b><ul>${reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${details.length?`<b>Recorded detail:</b><ul>${details.join('')}</ul>`:''}</div>`;
+}
+function auditTrailHTML(){
+  const reviewer=esc((document.getElementById('reviewer').value||'').trim());
+  const generated=esc(new Date().toLocaleString());
+  const reason=esc((document.getElementById('correctionReason').value||'').trim());
+  const rows=(state.audit||[]).map(a=>`<tr><td>${esc(a.label)}</td><td>${esc(a.from)}</td><td>${esc(a.to)}</td><td>${esc(new Date(a.at).toLocaleString())}</td></tr>`).join('');
+  const changed=hasManualCorrections();
+  return `<div class="auditBox"><b>Review / audit record</b><div>Reviewer: ${reviewer} · Report generated: ${generated}</div>${changed?`<div style="margin-top:5px"><b>Manual correction reason:</b> ${reason}</div><table><thead><tr><th>Indicator</th><th>From</th><th>To</th><th>Change time</th></tr></thead><tbody>${rows||'<tr><td colspan="4">Manual correction present; no change event captured.</td></tr>'}</tbody></table>`:'<div style="margin-top:5px">No X3 score was manually changed.</div>'}</div>`;
+}
+function withheldPlanHTML(plan){
+  return `<div class="phase"><h3>Automated treatment plan withheld</h3><p style="font-size:11px;line-height:1.6">The device findings are shown for review, but no automatic product routine or treatment-active schedule is produced while the recorded allergy / clinical red flag remains unresolved. Document the clinical outcome, repeat the safety review, and regenerate only when it is appropriate to proceed.</p></div>`;
+}
 function generateReport(){
   try{
-    const plan=buildPlan(),ref=(document.getElementById('patient').value||'Patient').replace(/[<>]/g,'');
+    const plan=buildPlan(),ref=esc((document.getElementById('patient').value||'Patient').trim()||'Patient');
     const selectedUnique=[...new Map(plan.selected.filter(Boolean).map(p=>[p.id,p])).values()];
+    const planBody=plan.withholdProducts
+      ? withheldPlanHTML(plan)
+      : `${weeklyProgrammeTable(plan)}<div class="band phaseband">FULL ROUTINE FOR EACH PHASE</div>${plan.phases.map((ph,idx)=>phaseDetailedHTML(plan,idx)).join('')}`;
     document.getElementById('report').innerHTML=`
-      <div class="rhead"><div><h1>Personalised Skin Maintenance Plan</h1><div>Generated from X3 device data</div></div><div><b>${ref}</b><br><small>${plan.mode}</small></div></div>
-      <div class="rmeta"><div>Baumann<b>${state.baumann}</b></div><div>Moisture<b>${state.moisture??'—'}${state.moisture!=null?'%':''}</b></div><div>Skin age<b>${state.skinAge??'—'}</b></div><div>Total score<b>${state.totalScore??'—'}</b></div></div>
+      <div class="rhead"><div><h1>Personalised Skin Maintenance Plan</h1><div>Generated from X3 device data · SkinPlan v17.14.0</div></div><div><b>${ref}</b><br><small>${esc(plan.mode)}</small></div></div>
+      <div class="rmeta"><div>Baumann<b>${esc(state.baumann)}</b></div><div>Moisture<b>${state.moisture??'—'}${state.moisture!=null?'%':''}</b></div><div>Skin age<b>${state.skinAge??'—'}</b></div><div>Total score<b>${state.totalScore??'—'}</b></div></div>
+      ${safetyBannerHTML(plan)}
       ${devicePriorityHTML()}
-      <div class="goodbox"><b>Plan goal:</b> ${plan.goal}</div>
-      ${weeklyProgrammeTable(plan)}
-      <div class="band phaseband">FULL ROUTINE FOR EACH PHASE</div>
-      ${plan.phases.map((ph,idx)=>phaseDetailedHTML(plan,idx)).join('')}
-      <div class="warnbox"><b>Do not use / pause</b><ul>${plan.avoid.map(x=>`<li>${x}</li>`).join('')}</ul></div>
-      ${plan.referral.length?`<div class="warnbox"><b>When this plan is not enough</b><ul>${plan.referral.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
-      <div class="phase"><h3>Products selected by the ranking engine</h3><div class="selectedGrid">${selectedUnique.map(selectedProductCardHTML).join('')}</div></div>
-      <div class="footer">Cosmetic skincare maintenance guidance only — not a diagnosis or prescription. X3 scores/Levels and Baumann type are device-derived decision inputs. Brand settings can change which compatible ranked product is selected, but do not change the safety/clinical pathway itself. Check current product labels and availability before supply.</div>`;
+      <div class="goodbox"><b>Plan goal:</b> ${esc(plan.goal)}</div>
+      ${planBody}
+      <div class="warnbox"><b>Do not use / pause</b><ul>${plan.avoid.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+      ${plan.referral.length?`<div class="warnbox"><b>When this plan is not enough / referral</b><ul>${plan.referral.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}
+      ${!plan.withholdProducts?`<div class="phase"><h3>Products selected by the ranking engine</h3><div class="selectedGrid">${selectedUnique.map(selectedProductCardHTML).join('')}</div></div>`:''}
+      ${auditTrailHTML()}
+      <div class="footer">Cosmetic skincare maintenance guidance only — not a diagnosis or prescription. X3 scores/Levels and Baumann type are device-derived decision inputs. Safety and red-flag screening must be actively reviewed before generation. Brand settings can change which compatible ranked product is selected, but do not override safety holds. Check current product labels and availability before supply.</div>`;
     document.getElementById('reportArea').style.display='block';document.getElementById('reportArea').scrollIntoView({behavior:'smooth'});
-  }catch(e){alert(e.message)}
+  }catch(e){const st=document.getElementById('safetyStatus');if(st){st.textContent=e.message;st.className='reviewStatus err'}alert(e.message)}
 }
 document.getElementById('generateBtn').onclick=generateReport;
+['pregnant','trying','breastfeeding','eczema','rosacea','rx','procedure','allergy','currentActive','redFlagLesion','redFlagAcne','redFlagInfection','safetyReviewed'].forEach(id=>document.getElementById(id).addEventListener('change',updateSafetyUI));
+document.getElementById('reviewer').addEventListener('input',updateSafetyUI);
+updateSafetyUI();
 
-document.getElementById('pngBtn').onclick=async()=>{
-  const btn=document.getElementById('pngBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
-  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v17-1.png';a.href=c.toDataURL('image/png');a.click()}
-  catch(e){alert('PNG export failed. Use Print / Save PDF instead.')}finally{btn.disabled=false;btn.textContent=old}
-};
+
 
 function setTierOnly(tier){
   const m=Object.fromEntries(BRANDS.map(b=>[b,tierOf(b)===tier]));
@@ -857,36 +979,8 @@ phaseDetailedHTML=function(plan,phaseIndex){
   html+='</div>';
   return html;
 };
-document.getElementById('pdfBtn').onclick=async()=>{
-  const btn=document.getElementById('pdfBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing PDF…';
-  try{
-    const report=document.getElementById('report');
-    const canvas=await html2canvas(report,{scale:2,backgroundColor:'#fff',useCORS:true,logging:false,windowWidth:report.scrollWidth});
-    const imgData=canvas.toDataURL('image/jpeg',0.98);
-    const {jsPDF}=window.jspdf;
-    const pdf=new jsPDF('p','mm','a4');
-    const margin=8, pageWidth=210, pageHeight=297;
-    const usableWidth=pageWidth-margin*2, usableHeight=pageHeight-margin*2;
-    const imgWidth=usableWidth, imgHeight=(canvas.height*imgWidth)/canvas.width;
-    let heightLeft=imgHeight;
-    let position=margin;
-    pdf.addImage(imgData,'JPEG',margin,position,imgWidth,imgHeight);
-    heightLeft-=usableHeight;
-    while(heightLeft>0){
-      position=margin-(imgHeight-heightLeft);
-      pdf.addPage();
-      pdf.addImage(imgData,'JPEG',margin,position,imgWidth,imgHeight);
-      heightLeft-=usableHeight;
-    }
-    pdf.save('skinplan-report-a4.pdf');
-  }catch(e){ console.error(e); alert('A4 PDF export failed.'); }
-  finally{ btn.disabled=false; btn.textContent=old; }
-};
-document.getElementById('pngBtn').onclick=async()=>{
-  const btn=document.getElementById('pngBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
-  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v17-13-2.png';a.href=c.toDataURL('image/png');a.click()}
-  catch(e){alert('PNG export failed. Please try the A4 PDF export.')}finally{btn.disabled=false;btn.textContent=old}
-};
+
+
 
 
 // v17.9 layout overrides -------------------------------------------------
@@ -969,6 +1063,12 @@ phaseDetailedHTML=function(plan,phaseIndex){
   out+='</div>';
   return out;
 };
+
+// v17.14 privacy/security export policy: no third-party page-capture JavaScript.
+// Browser print preserves the existing print stylesheet and lets the user choose Save as PDF.
+document.getElementById('pdfBtn').onclick=()=>window.print();
+const pngExportBtn=document.getElementById('pngBtn');
+pngExportBtn.disabled=true;pngExportBtn.textContent='PNG export removed';
 
 // ----------------------------------------------------------------------
 

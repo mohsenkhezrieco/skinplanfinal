@@ -1,7 +1,7 @@
 {
   "name": "skinplan-clinic-v17",
   "private": true,
-  "version": "17.13.3",
+  "version": "17.14.0",
   "type": "module",
   "scripts": {
     "cache-images": "node scripts/fetch-product-images.mjs",
@@ -10,7 +10,8 @@
     "test-boj": "node tests/boj-library-audit.mjs",
     "test-selection": "node tests/product-selection-audit.mjs",
     "test-library": "node tests/library-role-audit.mjs",
-    "test-images": "node tests/product-image-coverage-audit.mjs"
+    "test-images": "node tests/product-image-coverage-audit.mjs",
+    "test-safety": "node tests/safety-privacy-audit.mjs"
   },
   "dependencies": {
     "sharp": "^0.34.3"
