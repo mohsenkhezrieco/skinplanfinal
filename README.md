@@ -1,4 +1,4 @@
-# SkinPlan Clinic v17.20.0 — Multi-user licensed access
+# SkinPlan Clinic v17.21.0 — Multi-user licensed access
 
 This build is designed for selling/licensing SkinPlan to individual customers or clinics.
 
@@ -18,3 +18,7 @@ The public login now uses the approved warm cream/brown “Kingdom” theme with
 ## Deployment
 
 This is not a static-only website. Deploy to Vercel (or a compatible serverless platform), connect an Upstash Redis database, and configure the environment variables described in `SECURITY_DEPLOYMENT.md`.
+
+## v17.21 secure library
+
+Authenticated customers now have **Generate Plan | Product Library | Settings**. The Product Library is intentionally alphabetical and does not expose internal ranking order. The Owner Access Control page includes a protected **Formulary view** link for the full internal ranking.
