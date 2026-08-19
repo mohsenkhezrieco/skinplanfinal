@@ -256,7 +256,7 @@ const PRODUCTS=[{"id":"ord_aloe","brand":"The Ordinary","name":"Aloe 2% + NAG 2%
 const BRANDS=["The Ordinary","The INKEY List","Beauty of Joseon","CeraVe","Neutrogena","Bioderma","La Roche-Posay","Avène","Eucerin"];
 const BRAND_TIERS={"The Ordinary":"budget","The INKEY List":"budget","Beauty of Joseon":"budget","CeraVe":"mid","Neutrogena":"mid","Bioderma":"mid","La Roche-Posay":"premium","Avène":"premium","Eucerin":"premium"};
 const RANKINGS={"cleanser_sensitive":["lrp_dermo","avene_cleanser","cerave_hydrating","eucerin_dermatoclean_gel","neutro_hydro_cleanser","bioderma_sensibio_gel","ord_glycolipid_cleanser","inkey_oat_cleanser","boj_green_plum_cleanser","cerave_foaming","avene_mattifying_cleanser"],"cleanser_oily":["lrp_effaclar_cleanser","cerave_foaming","neutro_clear_defend_wash","avene_mattifying_cleanser","bioderma_sensibio_gel","boj_green_plum_cleanser","neutro_hydro_cleanser","eucerin_dermatoclean_gel","ord_glycolipid_cleanser","inkey_oat_cleanser","lrp_dermo","avene_cleanser"],"moisturiser_barrier_dry":["avene_tolerance_balm","lrp_dermallergo","eucerin_ultra_dry","inkey_bio_ceramide","ord_phyto","cerave_cream","inkey_peptide_moist","neutro_hydro_gelcream","boj_dynasty","cerave_pm","avene_tolerance_cream","bioderma_sebium_hydra","ord_beta"],"moisturiser_sensitive":["avene_tolerance_cream","lrp_dermallergo","eucerin_ultra_dry","cerave_pm","ord_phyto","inkey_bio_ceramide","cerave_cream","inkey_peptide_moist","avene_tolerance_balm","ord_beta","bioderma_sebium_hydra","neutro_hydro_gelcream"],"moisturiser_oily":["ord_beta","boj_red_bean_gel","cerave_oil_control","inkey_omega","eucerin_ultra_comb","neutro_hydro_water","avene_tolerance_cream","cerave_pm","lrp_dermallergo","bioderma_sebium_hydra"],"barrier_support":["lrp_cicaplast_serum","ord_barrier","cerave_hydrating_ha","bioderma_defensive","boj_calming"],"rescue_balm":["lrp_cicaplast","avene_cicalfate","eucerin_aquaphor","avene_tolerance_balm","cerave_cream"],"spf_pigment":["lrp_uvmune","avene_spf_pigment","eucerin_pigment_spf","bioderma_xdefense","avene_ultrafluid_spf","boj_relief","cerave_am_spf","eucerin_oil_spf"],"spf_oily":["lrp_uvmune_oil","eucerin_oil_spf","avene_ultrafluid_spf","boj_aqua_fresh_spf","bioderma_xdefense","boj_relief","lrp_uvmune","cerave_am_spf","avene_spf_pigment"],"spf_general":["lrp_uvmune","avene_ultrafluid_spf","boj_relief","boj_aqua_fresh_spf","cerave_am_spf","bioderma_xdefense","eucerin_oil_spf","eucerin_pigment_spf","avene_spf_pigment"],"acne_pigment_shared":["ord_az","eucerin_triple","inkey_az","lrp_duom","bioderma_sebium_serum","neutro_clear_defend"],"acne_treatment":["ord_az","avene_comedomed","lrp_duom","eucerin_triple","bioderma_sebium_serum","inkey_az","neutro_clear_defend"],"pigment_only":["eucerin_dual","lrp_melab3","avene_vitamin_cg","boj_glow_deep","bioderma_pigment_c","bioderma_pigment_night","ord_az","inkey_az","eucerin_triple","ord_aloe"],"postblemish_gentle":["ord_aloe","bioderma_defensive","boj_calming","eucerin_dual"],"congestion_treatment":["ord_sal","inkey_bha","eucerin_triple","bioderma_kerato","avene_comedomed","lrp_duom","boj_green_plum_toner","neutro_clear_defend","bioderma_sebium_serum"],"oil_support":["ord_nia","boj_glow_serum","neutro_nia","cerave_oil_control","inkey_omega","eucerin_ultra_comb"],"ageing_sensitive":["eucerin_elasticity_3d","ord_peptide","avene_hyaluron_b3","lrp_hyalu_b5","bioderma_defensive","avene_vitamin_cg"],"ageing_retinoid_starter":["lrp_retinol_b3","avene_retinal_night","cerave_skin_renewing_retinol","neutro_retinol","inkey_retinol","ord_granactive"],"ageing_retinoid_advanced":["ord_retinal_02","inkey_advanced_retinal","neutro_retinol_intense","lrp_retinol_b3","avene_retinal_night","neutro_retinol","cerave_skin_renewing_retinol","inkey_retinol","ord_granactive"],"eye_ageing_sensitive":["cerave_skin_renewing_eye","ord_multi_peptide_eye","avene_eye_b3","eucerin_elasticity_eye"],"eye_ageing_retinoid":["lrp_redermic_eye","boj_revive_eye","neutro_retinol_eye","inkey_retinol_eye"],"eye_ageing":["lrp_redermic_eye","boj_revive_eye","neutro_retinol_eye","inkey_retinol_eye","cerave_skin_renewing_eye","ord_multi_peptide_eye","avene_eye_b3","eucerin_elasticity_eye"]};
-const ROLE_LABELS={"cleanser_sensitive":"Cleanser — sensitive / dry / barrier-impaired","cleanser_oily":"Cleanser — oily / robust","moisturiser_barrier_dry":"Moisturiser — dry / barrier repair","moisturiser_sensitive":"Moisturiser — sensitive / reactive","moisturiser_oily":"Moisturiser — oily / lightweight","barrier_support":"Barrier-support treatment","rescue_balm":"Local rescue balm","spf_pigment":"Sunscreen — pigmentation / high UVA priority","spf_oily":"Sunscreen — oily / blemish-prone","spf_general":"Sunscreen — general daily use","acne_pigment_shared":"Single treatment — acne + pigmentation","acne_treatment":"Blemish / acne-support treatment","pigment_only":"Pigmentation treatment","postblemish_gentle":"Gentle post-blemish support","congestion_treatment":"Congestion / blackhead / pore treatment","oil_support":"Oil / pore support","ageing_sensitive":"Ageing — sensitive / non-retinoid","ageing_retinoid":"Ageing — retinoid / retinal","eye_ageing":"Eye ageing — clinician-selected eye contour treatment"};
+const ROLE_LABELS={"cleanser_sensitive":"Cleanser — sensitive / dry / barrier-impaired","cleanser_oily":"Cleanser — oily / robust","moisturiser_barrier_dry":"Moisturiser — dry / barrier repair","moisturiser_sensitive":"Moisturiser — sensitive / reactive","moisturiser_oily":"Moisturiser — oily / lightweight","barrier_support":"Barrier-support treatment","rescue_balm":"Local rescue balm","spf_pigment":"Sunscreen — pigmentation / high UVA priority","spf_oily":"Sunscreen — oily / blemish-prone","spf_general":"Sunscreen — general daily use","acne_pigment_shared":"Single treatment — acne + pigmentation","acne_treatment":"Blemish / acne-support treatment","pigment_only":"Pigmentation treatment","postblemish_gentle":"Gentle post-blemish support","congestion_treatment":"Congestion / blackhead / pore treatment","oil_support":"Oil / pore support","ageing_sensitive":"Ageing — sensitive / non-retinoid","ageing_retinoid_starter":"Ageing — retinoid / retinal · clinic starter","ageing_retinoid_advanced":"Ageing — advanced retinal · experienced user","eye_ageing_sensitive":"Eye ageing — sensitive / non-retinoid","eye_ageing_retinoid":"Eye ageing — retinoid / retinal","eye_ageing":"Eye ageing — combined clinician view"};
 
 const METRICS=[
   ['acne','Acne'],['blackhead','Blackhead'],['pore','Pore'],['oil','Oil'],['bacteria','Bacteria'],
@@ -505,12 +505,16 @@ function buildPlan(){
   if(M('surfaceSpot').level>=5||M('spotHeat').level>=5)plan.referral.push('New, changing, asymmetric or bleeding pigmentation/lesions need medical assessment rather than cosmetic treatment.');
   return plan;
 }
+function productImg(p){
+  const fallback=`/api/product-image?id=${encodeURIComponent(p.id)}`;
+  return `<img src="${p.image}" alt="${p.name}" loading="lazy" data-product-id="${p.id}" onerror="if(!this.dataset.realPackshotTried){this.dataset.realPackshotTried='1';this.src='${fallback}';}">`;
+}
 function useText(p,kind){
   const generic={cleanser:'Use a small amount and cleanse gently with lukewarm water.',moisturiser:'Apply a comfortable layer over face and neck.',spf:'Apply generously as the final morning step. During sustained outdoor exposure, reapply about every 2 hours and after swimming, sweating or towel-drying.',barrier:'Apply a thin layer / 2–3 drops as directed.',active:'Use only on the scheduled treatment nights.',ageing:'Use on the scheduled ageing-support nights.',retinoid:'Use only on scheduled retinoid nights.',support:'Use only when the plan specifically calls for it.',rescue:'Use only on local irritated/dry areas.'};
   return generic[p.role]||'Use as directed.';
 }
 function stepCard(p,title,i){
-  return `<div class="step"><div class="n">${i+1}</div><img src="${p.image}" alt="${p.name}"><h4>${title}</h4><p><span class="brandname">${p.brand}</span><br>${p.name}</p>${p._selectionNote?`<div class="fallbackNote">${p._selectionNote}</div>`:''}<p>${useText(p)}</p></div>`;
+  return `<div class="step"><div class="n">${i+1}</div>${productImg(p)}<h4>${title}</h4><p><span class="brandname">${p.brand}</span><br>${p.name}</p>${p._selectionNote?`<div class="fallbackNote">${p._selectionNote}</div>`:''}<p>${useText(p)}</p></div>`;
 }
 function currentRoutine(plan){
   const morning=[plan.base.cleanser];
@@ -530,7 +534,7 @@ function devicePriorityHTML(){
 function phaseProductHTML(p){
   if(!p)return '';
   return `<div class="phaseProduct">
-    <img src="${p.image}" alt="${p.name}">
+    ${productImg(p)}
     <div>
       <div class="phaseBrand">${p.brand}</div>
       <div class="phaseName">${p.name}</div>
@@ -540,7 +544,7 @@ function phaseProductHTML(p){
 }
 function selectedProductCardHTML(p){
   return `<div class="selectedCard">
-    <img src="${p.image}" alt="${p.name}">
+    ${productImg(p)}
     <div><b>${p.brand}</b><br>${p.name}${p._selectionNote?`<div class="fallbackNote">${p._selectionNote}</div>`:''}</div>
   </div>`;
 }
@@ -772,11 +776,11 @@ function renderRoleOptions(){
 function renderRankings(){
   const role=document.getElementById('roleSelect').value||Object.keys(ROLE_LABELS)[0],normal=ranked(role),box=document.getElementById('rankingList'),chosen=pick(role);
   const arr=[...normal];if(chosen&&!arr.some(p=>p.id===chosen.id))arr.unshift(chosen);
-  box.innerHTML=arr.length?arr.map((p,i)=>`<div class="rankrow"><div class="ranknum">${i+1}</div><img src="${p.image}" alt="${p.name}"><div><b>${p.brand} — ${p.name}</b><span class="productTier rankTier">${tierLabel(tierOf(p.brand))}</span>${chosen&&chosen.id===p.id?`<span class="rankchoice">chosen now</span>`:''}<div class="why">${p.why}</div>${chosen&&chosen.id===p.id&&chosen._selectionNote?`<div class="fallbackNote">${chosen._selectionNote}</div>`:''}</div><a href="${p.boots}" target="_blank" rel="noopener"><button class="soft">Product</button></a></div>`).join(''):`<div class="status err">No compatible product is available for this role under the current settings.</div>`;
+  box.innerHTML=arr.length?arr.map((p,i)=>`<div class="rankrow"><div class="ranknum">${i+1}</div>${productImg(p)}<div><b>${p.brand} — ${p.name}</b><span class="productTier rankTier">${tierLabel(tierOf(p.brand))}</span>${chosen&&chosen.id===p.id?`<span class="rankchoice">chosen now</span>`:''}<div class="why">${p.why}</div>${chosen&&chosen.id===p.id&&chosen._selectionNote?`<div class="fallbackNote">${chosen._selectionNote}</div>`:''}</div><a href="${p.boots}" target="_blank" rel="noopener"><button class="soft">Product</button></a></div>`).join(''):`<div class="status err">No compatible product is available for this role under the current settings.</div>`;
 }
 document.getElementById('showRankingBtn').onclick=renderRankings;document.getElementById('roleSelect').onchange=renderRankings;
 function renderLibrary(){
-  document.getElementById('libraryGrid').innerHTML=PRODUCTS.map(p=>`<div class="prod ${isEnabledBrand(p.brand)?'':'disabled'}"><img src="${p.image}" alt="${p.name}"><div class="brand">${p.brand}<span class="productTier libraryTier">${tierLabel(tierOf(p.brand))}</span> ${isEnabledBrand(p.brand)?'':'· disabled'}</div><h3>${p.name}</h3><div class="why">${p.why}</div><a href="${p.boots}" target="_blank" rel="noopener"><button class="soft">View product</button></a></div>`).join('');
+  document.getElementById('libraryGrid').innerHTML=PRODUCTS.map(p=>`<div class="prod ${isEnabledBrand(p.brand)?'':'disabled'}">${productImg(p)}<div class="brand">${p.brand}<span class="productTier libraryTier">${tierLabel(tierOf(p.brand))}</span> ${isEnabledBrand(p.brand)?'':'· disabled'}</div><h3>${p.name}</h3><div class="why">${p.why}</div><a href="${p.boots}" target="_blank" rel="noopener"><button class="soft">View product</button></a></div>`).join('');
 }
 
 document.getElementById('logicText').innerHTML=`
@@ -880,7 +884,7 @@ document.getElementById('pdfBtn').onclick=async()=>{
 };
 document.getElementById('pngBtn').onclick=async()=>{
   const btn=document.getElementById('pngBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
-  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v17-13.png';a.href=c.toDataURL('image/png');a.click()}
+  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v17-13-2.png';a.href=c.toDataURL('image/png');a.click()}
   catch(e){alert('PNG export failed. Please try the A4 PDF export.')}finally{btn.disabled=false;btn.textContent=old}
 };
 

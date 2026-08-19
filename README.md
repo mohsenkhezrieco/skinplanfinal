@@ -20,3 +20,6 @@ Product strategy remains mutually exclusive: Clinical efficacy first OR Budget t
 Product images remain local under `assets/products/`. Pushing the changed `products.json` triggers the included GitHub Action to cache packshots for new products.
 
 Cosmetic skincare maintenance guidance only — not a diagnosis or prescription.
+
+## v17.13.2 real packshot fallback
+If a newly added product has not yet been cached into `assets/products/`, the website now loads its real product packshot through the same-origin `/api/product-image` route. This removes blank product cards while keeping local cached images as the preferred source and preserving PNG/PDF export compatibility.
