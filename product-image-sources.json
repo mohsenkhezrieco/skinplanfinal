@@ -44,7 +44,9 @@
     "brand": "The Ordinary",
     "name": "Multi-Peptide Eye Serum 15ml",
     "boots": "https://theordinary.com/en-gb/category/skincare/eye-serums",
-    "sources": []
+    "sources": [
+      "https://fumeimgint-21439.kxcdn.com/208543/5ca1f4e3f63f7c5d0bb7bb05d28df9e8/detailsc/multi-peptide-eye-serum-15ml_1.jpg"
+    ]
   },
   "ord_beta": {
     "brand": "The Ordinary",
@@ -154,7 +156,10 @@
     "brand": "The INKEY List",
     "name": "Retinol Eye Cream 15ml",
     "boots": "https://uk.theinkeylist.com/products/retinol-eye-cream",
-    "sources": []
+    "sources": [
+      "https://media.douglas.nl/medias/3YsUW21116807-0-dgl-NL.jpg?context=bWFzdGVyfGltYWdlc3w1MDExN3xpbWFnZS9qcGVnfGFEVm1MMmc1WlM4M09USTBOVEkxTXpNM09EQTNPQzh6V1hOVlZ6SXhNVEUyT0RBM1h6QmZaR2RzTFU1TUxtcHdad3w0M2MwMGIyMDdjNWE3YTU2MDZhZjJjNzFiNjJmMWIyZWNmNmJkMzZiNjRlM2Y5ODVjZjYzOGVlOGZhZmMyYmY4&grid=true",
+      "https://media.stylist.co.uk/app/uploads/2023/06/30120718/the-inkey-list-retinol-eye-cream-747x1120.png"
+    ]
   },
   "inkey_retinol": {
     "brand": "The INKEY List",
@@ -293,7 +298,9 @@
     "brand": "CeraVe",
     "name": "Hydrating Hyaluronic Acid Serum 30ml",
     "boots": "https://www.cerave.co.uk/skincare/moisturisers/hydrating-hyaluronic-acid-serum",
-    "sources": []
+    "sources": [
+      "https://www.heygirl.pk/cdn/shop/files/ceravehyaluronicserum_1.jpg?v=1701834311"
+    ]
   },
   "cerave_cream": {
     "brand": "CeraVe",
@@ -327,19 +334,26 @@
     "brand": "CeraVe",
     "name": "Skin Renewing Eye Cream for Signs of Ageing 15ml",
     "boots": "https://www.cerave.co.uk/skincare/moisturisers/skin-renewing-eye-cream",
-    "sources": []
+    "sources": [
+      "https://www.cerave.co.uk/-/media/project/loreal/brand-sites/cerave/emea/uk/products/july-pdp/june-packshots/skin-renewing-eye-cream-lg.jpg?hash=E88D32EB2B80C22740B72A4063B9DBAA&rev=-1%3Fw%3D667"
+    ]
   },
   "cerave_skin_renewing_retinol": {
     "brand": "CeraVe",
     "name": "Skin Renewing Retinol Serum 30ml",
     "boots": "https://www.cerave.co.uk/skincare/moisturisers/skin-renewing-retinol-serum",
-    "sources": []
+    "sources": [
+      "https://fantasticlook.al/cdn/shop/products/SkinRenewingRetinolSerum1.png?v=1676937496"
+    ]
   },
   "neutro_clear_defend_wash": {
     "brand": "Neutrogena",
     "name": "Clear & Defend 2% Salicylic Acid Face Wash 200ml",
     "boots": "https://www.neutrogena.co.uk/skincare/cleansers-washes/clear-and-defend-daily-wash",
-    "sources": []
+    "sources": [
+      "https://cdn.shopify.com/s/files/1/0907/5028/8215/files/qpsraxsnqg10yc7ndum8n3dgw746.jpg?v=1776274759",
+      "https://www.supermart.ng/cdn/shop/files/spmtsc3832.jpg?v=1760751362"
+    ]
   },
   "neutro_clear_defend": {
     "brand": "Neutrogena",
@@ -391,7 +405,9 @@
     "brand": "Neutrogena",
     "name": "Retinol Boost Eye Cream 15ml",
     "boots": "https://www.neutrogena.co.uk/skincare/retinol-boost/neutrogena-retinol-boost-eye-cream",
-    "sources": []
+    "sources": [
+      "https://lifeline.mk/wp-content/uploads/2024/09/neutrogena-krem-za-okolu-ochi-so-retinol-15-ml.jpeg"
+    ]
   },
   "neutro_retinol": {
     "brand": "Neutrogena",
@@ -407,7 +423,9 @@
     "brand": "Neutrogena",
     "name": "Retinol Boost+ Intense Night Serum 30ml",
     "boots": "https://www.neutrogena.co.uk/skincare/retinol-boost/neutrogena-retinol-boost-intense-night-serum",
-    "sources": []
+    "sources": [
+      "https://i5.walmartimages.com/asr/f897a602-1590-4986-bd81-2858e00ff94a.efb7e1bb79adaa35e76f0c1de2d4fa38.jpeg"
+    ]
   },
   "bioderma_xdefense": {
     "brand": "Bioderma",
@@ -501,7 +519,10 @@
     "brand": "La Roche-Posay",
     "name": "Cicaplast B5 Serum 30ml",
     "boots": "https://www.laroche-posay.co.uk/en_GB/cicaplast-b5-face-serum-for-hydrating-and-repairing-skin-barrier/LRP_934.html",
-    "sources": []
+    "sources": [
+      "https://distcdn.nicehair.dk/products/121561/la-roche-posay-cicaplast-b5-serum-30-ml-1759822508.webp",
+      "https://www.notrepharma.com/11144-large_default/la-roche-posay-cicaplast-b5-serum-reparateur-flacon-de-30-ml.jpg"
+    ]
   },
   "lrp_cicaplast": {
     "brand": "La Roche-Posay",
@@ -525,7 +546,9 @@
     "brand": "La Roche-Posay",
     "name": "Effaclar Purifying Cleansing Gel 200ml",
     "boots": "https://www.laroche-posay.co.uk/en_GB/effaclar-purifying-cleansing-gel/LRP_050.html",
-    "sources": []
+    "sources": [
+      "https://images.nenna.fi/storage/product/jpg/full/2023/11/16/la-roche-posay-effaclar-cleansing-gel-m-200-ml-1.jpg"
+    ]
   },
   "lrp_hyalu_b5": {
     "brand": "La Roche-Posay",
@@ -549,7 +572,9 @@
     "brand": "La Roche-Posay",
     "name": "Redermic Retinol Eye Cream 15ml",
     "boots": "https://www.laroche-posay.co.uk/en_GB/redermic-retinol-eye-cream-for-sensitive-skin-15ml/LRP_907.html",
-    "sources": []
+    "sources": [
+      "https://evapharmacy.cy/wp-content/uploads/2024/05/5-19.jpg"
+    ]
   },
   "lrp_retinol_b3": {
     "brand": "La Roche-Posay",
@@ -627,7 +652,9 @@
     "brand": "Avène",
     "name": "Hyaluron Activ B3 Triple Correction Eye Care 15ml",
     "boots": "https://www.avene.co.uk/p/hyaluron-activ-b3-triple-correction-eye-care-3282770153217-b5405ca4",
-    "sources": []
+    "sources": [
+      "https://www.nettiapteekki.fi/cdn/shop/files/Avene-hyaluron-activ-b3-eye-cream-15-ml.webp?v=1712768557"
+    ]
   },
   "avene_mattifying_cleanser": {
     "brand": "Avène",
@@ -706,7 +733,9 @@
     "brand": "Eucerin",
     "name": "DermatoClean Cleansing Gel 200ml",
     "boots": "https://www.eucerin.co.uk/products/dermato-clean/cleansing-gel",
-    "sources": []
+    "sources": [
+      "https://m.media-amazon.com/images/I/61FSesqTyUL.jpg"
+    ]
   },
   "eucerin_triple": {
     "brand": "Eucerin",
@@ -722,13 +751,17 @@
     "brand": "Eucerin",
     "name": "Hyaluron-Filler + Elasticity 3D Serum 30ml",
     "boots": "https://www.eucerin.co.uk/products/elasticity-filler/3d-serum",
-    "sources": []
+    "sources": [
+      "https://m.media-amazon.com/images/I/61BJcpJRlXL._AC_UF894%2C1000_QL80_.jpg"
+    ]
   },
   "eucerin_elasticity_eye": {
     "brand": "Eucerin",
     "name": "Hyaluron-Filler + Elasticity Eye Care 15ml",
     "boots": "https://www.eucerin.co.uk/products/elasticity-filler/eye-care",
-    "sources": []
+    "sources": [
+      "https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/eucerin/local/se/produkter/hyaluron-filler/2019/hyaluron_filler_elasticity_eye_care_page.jpeg?rh=1105&rw=1105&rx=0&ry=0"
+    ]
   },
   "eucerin_oil_spf": {
     "brand": "Eucerin",

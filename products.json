@@ -83,8 +83,10 @@
     "role": "eye_ageing",
     "boots": "https://theordinary.com/en-gb/category/skincare/eye-serums",
     "why": "Dedicated eye-area peptide serum for crow's feet, under-eye wrinkles, puffiness and dark circles; a non-retinoid eye-ageing option.",
-    "image": "assets/products/ord_multi_peptide_eye.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=ord_multi_peptide_eye&v=17133",
+    "imageSourceUrls": [
+      "https://fumeimgint-21439.kxcdn.com/208543/5ca1f4e3f63f7c5d0bb7bb05d28df9e8/detailsc/multi-peptide-eye-serum-15ml_1.jpg"
+    ],
     "therapy": "peptide_eye",
     "useTime": "am_pm"
   },
@@ -284,8 +286,11 @@
     "role": "eye_ageing",
     "boots": "https://uk.theinkeylist.com/products/retinol-eye-cream",
     "why": "Eye-specific slow-release retinol treatment for fine lines and wrinkles; intended for gradual PM introduction around the eye contour.",
-    "image": "assets/products/inkey_retinol_eye.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=inkey_retinol_eye&v=17133",
+    "imageSourceUrls": [
+      "https://media.douglas.nl/medias/3YsUW21116807-0-dgl-NL.jpg?context=bWFzdGVyfGltYWdlc3w1MDExN3xpbWFnZS9qcGVnfGFEVm1MMmc1WlM4M09USTBOVEkxTXpNM09EQTNPQzh6V1hOVlZ6SXhNVEUyT0RBM1h6QmZaR2RzTFU1TUxtcHdad3w0M2MwMGIyMDdjNWE3YTU2MDZhZjJjNzFiNjJmMWIyZWNmNmJkMzZiNjRlM2Y5ODVjZjYzOGVlOGZhZmMyYmY4&grid=true",
+      "https://media.stylist.co.uk/app/uploads/2023/06/30120718/the-inkey-list-retinol-eye-cream-747x1120.png"
+    ],
     "therapy": "retinoid_eye",
     "useTime": "pm"
   },
@@ -535,8 +540,10 @@
     "role": "barrier",
     "boots": "https://www.cerave.co.uk/skincare/moisturisers/hydrating-hyaluronic-acid-serum",
     "why": "Barrier-supportive hydration with hyaluronic acid, vitamin B5 and three essential ceramides; suitable for sensitive skin and useful in recovery phases.",
-    "image": "assets/products/cerave_hydrating_ha.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=cerave_hydrating_ha&v=17133",
+    "imageSourceUrls": [
+      "https://www.heygirl.pk/cdn/shop/files/ceravehyaluronicserum_1.jpg?v=1701834311"
+    ],
     "therapy": "barrier",
     "useTime": "am_pm"
   },
@@ -597,8 +604,10 @@
     "role": "eye_ageing",
     "boots": "https://www.cerave.co.uk/skincare/moisturisers/skin-renewing-eye-cream",
     "why": "Peptide-complex eye cream targeting fine lines, crow's feet, dullness and texture while supporting the eye-area barrier; suitable for sensitive skin and eyes.",
-    "image": "assets/products/cerave_skin_renewing_eye.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=cerave_skin_renewing_eye&v=17133",
+    "imageSourceUrls": [
+      "https://www.cerave.co.uk/-/media/project/loreal/brand-sites/cerave/emea/uk/products/july-pdp/june-packshots/skin-renewing-eye-cream-lg.jpg?hash=E88D32EB2B80C22740B72A4063B9DBAA&rev=-1%3Fw%3D667"
+    ],
     "therapy": "peptide_eye",
     "useTime": "am_pm"
   },
@@ -610,8 +619,10 @@
     "role": "retinoid",
     "boots": "https://www.cerave.co.uk/skincare/moisturisers/skin-renewing-retinol-serum",
     "why": "CeraVe's dedicated anti-ageing retinol serum for fine lines and wrinkles, with niacinamide, hyaluronic acid and ceramides; replaces the post-acne Resurfacing Retinol in the wrinkle ranking.",
-    "image": "assets/products/cerave_skin_renewing_retinol.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=cerave_skin_renewing_retinol&v=17133",
+    "imageSourceUrls": [
+      "https://fantasticlook.al/cdn/shop/products/SkinRenewingRetinolSerum1.png?v=1676937496"
+    ],
     "therapy": "retinoid",
     "useTime": "pm"
   },
@@ -623,8 +634,11 @@
     "role": "cleanser",
     "boots": "https://www.neutrogena.co.uk/skincare/cleansers-washes/clear-and-defend-daily-wash",
     "why": "2% salicylic-acid wash for oily, spot-prone skin. Kept in the oily/blemish cleanser ranking, not in barrier or sensitive cleansing.",
-    "image": "assets/products/neutro_clear_defend_wash.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=neutro_clear_defend_wash&v=17133",
+    "imageSourceUrls": [
+      "https://cdn.shopify.com/s/files/1/0907/5028/8215/files/qpsraxsnqg10yc7ndum8n3dgw746.jpg?v=1776274759",
+      "https://www.supermart.ng/cdn/shop/files/spmtsc3832.jpg?v=1760751362"
+    ],
     "therapy": "active_cleanser",
     "useTime": "am_pm"
   },
@@ -717,8 +731,10 @@
     "role": "eye_ageing",
     "boots": "https://www.neutrogena.co.uk/skincare/retinol-boost/neutrogena-retinol-boost-eye-cream",
     "why": "Eye-specific fragrance-free pure-retinol cream with hyaluronic acid, clinically positioned for fine lines and crow's feet; phase in gradually.",
-    "image": "assets/products/neutro_retinol_eye.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=neutro_retinol_eye&v=17133",
+    "imageSourceUrls": [
+      "https://lifeline.mk/wp-content/uploads/2024/09/neutrogena-krem-za-okolu-ochi-so-retinol-15-ml.jpeg"
+    ],
     "therapy": "retinoid_eye",
     "useTime": "pm"
   },
@@ -747,8 +763,10 @@
     "role": "retinoid",
     "boots": "https://www.neutrogena.co.uk/skincare/retinol-boost/neutrogena-retinol-boost-intense-night-serum",
     "why": "Neutrogena's highest-concentration pure-retinol night serum for established fine lines and deeper wrinkles; reserved for experienced retinoid users.",
-    "image": "assets/products/neutro_retinol_intense.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=neutro_retinol_intense&v=17133",
+    "imageSourceUrls": [
+      "https://i5.walmartimages.com/asr/f897a602-1590-4986-bd81-2858e00ff94a.efb7e1bb79adaa35e76f0c1de2d4fa38.jpeg"
+    ],
     "therapy": "retinoid",
     "useTime": "pm"
   },
@@ -918,8 +936,11 @@
     "role": "barrier",
     "boots": "https://www.laroche-posay.co.uk/en_GB/cicaplast-b5-face-serum-for-hydrating-and-repairing-skin-barrier/LRP_934.html",
     "why": "10% vitamin B5 barrier-repair serum for dehydrated, irritated or sensitised skin; strong premium barrier-support option.",
-    "image": "assets/products/lrp_cicaplast_serum.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=lrp_cicaplast_serum&v=17133",
+    "imageSourceUrls": [
+      "https://distcdn.nicehair.dk/products/121561/la-roche-posay-cicaplast-b5-serum-30-ml-1759822508.webp",
+      "https://www.notrepharma.com/11144-large_default/la-roche-posay-cicaplast-b5-serum-reparateur-flacon-de-30-ml.jpg"
+    ],
     "therapy": "barrier",
     "useTime": "am_pm"
   },
@@ -963,8 +984,10 @@
     "role": "cleanser",
     "boots": "https://www.laroche-posay.co.uk/en_GB/effaclar-purifying-cleansing-gel/LRP_050.html",
     "why": "Dedicated daily foaming cleanser for oily, blemish-prone skin; restores La Roche-Posay coverage in the oily-cleanser pathway.",
-    "image": "assets/products/lrp_effaclar_cleanser.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=lrp_effaclar_cleanser&v=17133",
+    "imageSourceUrls": [
+      "https://images.nenna.fi/storage/product/jpg/full/2023/11/16/la-roche-posay-effaclar-cleansing-gel-m-200-ml-1.jpg"
+    ],
     "therapy": "base",
     "useTime": "am_pm"
   },
@@ -1008,8 +1031,10 @@
     "role": "eye_ageing",
     "boots": "https://www.laroche-posay.co.uk/en_GB/redermic-retinol-eye-cream-for-sensitive-skin-15ml/LRP_907.html",
     "why": "Eye-specific anti-wrinkle treatment with 0.1% pure retinol plus retinol linoleate, designed for crow's feet and sensitive eye contours.",
-    "image": "assets/products/lrp_redermic_eye.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=lrp_redermic_eye&v=17133",
+    "imageSourceUrls": [
+      "https://evapharmacy.cy/wp-content/uploads/2024/05/5-19.jpg"
+    ],
     "therapy": "retinoid_eye",
     "useTime": "pm"
   },
@@ -1149,8 +1174,10 @@
     "role": "eye_ageing",
     "boots": "https://www.avene.co.uk/p/hyaluron-activ-b3-triple-correction-eye-care-3282770153217-b5405ca4",
     "why": "Fragrance-free eye care with niacinamide and hyaluronic acid for wrinkles, firmness, dark circles and puffiness; useful when retinoid eye treatment is not preferred.",
-    "image": "assets/products/avene_eye_b3.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=avene_eye_b3&v=17133",
+    "imageSourceUrls": [
+      "https://www.nettiapteekki.fi/cdn/shop/files/Avene-hyaluron-activ-b3-eye-cream-15-ml.webp?v=1712768557"
+    ],
     "therapy": "ageing_eye_support",
     "useTime": "am_pm"
   },
@@ -1291,8 +1318,10 @@
     "role": "cleanser",
     "boots": "https://www.eucerin.co.uk/products/dermato-clean/cleansing-gel",
     "why": "Mild daily gel cleanser with hyaluronic acid and moisturising ingredients; suitable for sensitive normal-to-combination skin and replaces the acid Correcting Cleanser as a base cleanser.",
-    "image": "assets/products/eucerin_dermatoclean_gel.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=eucerin_dermatoclean_gel&v=17133",
+    "imageSourceUrls": [
+      "https://m.media-amazon.com/images/I/61FSesqTyUL.jpg"
+    ],
     "therapy": "base",
     "useTime": "am_pm"
   },
@@ -1321,8 +1350,10 @@
     "role": "ageing",
     "boots": "https://www.eucerin.co.uk/products/elasticity-filler/3d-serum",
     "why": "Non-retinoid mature-skin serum addressing deep wrinkles, elasticity and age spots with hyaluronic acid, Arctiin and Thiamidol; useful when a retinoid is not appropriate.",
-    "image": "assets/products/eucerin_elasticity_3d.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=eucerin_elasticity_3d&v=17133",
+    "imageSourceUrls": [
+      "https://m.media-amazon.com/images/I/61BJcpJRlXL._AC_UF894%2C1000_QL80_.jpg"
+    ],
     "therapy": "ageing_support",
     "useTime": "am_pm"
   },
@@ -1334,8 +1365,10 @@
     "role": "eye_ageing",
     "boots": "https://www.eucerin.co.uk/products/elasticity-filler/eye-care",
     "why": "Dedicated anti-ageing eye cream for fine/deep wrinkles, elasticity and dark spots with hyaluronic acid, creatine/collagen-elastin support and Thiamidol.",
-    "image": "assets/products/eucerin_elasticity_eye.jpg?v=1713",
-    "imageSourceUrls": [],
+    "image": "/api/product-image?id=eucerin_elasticity_eye&v=17133",
+    "imageSourceUrls": [
+      "https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/eucerin/local/se/produkter/hyaluron-filler/2019/hyaluron_filler_elasticity_eye_care_page.jpeg?rh=1105&rw=1105&rx=0&ry=0"
+    ],
     "therapy": "ageing_eye_support",
     "useTime": "am_pm"
   },
